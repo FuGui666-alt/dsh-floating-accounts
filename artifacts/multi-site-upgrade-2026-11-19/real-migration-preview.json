@@ -1,0 +1,54 @@
+{
+  "at": "2026-11-19T15:41:06.841Z",
+  "installedVersion": "1.1.0",
+  "schema": 1,
+  "revision": 2,
+  "migrationRequired": true,
+  "siteCount": 1,
+  "accountCount": 1,
+  "credentialCount": 1,
+  "sites": [
+    {
+      "id": "2837b10b-0368-478e-9a69-673556e8bd8c",
+      "name": "yizhichun.online",
+      "baseURL": "https://yizhichun.online/v1",
+      "balanceQuery": {
+        "protocol": "sub2api-usage",
+        "endpointPath": "/v1/usage",
+        "unit": "USD",
+        "quotaPerUnit": 1
+      }
+    }
+  ],
+  "accounts": [
+    {
+      "id": "48e23319-9d2c-46fe-a682-199594291980",
+      "siteId": "2837b10b-0368-478e-9a69-673556e8bd8c",
+      "name": "账号 1",
+      "identityLabel": "",
+      "balanceCredentialId": "93fbab94-9b9d-43c4-816e-4fdbe3b4cdfe",
+      "credentials": [
+        {
+          "id": "93fbab94-9b9d-43c4-816e-4fdbe3b4cdfe",
+          "label": "API 密钥",
+          "kind": "model-api-key",
+          "hasSecret": true
+        }
+      ]
+    }
+  ],
+  "vaultCiphertextIdentity": {
+    "sha256": "9e336cded8b8f5c2fb4bad0aa3e19c0dc79e88876a0ebe62e47a1b8328fe4f7a",
+    "dev": 1818713231,
+    "ino": 2251799815541187,
+    "size": 742,
+    "mtimeMs": 1795068723282.397
+  },
+  "accountFileUnchanged": true,
+  "migrationPerformed": false,
+  "migrationBackupCreated": false,
+  "liveApiCalls": 0,
+  "secretValuesExported": false,
+  "previewCapabilityReusable": false,
+  "confirmationRule": "实际迁移必须在新实例重新预览并核对未变化后，再由用户明确确认。此报告不是可复用迁移票。"
+}

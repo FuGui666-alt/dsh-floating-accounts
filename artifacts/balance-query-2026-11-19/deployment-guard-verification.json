@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-19T08:02:49.970Z",
+  "passed": true,
+  "checks": 5,
+  "foreignTargetRejected": true,
+  "foreignBackupRejected": true,
+  "foreignPatchRejected": true,
+  "actualYamlNewlines": true,
+  "realProfileRead": false,
+  "liveCalls": 0
+}

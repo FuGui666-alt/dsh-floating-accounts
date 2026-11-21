@@ -1,0 +1,27 @@
+{
+  "at": "2026-11-19T12:34:31.050Z",
+  "passed": true,
+  "explicitProvidersVerified": 22,
+  "uniqueOriginsVerified": 11,
+  "publicOrigins": 9,
+  "localOrPrivateOrigins": 2,
+  "allProviderIdsDocumented": true,
+  "allBundlePatchesResolved": true,
+  "configuredBundleCount": 33,
+  "configHashUnchanged": true,
+  "aggregateHashUnchanged": true,
+  "brokenLocalReportLinks": 0,
+  "reportSha256": "7eaeda8bc9dce58d58446911f4a1d74fe4069cbd54bd25cc8b7c2299829a6eb9",
+  "credentialResolution": false,
+  "businessAPIRequests": 0,
+  "modelRequests": 0,
+  "publicDocumentationRead": true,
+  "installedFilesWritten": false,
+  "credentialValidityVerified": false,
+  "runtimeRegistryQueried": false,
+  "realBalancesQueried": false,
+  "confidence": {
+    "configuredCoverage": "B",
+    "unknownLiveInterfaces": "C"
+  }
+}

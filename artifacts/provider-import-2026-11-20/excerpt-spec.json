@@ -1,0 +1,24 @@
+{
+  "regions": [
+    { "file": "node_modules/@deepseek-ai/dsh-credentials-local/lib/index.js", "start": 10, "end": 80, "why": "layering doc + CREDENTIALS_FILENAME + filename resolution ($DSH_HOME/.credentials.yaml)" },
+    { "file": "node_modules/@deepseek-ai/dsh-credentials-local/lib/index.js", "start": 126, "end": 160, "why": "document parse: version gate, refs/records maps, ignoredKeys" },
+    { "file": "node_modules/@deepseek-ai/dsh-credentials-local/lib/index.js", "start": 194, "end": 220, "why": "parseRefs (POSIX-identifier keys) + parseRecords (scope/id)" },
+    { "file": "node_modules/@deepseek-ai/dsh-credentials-local/lib/index.js", "start": 325, "end": 355, "why": "set/delete ref writes document.setIn(['refs', ref], value)" },
+    { "file": "node_modules/@deepseek-ai/dsh-credentials-local/lib/index.js", "start": 420, "end": 520, "why": "inherited environment layering + resolve/configured semantics" },
+    { "file": "node_modules/@deepseek-ai/dsh-credentials-local/lib/index.js", "start": 710, "end": 740, "why": "reload + unknown top-level keys warning (only refs/records resolve)" },
+    { "file": "node_modules/@deepseek-ai/dsh-llm-pi-ai/lib/index.js", "start": 1040, "end": 1100, "why": "provider zod schema (apiKeyEnv role credential-ref) + resolveProfiles" },
+    { "file": "node_modules/@deepseek-ai/dsh-llm-pi-ai/lib/index.js", "start": 1150, "end": 1185, "why": "profile normalization: namesCredential + credentialRef(apiKeyEnv)" },
+    { "file": "node_modules/@deepseek-ai/dsh-llm-pi-ai/lib/index.js", "start": 2150, "end": 2172, "why": "isCredentialKeySegment guard (provider id cannot address stored credential)" },
+    { "file": "node_modules/@deepseek-ai/dsh-llm-pi-ai/lib/index.js", "start": 2870, "end": 2915, "why": "config.providers.get() + assertServiceable + apiKeyEnv ref resolution + LlmError when ref unset" },
+    { "file": "node_modules/@deepseek-ai/dsh-client-ui-settings-models/lib/client.js", "start": 1268, "end": 1290, "why": "apiKeyEnvOf derivation (UI-side credential reference)" },
+    { "file": "node_modules/@deepseek-ai/dsh-client-ui-settings-models/lib/client.js", "start": 1390, "end": 1412, "why": "credentials[apiKeyEnv] existence check + credentialChecks (hasKey semantics)" },
+    { "file": "node_modules/@deepseek-ai/dsh-client-ui-settings-models/lib/client.js", "start": 2288, "end": 2304, "why": "credentialConfigured row predicate (configured === true)" },
+    { "file": "node_modules/@deepseek-ai/dsh-base/cordis.patch.yml", "start": 105, "end": 140, "why": "base patch: credential sources comment + llm-pi-ai entry registration" },
+    { "file": "node_modules/@deepseek-ai/dsh-base/cordis.patch.yml", "start": 470, "end": 486, "why": "base patch deepseek provider apiKeyEnv: DEEPSEEK_API_KEY" },
+    { "file": "node_modules/@deepseek-ai/dsh-app-boot/lib/index.js", "start": 486, "end": 515, "why": "profile composition doc + PROFILE_PATCH_FILENAME constant" },
+    { "file": "node_modules/@deepseek-ai/dsh-app-boot/lib/index.js", "start": 1040, "end": 1140, "why": "loadProfile: dsh.profile.bundles order + userLayer cordis.patch.yml + loadOptionalPatches" },
+    { "file": "node_modules/@deepseek-ai/dsh-app-boot/lib/index.js", "start": 3945, "end": 3965, "why": "loadOptionalPatches / overlay patch loading" },
+    { "file": "node_modules/@deepseek-ai/dsh/lib/profile-boot-C14i-8IN.js", "start": 70, "end": 130, "why": "patch layer order doc + PROFILE_ROOT_FILENAME (cordis.yml)" },
+    { "file": "node_modules/@deepseek-ai/dsh/lib/profile-boot-C14i-8IN.js", "start": 205, "end": 235, "why": "userLayer skip + machine-local preferences layer" }
+  ]
+}

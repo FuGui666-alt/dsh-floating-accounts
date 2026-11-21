@@ -1,0 +1,41 @@
+# ── build outputs ────────────────────────────────────────────────────────────
+# lib/ is a build product of src/ (scripts/build.mjs) and dist/ holds the
+# offline .tgz packages; both are reproducible from the versioned sources.
+/dist/
+/lib/
+/.build-staging-*/
+node_modules/
+
+# ── evidence scratch: baseline snapshots and extracted package trees ─────────
+# These are reproducible scratch (copies of old sources / unpacked archives).
+# They never contain the current sources and must not be versioned.
+artifacts/repair-baseline/
+artifacts/**/baseline/
+artifacts/**/baseline-*/
+artifacts/**/final-extracted/
+artifacts/**/t7-extracted/
+artifacts/**/baseline-wallet-fix/
+artifacts/**/baseline-sub2api/
+
+# NOTE: artifacts/provider-import-2026-11-20/baseline-snapshot.json and
+# artifacts/provider-import-2026-11-20/ui-polish-baseline.json are deliberately NOT
+# ignored: artifacts/provider-import-2026-11-20/final-evidence.mjs reads the
+# snapshot and fails without it, so the evidence chain must stay reproducible
+# from a fresh clone.
+
+# ── scratch / ref dirs ───────────────────────────────────────────────────────
+/ref/
+/.ref/
+/tmp/
+/.tmp/
+tmp-repro/
+
+# ── local noise ──────────────────────────────────────────────────────────────
+*.log
+.DS_Store
+Thumbs.db
+
+# NOTE: src/, tests/, scripts/, docs/, Plan/, README.md, LICENSE, package.json and
+# cordis.patch.yml are intentionally NOT ignored - they are the distributable
+# sources and must be versioned. scripts/verify.mjs is a runtime gate that reads
+# lib/build-manifest.json and therefore needs a built lib/ to exist.

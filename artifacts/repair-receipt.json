@@ -1,0 +1,18 @@
+{
+  "goalId": "goal-abee553d-3958-4191-99bb-da3dfc071753",
+  "state": "implemented-awaiting-manual-gui",
+  "itemsFixed": ["E1","E2","E3","E4","E5","E6","R1","R2","R3","R4","S1","S2","S3"],
+  "tbd": [],
+  "localRegression": { "tests": 50, "pass": 50, "fail": 0 },
+  "hostSdkRegression": { "tests": 4, "pass": 4, "fail": 0, "note": "服务注册与方法；不代表真实 RPC 传输" },
+  "syntax": { "javascriptFiles": 29, "errors": 0, "powershellParse": "ok" },
+  "archive": { "path": "dist/dsh-floating-accounts-1.0.1.tgz", "files": 36, "sha256": "fb8e8af15ee97305d7a887c078553b5308b69efcf09b3a8efc98c4dc4b02dbe1", "matchesWorkspace": true },
+  "installedPluginUntouched": true,
+  "balancePluginUntouched": true,
+  "vaultFileTouched": false,
+  "browserUsed": false,
+  "realGuiVerified": false,
+  "realRpcTransportVerified": false,
+  "manualSteps": ["R1 球拖到面板覆盖区后仍可点击收起", "四角拖动与面板不越界", "重启后持久化与已保存状态", "编辑保留/替换/清除分组密钥", "删除确认与取消", "真实 RPC 参数与安全元数据"],
+  "notes": ["R4 残余窗口：最后一次身份检查到 rename 之间无法对非协作进程完全消除", "不可变字符串不承诺彻底擦除"]
+}

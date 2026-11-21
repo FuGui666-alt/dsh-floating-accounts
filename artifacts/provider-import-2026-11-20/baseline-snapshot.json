@@ -1,0 +1,749 @@
+{
+  "at": "2026-11-20T01:45:41.991Z",
+  "round": "provider-import-2026-11-20",
+  "task": "t1",
+  "generatedBy": "recon",
+  "purpose": "T0 pre-change baseline snapshot (read-only); no git repository present; this file is the change-detection reference for the provider-import round.",
+  "formatNote": "rows/installedCodeRoot/installedCode/realVaultRead mirror artifacts/protocol-detection-2026-11-19/task-start.json (task-start baseline format); vault/desktopProfilePackageJson/fileCounts are t1-required extensions.",
+  "workspaceRoot": "D:\\FUGUI\\ai\\WORK\\软件设计\\dsh-floating-accounts",
+  "workspaceScope": {
+    "dirs": [
+      "src",
+      "lib",
+      "scripts",
+      "tests",
+      "docs",
+      "Plan"
+    ],
+    "files": [
+      "package.json",
+      "cordis.patch.yml",
+      "README.md"
+    ],
+    "missingScopes": [],
+    "topLevelEntries": [
+      {
+        "name": "2026-11-19_代码复查-report.md",
+        "type": "file"
+      },
+      {
+        "name": "artifacts",
+        "type": "dir"
+      },
+      {
+        "name": "cordis.patch.yml",
+        "type": "file"
+      },
+      {
+        "name": "dist",
+        "type": "dir"
+      },
+      {
+        "name": "docs",
+        "type": "dir"
+      },
+      {
+        "name": "lib",
+        "type": "dir"
+      },
+      {
+        "name": "LICENSE",
+        "type": "file"
+      },
+      {
+        "name": "package.json",
+        "type": "file"
+      },
+      {
+        "name": "Plan",
+        "type": "dir"
+      },
+      {
+        "name": "PLAN.md",
+        "type": "file"
+      },
+      {
+        "name": "README.md",
+        "type": "file"
+      },
+      {
+        "name": "REPAIR-PLAN.md",
+        "type": "file"
+      },
+      {
+        "name": "REPAIR-STATUS.md",
+        "type": "file"
+      },
+      {
+        "name": "scripts",
+        "type": "dir"
+      },
+      {
+        "name": "src",
+        "type": "dir"
+      },
+      {
+        "name": "tests",
+        "type": "dir"
+      }
+    ],
+    "topLevelOtherEntries": [
+      {
+        "name": "2026-11-19_代码复查-report.md",
+        "type": "file"
+      },
+      {
+        "name": "artifacts",
+        "type": "dir"
+      },
+      {
+        "name": "dist",
+        "type": "dir"
+      },
+      {
+        "name": "LICENSE",
+        "type": "file"
+      },
+      {
+        "name": "PLAN.md",
+        "type": "file"
+      },
+      {
+        "name": "REPAIR-PLAN.md",
+        "type": "file"
+      },
+      {
+        "name": "REPAIR-STATUS.md",
+        "type": "file"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "path": "Plan/2. 多站点升级_plan.md",
+      "sha256": "4e7ef77a0bc6f5714c0c3a36dcf64cf74f19e5b389087222befe4ac90b332e00",
+      "bytes": 7313
+    },
+    {
+      "path": "Plan/3. 协议检测_plan.md",
+      "sha256": "f2570f43908c7e8a93cfe4d01eca5067efd8a6e5a4a07d4b7dd3c35a36339289",
+      "bytes": 3308
+    },
+    {
+      "path": "README.md",
+      "sha256": "c69c51aee72525f1d7ae2d4e8d04e63d56bbd758c3b84567af4e70f5f3a4d2c3",
+      "bytes": 8896
+    },
+    {
+      "path": "cordis.patch.yml",
+      "sha256": "d8b216158bea5a022e47c79cc2060911ec10e7b53db4174f3e7799c5d92ae697",
+      "bytes": 159
+    },
+    {
+      "path": "docs/2026-11-19_余额接入-全部模型供应商-report.md",
+      "sha256": "7eaeda8bc9dce58d58446911f4a1d74fe4069cbd54bd25cc8b7c2299829a6eb9",
+      "bytes": 11637
+    },
+    {
+      "path": "docs/2026-11-19_升级交付-多站点1.1.0-report.md",
+      "sha256": "687cf381e7f69469a1aeecdd63f10bb43b8784511e5c3cdc2d850a7b76126883",
+      "bytes": 6831
+    },
+    {
+      "path": "docs/balance-query-plan.md",
+      "sha256": "b564950523e018cddc2b67d287a60c7192b9e4df7ad4db65b5a7766c552d4860",
+      "bytes": 15197
+    },
+    {
+      "path": "docs/balance-query-result.md",
+      "sha256": "94d9e16b8a1a2415a68a7d57a1da0ef9e41e24882b4f3f8673353c6f6094623c",
+      "bytes": 14312
+    },
+    {
+      "path": "docs/balance-wallet-fix-2026-11-19.md",
+      "sha256": "42a8aea658b4352cd44e849e3d9558ed3bad9922813ae78d7ba10cf051f0568e",
+      "bytes": 9587
+    },
+    {
+      "path": "docs/multi-site-upgrade-spec.md",
+      "sha256": "cdf2b658e04748f44045f94c2526670d28bea3007ffeff75a60db44d13eb5d1d",
+      "bytes": 11751
+    },
+    {
+      "path": "docs/protocol-detection-spec.md",
+      "sha256": "4454dfb120cb4dc0b96b43c70d76e782d1a19838f1add78b6cc8cfc79bf6e360",
+      "bytes": 4319
+    },
+    {
+      "path": "lib/balance-http.js",
+      "sha256": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+      "bytes": 7474
+    },
+    {
+      "path": "lib/balance.js",
+      "sha256": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+      "bytes": 17891
+    },
+    {
+      "path": "lib/build-manifest.json",
+      "sha256": "b7adc878fcd5f77e641c151f60f24e47ad8cae4cb437647240ab84247e8b3fc4",
+      "bytes": 1725
+    },
+    {
+      "path": "lib/client.js",
+      "sha256": "908d4beef927b56104393981fd97c0c89e4f34f58c841b945a299dee150dde5b",
+      "bytes": 60198
+    },
+    {
+      "path": "lib/dpapi.js",
+      "sha256": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+      "bytes": 3360
+    },
+    {
+      "path": "lib/dpapi.ps1",
+      "sha256": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+      "bytes": 1020
+    },
+    {
+      "path": "lib/index.js",
+      "sha256": "962f49c62d644f9e49fc25c2bf0236ff4f0fab34a8802691deb2a5db7db98c38",
+      "bytes": 4120
+    },
+    {
+      "path": "lib/validation.js",
+      "sha256": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8",
+      "bytes": 4410
+    },
+    {
+      "path": "lib/vault-model.js",
+      "sha256": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+      "bytes": 5144
+    },
+    {
+      "path": "lib/vault.js",
+      "sha256": "ea549eea8ca6a17b996c6dac59402be4c2f74f60b0678aa68538ac3db44a5fd0",
+      "bytes": 29070
+    },
+    {
+      "path": "package.json",
+      "sha256": "b31cb8c0924ea3230d874891311d841ad305856047458909a84326a60d40416c",
+      "bytes": 1794
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "4a2df4874c8f611080d8353b357ee37b524d1dc61fe628e85a6117604a698930",
+      "bytes": 2883
+    },
+    {
+      "path": "scripts/distribution.mjs",
+      "sha256": "9c4d4f4596ebba1927208edac060e51a95f6b28be80b74ee7d679d8ebeb3c436",
+      "bytes": 2296
+    },
+    {
+      "path": "scripts/install.mjs",
+      "sha256": "d31aee7eae1fe3c86002bf2fc2e431a403a0617dcdf403ffd36f80593d0696dc",
+      "bytes": 2990
+    },
+    {
+      "path": "scripts/lifecycle.mjs",
+      "sha256": "a66f6c1f17ffb7dc6f720be5842dcfe9658ae44b849f4c877209fc861a6e42ff",
+      "bytes": 2802
+    },
+    {
+      "path": "scripts/pack.mjs",
+      "sha256": "6aae87d217f56415695730f5f4f38e8240ef336e2d934ec9271e3eb65c46e691",
+      "bytes": 2024
+    },
+    {
+      "path": "scripts/probe-sdk.mjs",
+      "sha256": "9390b4648da7a58798e0e697f371ea9b6a7a053ffc2be8e4c17516de1a9c27f3",
+      "bytes": 1889
+    },
+    {
+      "path": "scripts/runtime-loader.mjs",
+      "sha256": "6dc5281c9cad1c0e13a92244c8a1d51a5c929359d0d65c71974f7945c73979e3",
+      "bytes": 572
+    },
+    {
+      "path": "scripts/uninstall.mjs",
+      "sha256": "8e7a21773cd84235be665ad380f0c1b9184d1c7f1b67402ac49a78022869dd3a",
+      "bytes": 2805
+    },
+    {
+      "path": "scripts/verify-installed.mjs",
+      "sha256": "53a1a0e37e5a1ec1724438cb46fca9233a99550adee448f61090a86dea0f9726",
+      "bytes": 2005
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "sha256": "a8be7e24637da4c44344da7cab641f18e0e6378071f1d6e674f5b34ec6552b50",
+      "bytes": 2229
+    },
+    {
+      "path": "src/balance-http.js",
+      "sha256": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+      "bytes": 7474
+    },
+    {
+      "path": "src/balance.js",
+      "sha256": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+      "bytes": 17891
+    },
+    {
+      "path": "src/client.js",
+      "sha256": "21254c9c4618ed26e9715fe907147ef2f05a0af5e725991b6fd3352c1c9a9bd5",
+      "bytes": 54588
+    },
+    {
+      "path": "src/dpapi.js",
+      "sha256": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+      "bytes": 3360
+    },
+    {
+      "path": "src/dpapi.ps1",
+      "sha256": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+      "bytes": 1020
+    },
+    {
+      "path": "src/index.js",
+      "sha256": "962f49c62d644f9e49fc25c2bf0236ff4f0fab34a8802691deb2a5db7db98c38",
+      "bytes": 4120
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "9dc2250392c6892a90e7adf489323b5c1b053396fa952e101350b6ce4391ba8f",
+      "bytes": 5397
+    },
+    {
+      "path": "src/validation.js",
+      "sha256": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8",
+      "bytes": 4410
+    },
+    {
+      "path": "src/vault-model.js",
+      "sha256": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+      "bytes": 5144
+    },
+    {
+      "path": "src/vault.js",
+      "sha256": "ea549eea8ca6a17b996c6dac59402be4c2f74f60b0678aa68538ac3db44a5fd0",
+      "bytes": 29070
+    },
+    {
+      "path": "tests/balance-client.test.mjs",
+      "sha256": "66ef7c456b158dac0d68e1e8a28993f12878210da321f1af28a2d11a03a6b8ba",
+      "bytes": 11972
+    },
+    {
+      "path": "tests/balance-http.test.mjs",
+      "sha256": "6c396953cc08037aece58c547fdc41469ca041f1e46c50341760edef0909ca21",
+      "bytes": 5923
+    },
+    {
+      "path": "tests/balance.test.mjs",
+      "sha256": "2b7e4b35927c85198ba3fc005c38721a546c433fe72707c5de2f7f118190f18e",
+      "bytes": 18344
+    },
+    {
+      "path": "tests/build-repairs.test.mjs",
+      "sha256": "2a97f25fbd4061545b4f9596ef32d1f56daa90fefcffa558462ed1a4de6b3df9",
+      "bytes": 1826
+    },
+    {
+      "path": "tests/client-repairs.test.mjs",
+      "sha256": "fad69693a6897f745c3c1d5002a72b0edcbf51ccc8cdba54937359784cc505a3",
+      "bytes": 1889
+    },
+    {
+      "path": "tests/client.test.mjs",
+      "sha256": "c51540348a01caec4f83d44ee4f2c6ebcd8c9bc4f15d906996b43e9bacd54940",
+      "bytes": 8141
+    },
+    {
+      "path": "tests/host.test.mjs",
+      "sha256": "2ee7b67067732023d99acbb92231b3e6d98c883803d571d4a40a96c3ff6d6d79",
+      "bytes": 10533
+    },
+    {
+      "path": "tests/install.test.mjs",
+      "sha256": "32e8f13a61c565f4ae5511158e6e9a677ceeca5c6ba3ccf79c6eac80795f1f37",
+      "bytes": 2211
+    },
+    {
+      "path": "tests/lifecycle-repairs.test.mjs",
+      "sha256": "0e0e180325f38df1d52a61cdeef7b0dbc58c942b9819a1d036851e317b7cd68f",
+      "bytes": 5202
+    },
+    {
+      "path": "tests/multi-site-balance.test.mjs",
+      "sha256": "4eade8b0a1cea30f54122c53fc7c44ad52c200b486a9fe12fe6893337dca4877",
+      "bytes": 7518
+    },
+    {
+      "path": "tests/multi-site-client.test.mjs",
+      "sha256": "aeb298035e4d4f14f67f4171ceb34c796a4758d1fee590deb4930bcad1ff970f",
+      "bytes": 39462
+    },
+    {
+      "path": "tests/multi-site-host.test.mjs",
+      "sha256": "671402fc5f39371e5c4b3cf4cc2e91a3cc1c19b471b1755f48608c85a179976f",
+      "bytes": 10739
+    },
+    {
+      "path": "tests/multi-site-vault.test.mjs",
+      "sha256": "36d0a18d2a3e160a55f6ef1bbf9c1614168783361f9fe87cf38b9be0782ffb0e",
+      "bytes": 48755
+    },
+    {
+      "path": "tests/protocol-detection-host.test.mjs",
+      "sha256": "f8909a672ca9894dcbf96e558d80642fc19c99017426f66e98d882541cdbc8cf",
+      "bytes": 4786
+    },
+    {
+      "path": "tests/protocol-detection.test.mjs",
+      "sha256": "822fc18c1a9709a341e84232a2e24d207f5dd764f243b0f9e25756b8503315c2",
+      "bytes": 5076
+    },
+    {
+      "path": "tests/rpc-contract.test.mjs",
+      "sha256": "bed1d6dc59c91d2f63b714d6d24caccef4b542c5696f3959c95f8f54b3dae9b2",
+      "bytes": 2877
+    },
+    {
+      "path": "tests/validation-repairs.test.mjs",
+      "sha256": "ccd0a865bbcfb61e4217c5f2c42b8abb411fd5bc3633a3b784417c39918c9ae1",
+      "bytes": 1454
+    },
+    {
+      "path": "tests/vault-repairs.test.mjs",
+      "sha256": "8aad5a722712f246eafe25db338dc9500ae006f66a2f23c10495a38c717b1558",
+      "bytes": 6378
+    },
+    {
+      "path": "tests/vault.test.mjs",
+      "sha256": "56241e4fd165f3e611d36df35be26afe07a68f068a70965af7fe447a5c1e9505",
+      "bytes": 7115
+    }
+  ],
+  "installedCodeRoot": "D:/FUGUI/ai/dsh-data/profiles/desktop/node_modules/dsh-floating-accounts",
+  "installedCode": [
+    {
+      "path": "LICENSE",
+      "sha256": "43b2e132b89f9fbc6277d9b3f3d13af5af61eebbd7b3253bbbcd8ba3d949d30b",
+      "bytes": 1091
+    },
+    {
+      "path": "Plan/2. 多站点升级_plan.md",
+      "sha256": "4e7ef77a0bc6f5714c0c3a36dcf64cf74f19e5b389087222befe4ac90b332e00",
+      "bytes": 7313
+    },
+    {
+      "path": "Plan/3. 协议检测_plan.md",
+      "sha256": "f2570f43908c7e8a93cfe4d01eca5067efd8a6e5a4a07d4b7dd3c35a36339289",
+      "bytes": 3308
+    },
+    {
+      "path": "README.md",
+      "sha256": "c69c51aee72525f1d7ae2d4e8d04e63d56bbd758c3b84567af4e70f5f3a4d2c3",
+      "bytes": 8896
+    },
+    {
+      "path": "cordis.patch.yml",
+      "sha256": "d8b216158bea5a022e47c79cc2060911ec10e7b53db4174f3e7799c5d92ae697",
+      "bytes": 159
+    },
+    {
+      "path": "docs/balance-query-plan.md",
+      "sha256": "b564950523e018cddc2b67d287a60c7192b9e4df7ad4db65b5a7766c552d4860",
+      "bytes": 15197
+    },
+    {
+      "path": "docs/multi-site-upgrade-spec.md",
+      "sha256": "cdf2b658e04748f44045f94c2526670d28bea3007ffeff75a60db44d13eb5d1d",
+      "bytes": 11751
+    },
+    {
+      "path": "docs/protocol-detection-spec.md",
+      "sha256": "4454dfb120cb4dc0b96b43c70d76e782d1a19838f1add78b6cc8cfc79bf6e360",
+      "bytes": 4319
+    },
+    {
+      "path": "installation.json",
+      "sha256": "07f8f02ed917f6249a3a77b4a5a656f969432805388febcf93200d9e6afcf572",
+      "bytes": 417
+    },
+    {
+      "path": "lib/balance-http.js",
+      "sha256": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+      "bytes": 7474
+    },
+    {
+      "path": "lib/balance.js",
+      "sha256": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+      "bytes": 17891
+    },
+    {
+      "path": "lib/build-manifest.json",
+      "sha256": "b7adc878fcd5f77e641c151f60f24e47ad8cae4cb437647240ab84247e8b3fc4",
+      "bytes": 1725
+    },
+    {
+      "path": "lib/client.js",
+      "sha256": "908d4beef927b56104393981fd97c0c89e4f34f58c841b945a299dee150dde5b",
+      "bytes": 60198
+    },
+    {
+      "path": "lib/dpapi.js",
+      "sha256": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+      "bytes": 3360
+    },
+    {
+      "path": "lib/dpapi.ps1",
+      "sha256": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+      "bytes": 1020
+    },
+    {
+      "path": "lib/index.js",
+      "sha256": "962f49c62d644f9e49fc25c2bf0236ff4f0fab34a8802691deb2a5db7db98c38",
+      "bytes": 4120
+    },
+    {
+      "path": "lib/validation.js",
+      "sha256": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8",
+      "bytes": 4410
+    },
+    {
+      "path": "lib/vault-model.js",
+      "sha256": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+      "bytes": 5144
+    },
+    {
+      "path": "lib/vault.js",
+      "sha256": "ea549eea8ca6a17b996c6dac59402be4c2f74f60b0678aa68538ac3db44a5fd0",
+      "bytes": 29070
+    },
+    {
+      "path": "package.json",
+      "sha256": "b31cb8c0924ea3230d874891311d841ad305856047458909a84326a60d40416c",
+      "bytes": 1794
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "4a2df4874c8f611080d8353b357ee37b524d1dc61fe628e85a6117604a698930",
+      "bytes": 2883
+    },
+    {
+      "path": "scripts/distribution.mjs",
+      "sha256": "9c4d4f4596ebba1927208edac060e51a95f6b28be80b74ee7d679d8ebeb3c436",
+      "bytes": 2296
+    },
+    {
+      "path": "scripts/install.mjs",
+      "sha256": "d31aee7eae1fe3c86002bf2fc2e431a403a0617dcdf403ffd36f80593d0696dc",
+      "bytes": 2990
+    },
+    {
+      "path": "scripts/lifecycle.mjs",
+      "sha256": "a66f6c1f17ffb7dc6f720be5842dcfe9658ae44b849f4c877209fc861a6e42ff",
+      "bytes": 2802
+    },
+    {
+      "path": "scripts/pack.mjs",
+      "sha256": "6aae87d217f56415695730f5f4f38e8240ef336e2d934ec9271e3eb65c46e691",
+      "bytes": 2024
+    },
+    {
+      "path": "scripts/runtime-loader.mjs",
+      "sha256": "6dc5281c9cad1c0e13a92244c8a1d51a5c929359d0d65c71974f7945c73979e3",
+      "bytes": 572
+    },
+    {
+      "path": "scripts/uninstall.mjs",
+      "sha256": "8e7a21773cd84235be665ad380f0c1b9184d1c7f1b67402ac49a78022869dd3a",
+      "bytes": 2805
+    },
+    {
+      "path": "scripts/verify-installed.mjs",
+      "sha256": "53a1a0e37e5a1ec1724438cb46fca9233a99550adee448f61090a86dea0f9726",
+      "bytes": 2005
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "sha256": "a8be7e24637da4c44344da7cab641f18e0e6378071f1d6e674f5b34ec6552b50",
+      "bytes": 2229
+    },
+    {
+      "path": "src/balance-http.js",
+      "sha256": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+      "bytes": 7474
+    },
+    {
+      "path": "src/balance.js",
+      "sha256": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+      "bytes": 17891
+    },
+    {
+      "path": "src/client.js",
+      "sha256": "21254c9c4618ed26e9715fe907147ef2f05a0af5e725991b6fd3352c1c9a9bd5",
+      "bytes": 54588
+    },
+    {
+      "path": "src/dpapi.js",
+      "sha256": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+      "bytes": 3360
+    },
+    {
+      "path": "src/dpapi.ps1",
+      "sha256": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+      "bytes": 1020
+    },
+    {
+      "path": "src/index.js",
+      "sha256": "962f49c62d644f9e49fc25c2bf0236ff4f0fab34a8802691deb2a5db7db98c38",
+      "bytes": 4120
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "9dc2250392c6892a90e7adf489323b5c1b053396fa952e101350b6ce4391ba8f",
+      "bytes": 5397
+    },
+    {
+      "path": "src/validation.js",
+      "sha256": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8",
+      "bytes": 4410
+    },
+    {
+      "path": "src/vault-model.js",
+      "sha256": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+      "bytes": 5144
+    },
+    {
+      "path": "src/vault.js",
+      "sha256": "ea549eea8ca6a17b996c6dac59402be4c2f74f60b0678aa68538ac3db44a5fd0",
+      "bytes": 29070
+    },
+    {
+      "path": "tests/balance-client.test.mjs",
+      "sha256": "66ef7c456b158dac0d68e1e8a28993f12878210da321f1af28a2d11a03a6b8ba",
+      "bytes": 11972
+    },
+    {
+      "path": "tests/balance-http.test.mjs",
+      "sha256": "6c396953cc08037aece58c547fdc41469ca041f1e46c50341760edef0909ca21",
+      "bytes": 5923
+    },
+    {
+      "path": "tests/balance.test.mjs",
+      "sha256": "2b7e4b35927c85198ba3fc005c38721a546c433fe72707c5de2f7f118190f18e",
+      "bytes": 18344
+    },
+    {
+      "path": "tests/build-repairs.test.mjs",
+      "sha256": "2a97f25fbd4061545b4f9596ef32d1f56daa90fefcffa558462ed1a4de6b3df9",
+      "bytes": 1826
+    },
+    {
+      "path": "tests/client-repairs.test.mjs",
+      "sha256": "fad69693a6897f745c3c1d5002a72b0edcbf51ccc8cdba54937359784cc505a3",
+      "bytes": 1889
+    },
+    {
+      "path": "tests/client.test.mjs",
+      "sha256": "c51540348a01caec4f83d44ee4f2c6ebcd8c9bc4f15d906996b43e9bacd54940",
+      "bytes": 8141
+    },
+    {
+      "path": "tests/host.test.mjs",
+      "sha256": "2ee7b67067732023d99acbb92231b3e6d98c883803d571d4a40a96c3ff6d6d79",
+      "bytes": 10533
+    },
+    {
+      "path": "tests/install.test.mjs",
+      "sha256": "32e8f13a61c565f4ae5511158e6e9a677ceeca5c6ba3ccf79c6eac80795f1f37",
+      "bytes": 2211
+    },
+    {
+      "path": "tests/lifecycle-repairs.test.mjs",
+      "sha256": "0e0e180325f38df1d52a61cdeef7b0dbc58c942b9819a1d036851e317b7cd68f",
+      "bytes": 5202
+    },
+    {
+      "path": "tests/multi-site-balance.test.mjs",
+      "sha256": "4eade8b0a1cea30f54122c53fc7c44ad52c200b486a9fe12fe6893337dca4877",
+      "bytes": 7518
+    },
+    {
+      "path": "tests/multi-site-client.test.mjs",
+      "sha256": "aeb298035e4d4f14f67f4171ceb34c796a4758d1fee590deb4930bcad1ff970f",
+      "bytes": 39462
+    },
+    {
+      "path": "tests/multi-site-host.test.mjs",
+      "sha256": "671402fc5f39371e5c4b3cf4cc2e91a3cc1c19b471b1755f48608c85a179976f",
+      "bytes": 10739
+    },
+    {
+      "path": "tests/multi-site-vault.test.mjs",
+      "sha256": "36d0a18d2a3e160a55f6ef1bbf9c1614168783361f9fe87cf38b9be0782ffb0e",
+      "bytes": 48755
+    },
+    {
+      "path": "tests/protocol-detection-host.test.mjs",
+      "sha256": "f8909a672ca9894dcbf96e558d80642fc19c99017426f66e98d882541cdbc8cf",
+      "bytes": 4786
+    },
+    {
+      "path": "tests/protocol-detection.test.mjs",
+      "sha256": "822fc18c1a9709a341e84232a2e24d207f5dd764f243b0f9e25756b8503315c2",
+      "bytes": 5076
+    },
+    {
+      "path": "tests/rpc-contract.test.mjs",
+      "sha256": "bed1d6dc59c91d2f63b714d6d24caccef4b542c5696f3959c95f8f54b3dae9b2",
+      "bytes": 2877
+    },
+    {
+      "path": "tests/validation-repairs.test.mjs",
+      "sha256": "ccd0a865bbcfb61e4217c5f2c42b8abb411fd5bc3633a3b784417c39918c9ae1",
+      "bytes": 1454
+    },
+    {
+      "path": "tests/vault-repairs.test.mjs",
+      "sha256": "8aad5a722712f246eafe25db338dc9500ae006f66a2f23c10495a38c717b1558",
+      "bytes": 6378
+    },
+    {
+      "path": "tests/vault.test.mjs",
+      "sha256": "56241e4fd165f3e611d36df35be26afe07a68f068a70965af7fe447a5c1e9505",
+      "bytes": 7115
+    }
+  ],
+  "vault": {
+    "dshHomeSource": "env:DSH_HOME",
+    "dshHome": "D:\\FUGUI\\ai\\dsh-data",
+    "path": "D:\\FUGUI\\ai\\dsh-data\\plugin-data\\dsh-floating-accounts\\accounts.dpapi.json",
+    "bytes": 3150,
+    "sha256": "240e4771d4f6ff354da9ffc9207662866741ae3019bd5c5e07f49670b2ae53cd",
+    "streamBytesMatch": true,
+    "contentNeverRead": true,
+    "hashedAtLocal": "2026-11-20T09:45:42+0800"
+  },
+  "desktopProfilePackageJson": {
+    "path": "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\package.json",
+    "bytes": 2618,
+    "sha256": "66e633d066a2aa87e297dadd3d3cdda6f9f2578fe1190af5950227350421d450"
+  },
+  "fileCounts": {
+    "workspace": 61,
+    "installed": 58
+  },
+  "method": {
+    "runtime": "node v24.19.0",
+    "hashing": "SHA-256 (crypto.createHash) over streamed file bytes",
+    "readPolicy": "vault bytes hashed only; content never decoded, printed or logged; no writes under DSH_HOME; plugin sources untouched"
+  },
+  "notes": [],
+  "realVaultRead": false,
+  "generatedAtLocal": "2026-11-20T09:45:41+0800",
+  "finishedAtLocal": "2026-11-20T09:45:42+0800"
+}

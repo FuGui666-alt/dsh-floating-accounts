@@ -1,0 +1,4 @@
+# Independent plugin; no balance adapters, credentials or model settings are modified.
+- insert:
+    - id: floating-accounts
+      name: dsh-floating-accounts

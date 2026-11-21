@@ -1,0 +1,8 @@
+# Verification fragment only; the deploy script appends this configuration to the actual profile.
+- id: floating-accounts
+  config:
+    balanceQuery:
+      protocol: sub2api-usage
+      endpointPath: /v1/usage
+      unit: USD
+      quotaPerUnit: 1

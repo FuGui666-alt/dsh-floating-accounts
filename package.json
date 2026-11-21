@@ -1,0 +1,14 @@
+{
+  "name": "dsh-floating-accounts",
+  "version": "1.2.0",
+  "description": "DSH Desktop 独立悬浮账号配置面板，Windows DPAPI 加密保存密钥；支持手动余额查询、协议检测与从 DSH 导入供应商，默认禁用外部请求",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {".": "./lib/index.js", "./client": "./lib/client.js", "./cordis.patch.yml": "./cordis.patch.yml", "./package.json": "./package.json"},
+  "dsh": {"bundle": {"patch": "./cordis.patch.yml"}, "client": {"platform": "web", "inject": []}},
+  "files": ["lib", "src", "scripts/build.mjs", "scripts/install.mjs", "scripts/uninstall.mjs", "scripts/pack.mjs", "scripts/lifecycle.mjs", "scripts/distribution.mjs", "scripts/verify.mjs", "scripts/verify-installed.mjs", "scripts/runtime-loader.mjs", "tests", "cordis.patch.yml", "README.md", "docs/balance-query-plan.md", "docs/multi-site-upgrade-spec.md", "docs/protocol-detection-spec.md", "docs/provider-import-spec.md", "Plan/2. 多站点升级_plan.md", "Plan/3. 协议检测_plan.md", "Plan/4. 供应商导入_plan.md", "LICENSE"],
+  "engines": {"node": "^22.19.0 || >=24"},
+  "peerDependencies": {"@deepseek-ai/cordis": "^4.0.1", "@deepseek-ai/dsh-typert-protocol": ">=0.2.0-rc.1 <0.3.0", "react": "^18.2.0", "react-dom": "^18.2.0"},
+  "scripts": {"build": "node scripts/build.mjs", "test": "node --test tests/vault.test.mjs tests/vault-repairs.test.mjs tests/validation-repairs.test.mjs tests/client.test.mjs tests/client-repairs.test.mjs tests/rpc-contract.test.mjs tests/balance.test.mjs tests/balance-http.test.mjs tests/balance-client.test.mjs tests/install.test.mjs tests/lifecycle-repairs.test.mjs tests/build-repairs.test.mjs tests/multi-site-vault.test.mjs tests/multi-site-balance.test.mjs tests/multi-site-client.test.mjs tests/protocol-detection.test.mjs tests/provider-import.test.mjs tests/provider-import-client.test.mjs", "pack:offline": "node scripts/pack.mjs"},
+  "license": "MIT"
+}

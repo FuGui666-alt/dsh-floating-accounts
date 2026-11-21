@@ -1,0 +1,31 @@
+{
+  "at": "2026-11-19T09:23:55.318Z",
+  "passed": true,
+  "installed": "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\node_modules\\dsh-floating-accounts",
+  "distributionFilesVerified": 45,
+  "protectedFilesVerified": 8,
+  "oldCodeBackupByteIdentical": true,
+  "oldPatchBackupByteIdentical": true,
+  "allInstalledFilesMatch": true,
+  "profileConfigUnchanged": true,
+  "installedWalletParserCheckedWithSyntheticFixture": true,
+  "sdkResult": {
+    "sdkCompositionPassed": true,
+    "profilePatch": "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\cordis.patch.yml",
+    "instanceCount": 1,
+    "balanceConfig": {
+      "protocol": "sub2api-usage",
+      "endpointPath": "/v1/usage",
+      "unit": "USD",
+      "quotaPerUnit": 1
+    },
+    "installedMountChecked": true,
+    "vaultReads": 0,
+    "liveCalls": 0,
+    "bootedProfile": false
+  },
+  "restartRequired": true,
+  "realPageVerified": false,
+  "liveCalls": 0,
+  "warnings": "experimental-loader-warning-only"
+}

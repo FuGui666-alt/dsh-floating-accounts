@@ -1,0 +1,108 @@
+{
+  "at": "2026-11-19T15:27:47.077Z",
+  "version": "1.1.0",
+  "steps": [
+    {
+      "name": "final-build",
+      "command": "D:\\FUGUI\\ai\\node.js\\node.exe",
+      "args": [
+        "scripts/build.mjs"
+      ],
+      "exitCode": 0,
+      "log": "final-build.log"
+    },
+    {
+      "name": "final-local",
+      "command": "D:\\FUGUI\\ai\\node.js\\node.exe",
+      "args": [
+        "--test",
+        "tests/vault.test.mjs",
+        "tests/vault-repairs.test.mjs",
+        "tests/validation-repairs.test.mjs",
+        "tests/client.test.mjs",
+        "tests/client-repairs.test.mjs",
+        "tests/rpc-contract.test.mjs",
+        "tests/balance.test.mjs",
+        "tests/balance-http.test.mjs",
+        "tests/balance-client.test.mjs",
+        "tests/install.test.mjs",
+        "tests/lifecycle-repairs.test.mjs",
+        "tests/build-repairs.test.mjs",
+        "tests/multi-site-vault.test.mjs",
+        "tests/multi-site-balance.test.mjs",
+        "tests/multi-site-client.test.mjs"
+      ],
+      "exitCode": 0,
+      "log": "final-local.log"
+    },
+    {
+      "name": "final-sdk",
+      "command": "D:/FUGUI/ai/guanfangdsh/dsh/DeepSeek Harness.exe",
+      "args": [
+        "--expose-internals",
+        "--loader",
+        "./scripts/runtime-loader.mjs",
+        "--test",
+        "tests/host.test.mjs",
+        "tests/multi-site-host.test.mjs"
+      ],
+      "exitCode": 0,
+      "log": "final-sdk.log"
+    },
+    {
+      "name": "final-pack",
+      "command": "D:\\FUGUI\\ai\\node.js\\node.exe",
+      "args": [
+        "scripts/pack.mjs"
+      ],
+      "exitCode": 0,
+      "log": "final-pack.log"
+    },
+    {
+      "name": "final-extract",
+      "command": "tar",
+      "args": [
+        "-xzf",
+        "dist/dsh-floating-accounts-1.1.0.tgz",
+        "-C",
+        "artifacts/multi-site-upgrade-2026-11-19/verify-package-1795102093665"
+      ],
+      "exitCode": 0,
+      "log": "final-extract.log"
+    }
+  ],
+  "realVaultOpened": false,
+  "liveProviderCalls": 0,
+  "installed": false,
+  "guiVerified": false,
+  "package": {
+    "path": "D:\\FUGUI\\ai\\WORK\\软件设计\\dsh-floating-accounts\\dist\\dsh-floating-accounts-1.1.0.tgz",
+    "sha256": "22fef256e256fd457640ba44770d9b94966575e67fde288ecaf9d581132076ff",
+    "files": 53
+  },
+  "installedCodeUnchanged": 46,
+  "sourceHashes": {
+    "client.js": "743ee6dfb909f39cf1a414012d0ca90afc6f85c491b90179c8b7117f2f477c19",
+    "style.css": "9dc2250392c6892a90e7adf489323b5c1b053396fa952e101350b6ce4391ba8f",
+    "index.js": "682e13ee179f6d4dbe3b4f6e1bb3e2eeb600eedc800689178d29fa4422283550",
+    "vault.js": "ca4968b0e1afd13ca536f7550ed84cea7a9bc4215284c0a1848f80ced63ca028",
+    "vault-model.js": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+    "validation.js": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8",
+    "dpapi.js": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+    "dpapi.ps1": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+    "balance.js": "2ac9d3892e7666db00b6b7f7357dffebb3a0113083333949fe9cbff6841045c9",
+    "balance-http.js": "d6ab1ff4382c8644648d78da5fc15a4f9294ac7c87837be81ae0dadb26b0f6eb"
+  },
+  "outputHashes": {
+    "index.js": "682e13ee179f6d4dbe3b4f6e1bb3e2eeb600eedc800689178d29fa4422283550",
+    "vault.js": "ca4968b0e1afd13ca536f7550ed84cea7a9bc4215284c0a1848f80ced63ca028",
+    "vault-model.js": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+    "validation.js": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8",
+    "dpapi.js": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+    "client.js": "03d3be6107b94be61f885767d590da1f9f33f50f0d627b1bc954d1f524c3fb66",
+    "dpapi.ps1": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+    "balance.js": "2ac9d3892e7666db00b6b7f7357dffebb3a0113083333949fe9cbff6841045c9",
+    "balance-http.js": "d6ab1ff4382c8644648d78da5fc15a4f9294ac7c87837be81ae0dadb26b0f6eb"
+  },
+  "complete": true
+}

@@ -1,0 +1,15 @@
+{
+  "at": "2026-11-20T05:53:03.350Z",
+  "task": "t12/T11 ui-polish pre-change snapshot",
+  "base": "extends artifacts/provider-import-2026-11-20 T0 baseline (baseline-snapshot.json, 2026-11-20)",
+  "files": {
+    "src/style.css": {
+      "sha256": "a02183d963e265252fd44237c59294a19b3b379708e1e2fe3befb55cf78c6e9c",
+      "bytes": 6855
+    },
+    "src/client.js": {
+      "sha256": "0b4e3cd856e0a2f8f32d4f5c3c59c7b4f79da283b6e0fe9e0c73b1d4b96d427e",
+      "bytes": 68090
+    }
+  }
+}

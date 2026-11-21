@@ -1,0 +1,3 @@
+for(const specifier of ['@deepseek-ai/dsh-plugin-typert','@deepseek-ai/dsh-plugin-api','@deepseek-ai/dsh-plugin-shared','@deepseek-ai/dsh-plugin-console','@deepseek-ai/dsh-typert','@deepseek-ai/dsh-console','@deepseek-ai/dsh-web-server','@deepseek-ai/dsh-ws','@deepseek-ai/dsh-carrier','@deepseek-ai/dsh-remote-protocol','@deepseek-ai/dsh-typert-runtime-api','@deepseek-ai/dsh-typert-web']){
+ try{const m=await import(specifier);console.log('PUBLIC_EXPORTS',specifier,JSON.stringify(Object.fromEntries(Object.entries(m).map(([k,v])=>[k,{type:typeof v,arity:typeof v==='function'?v.length:null,prototype:typeof v==='function'?Object.getOwnPropertyNames(v.prototype||{}):undefined}]))));}catch(e){console.log('PUBLIC_UNAVAILABLE',specifier,e.code);}
+}

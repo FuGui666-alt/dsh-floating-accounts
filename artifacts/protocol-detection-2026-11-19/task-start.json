@@ -1,0 +1,421 @@
+{
+  "at": "2026-11-19T15:58:03.189Z",
+  "rows": [
+    {
+      "path": "src/balance-http.js",
+      "sha256": "d6ab1ff4382c8644648d78da5fc15a4f9294ac7c87837be81ae0dadb26b0f6eb"
+    },
+    {
+      "path": "src/balance.js",
+      "sha256": "2ac9d3892e7666db00b6b7f7357dffebb3a0113083333949fe9cbff6841045c9"
+    },
+    {
+      "path": "src/client.js",
+      "sha256": "743ee6dfb909f39cf1a414012d0ca90afc6f85c491b90179c8b7117f2f477c19"
+    },
+    {
+      "path": "src/dpapi.js",
+      "sha256": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b"
+    },
+    {
+      "path": "src/dpapi.ps1",
+      "sha256": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e"
+    },
+    {
+      "path": "src/index.js",
+      "sha256": "682e13ee179f6d4dbe3b4f6e1bb3e2eeb600eedc800689178d29fa4422283550"
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "9dc2250392c6892a90e7adf489323b5c1b053396fa952e101350b6ce4391ba8f"
+    },
+    {
+      "path": "src/validation.js",
+      "sha256": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8"
+    },
+    {
+      "path": "src/vault-model.js",
+      "sha256": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6"
+    },
+    {
+      "path": "src/vault.js",
+      "sha256": "ca4968b0e1afd13ca536f7550ed84cea7a9bc4215284c0a1848f80ced63ca028"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "4a2df4874c8f611080d8353b357ee37b524d1dc61fe628e85a6117604a698930"
+    },
+    {
+      "path": "scripts/distribution.mjs",
+      "sha256": "9c4d4f4596ebba1927208edac060e51a95f6b28be80b74ee7d679d8ebeb3c436"
+    },
+    {
+      "path": "scripts/install.mjs",
+      "sha256": "d31aee7eae1fe3c86002bf2fc2e431a403a0617dcdf403ffd36f80593d0696dc"
+    },
+    {
+      "path": "scripts/lifecycle.mjs",
+      "sha256": "a66f6c1f17ffb7dc6f720be5842dcfe9658ae44b849f4c877209fc861a6e42ff"
+    },
+    {
+      "path": "scripts/pack.mjs",
+      "sha256": "6aae87d217f56415695730f5f4f38e8240ef336e2d934ec9271e3eb65c46e691"
+    },
+    {
+      "path": "scripts/probe-sdk.mjs",
+      "sha256": "9390b4648da7a58798e0e697f371ea9b6a7a053ffc2be8e4c17516de1a9c27f3"
+    },
+    {
+      "path": "scripts/runtime-loader.mjs",
+      "sha256": "6dc5281c9cad1c0e13a92244c8a1d51a5c929359d0d65c71974f7945c73979e3"
+    },
+    {
+      "path": "scripts/uninstall.mjs",
+      "sha256": "8e7a21773cd84235be665ad380f0c1b9184d1c7f1b67402ac49a78022869dd3a"
+    },
+    {
+      "path": "scripts/verify-installed.mjs",
+      "sha256": "53a1a0e37e5a1ec1724438cb46fca9233a99550adee448f61090a86dea0f9726"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "sha256": "a8be7e24637da4c44344da7cab641f18e0e6378071f1d6e674f5b34ec6552b50"
+    },
+    {
+      "path": "tests/balance-client.test.mjs",
+      "sha256": "66ef7c456b158dac0d68e1e8a28993f12878210da321f1af28a2d11a03a6b8ba"
+    },
+    {
+      "path": "tests/balance-http.test.mjs",
+      "sha256": "5ea1c11987f7522451422e02803259e9c68b2c71c56451fd4ce290672b25d83c"
+    },
+    {
+      "path": "tests/balance.test.mjs",
+      "sha256": "2b7e4b35927c85198ba3fc005c38721a546c433fe72707c5de2f7f118190f18e"
+    },
+    {
+      "path": "tests/build-repairs.test.mjs",
+      "sha256": "2a97f25fbd4061545b4f9596ef32d1f56daa90fefcffa558462ed1a4de6b3df9"
+    },
+    {
+      "path": "tests/client-repairs.test.mjs",
+      "sha256": "fad69693a6897f745c3c1d5002a72b0edcbf51ccc8cdba54937359784cc505a3"
+    },
+    {
+      "path": "tests/client.test.mjs",
+      "sha256": "c51540348a01caec4f83d44ee4f2c6ebcd8c9bc4f15d906996b43e9bacd54940"
+    },
+    {
+      "path": "tests/host.test.mjs",
+      "sha256": "43398fbbb4059c155767389ccc2cbed9d9490bd5f402b90a30542c4e5242635b"
+    },
+    {
+      "path": "tests/install.test.mjs",
+      "sha256": "32e8f13a61c565f4ae5511158e6e9a677ceeca5c6ba3ccf79c6eac80795f1f37"
+    },
+    {
+      "path": "tests/lifecycle-repairs.test.mjs",
+      "sha256": "0e0e180325f38df1d52a61cdeef7b0dbc58c942b9819a1d036851e317b7cd68f"
+    },
+    {
+      "path": "tests/multi-site-balance.test.mjs",
+      "sha256": "4eade8b0a1cea30f54122c53fc7c44ad52c200b486a9fe12fe6893337dca4877"
+    },
+    {
+      "path": "tests/multi-site-client.test.mjs",
+      "sha256": "bd9d166cb8e6645f51ef35551d5eaffe232c8915b136941c588dd7b9ebc8d26a"
+    },
+    {
+      "path": "tests/multi-site-host.test.mjs",
+      "sha256": "671402fc5f39371e5c4b3cf4cc2e91a3cc1c19b471b1755f48608c85a179976f"
+    },
+    {
+      "path": "tests/multi-site-vault.test.mjs",
+      "sha256": "36d0a18d2a3e160a55f6ef1bbf9c1614168783361f9fe87cf38b9be0782ffb0e"
+    },
+    {
+      "path": "tests/rpc-contract.test.mjs",
+      "sha256": "bed1d6dc59c91d2f63b714d6d24caccef4b542c5696f3959c95f8f54b3dae9b2"
+    },
+    {
+      "path": "tests/validation-repairs.test.mjs",
+      "sha256": "ccd0a865bbcfb61e4217c5f2c42b8abb411fd5bc3633a3b784417c39918c9ae1"
+    },
+    {
+      "path": "tests/vault-repairs.test.mjs",
+      "sha256": "8aad5a722712f246eafe25db338dc9500ae006f66a2f23c10495a38c717b1558"
+    },
+    {
+      "path": "tests/vault.test.mjs",
+      "sha256": "56241e4fd165f3e611d36df35be26afe07a68f068a70965af7fe447a5c1e9505"
+    },
+    {
+      "path": "lib/balance-http.js",
+      "sha256": "d6ab1ff4382c8644648d78da5fc15a4f9294ac7c87837be81ae0dadb26b0f6eb"
+    },
+    {
+      "path": "lib/balance.js",
+      "sha256": "2ac9d3892e7666db00b6b7f7357dffebb3a0113083333949fe9cbff6841045c9"
+    },
+    {
+      "path": "lib/build-manifest.json",
+      "sha256": "897a48166b49c66bdaf63e85606b479f1adc2a018070952d74acea5c5ef7e58f"
+    },
+    {
+      "path": "lib/client.js",
+      "sha256": "03d3be6107b94be61f885767d590da1f9f33f50f0d627b1bc954d1f524c3fb66"
+    },
+    {
+      "path": "lib/dpapi.js",
+      "sha256": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b"
+    },
+    {
+      "path": "lib/dpapi.ps1",
+      "sha256": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e"
+    },
+    {
+      "path": "lib/index.js",
+      "sha256": "682e13ee179f6d4dbe3b4f6e1bb3e2eeb600eedc800689178d29fa4422283550"
+    },
+    {
+      "path": "lib/validation.js",
+      "sha256": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8"
+    },
+    {
+      "path": "lib/vault-model.js",
+      "sha256": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6"
+    },
+    {
+      "path": "lib/vault.js",
+      "sha256": "ca4968b0e1afd13ca536f7550ed84cea7a9bc4215284c0a1848f80ced63ca028"
+    },
+    {
+      "path": "package.json",
+      "sha256": "1289916c6874f382ffde6f35f97785aeee489a4a58fca32dd74eb8efad9aaac9"
+    },
+    {
+      "path": "README.md",
+      "sha256": "e1a77ab8f99e128981643edcd34b7a487fcc7ba7383cf0d7e9f40e58ad85e708"
+    }
+  ],
+  "installedCodeRoot": "D:/FUGUI/ai/dsh-data/profiles/desktop/node_modules/dsh-floating-accounts",
+  "installedCode": [
+    {
+      "path": "cordis.patch.yml",
+      "sha256": "d8b216158bea5a022e47c79cc2060911ec10e7b53db4174f3e7799c5d92ae697"
+    },
+    {
+      "path": "docs/balance-query-plan.md",
+      "sha256": "b564950523e018cddc2b67d287a60c7192b9e4df7ad4db65b5a7766c552d4860"
+    },
+    {
+      "path": "docs/multi-site-upgrade-spec.md",
+      "sha256": "cdf2b658e04748f44045f94c2526670d28bea3007ffeff75a60db44d13eb5d1d"
+    },
+    {
+      "path": "installation.json",
+      "sha256": "66d48fbb30d669d10b7ef0fef2a63859d6fcb29ca9c6b8c8c729a604a5d7a627"
+    },
+    {
+      "path": "lib/balance-http.js",
+      "sha256": "d6ab1ff4382c8644648d78da5fc15a4f9294ac7c87837be81ae0dadb26b0f6eb"
+    },
+    {
+      "path": "lib/balance.js",
+      "sha256": "2ac9d3892e7666db00b6b7f7357dffebb3a0113083333949fe9cbff6841045c9"
+    },
+    {
+      "path": "lib/build-manifest.json",
+      "sha256": "897a48166b49c66bdaf63e85606b479f1adc2a018070952d74acea5c5ef7e58f"
+    },
+    {
+      "path": "lib/client.js",
+      "sha256": "03d3be6107b94be61f885767d590da1f9f33f50f0d627b1bc954d1f524c3fb66"
+    },
+    {
+      "path": "lib/dpapi.js",
+      "sha256": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b"
+    },
+    {
+      "path": "lib/dpapi.ps1",
+      "sha256": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e"
+    },
+    {
+      "path": "lib/index.js",
+      "sha256": "682e13ee179f6d4dbe3b4f6e1bb3e2eeb600eedc800689178d29fa4422283550"
+    },
+    {
+      "path": "lib/validation.js",
+      "sha256": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8"
+    },
+    {
+      "path": "lib/vault-model.js",
+      "sha256": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6"
+    },
+    {
+      "path": "lib/vault.js",
+      "sha256": "ca4968b0e1afd13ca536f7550ed84cea7a9bc4215284c0a1848f80ced63ca028"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "43b2e132b89f9fbc6277d9b3f3d13af5af61eebbd7b3253bbbcd8ba3d949d30b"
+    },
+    {
+      "path": "package.json",
+      "sha256": "1289916c6874f382ffde6f35f97785aeee489a4a58fca32dd74eb8efad9aaac9"
+    },
+    {
+      "path": "Plan/2. 多站点升级_plan.md",
+      "sha256": "4e7ef77a0bc6f5714c0c3a36dcf64cf74f19e5b389087222befe4ac90b332e00"
+    },
+    {
+      "path": "README.md",
+      "sha256": "e1a77ab8f99e128981643edcd34b7a487fcc7ba7383cf0d7e9f40e58ad85e708"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "4a2df4874c8f611080d8353b357ee37b524d1dc61fe628e85a6117604a698930"
+    },
+    {
+      "path": "scripts/distribution.mjs",
+      "sha256": "9c4d4f4596ebba1927208edac060e51a95f6b28be80b74ee7d679d8ebeb3c436"
+    },
+    {
+      "path": "scripts/install.mjs",
+      "sha256": "d31aee7eae1fe3c86002bf2fc2e431a403a0617dcdf403ffd36f80593d0696dc"
+    },
+    {
+      "path": "scripts/lifecycle.mjs",
+      "sha256": "a66f6c1f17ffb7dc6f720be5842dcfe9658ae44b849f4c877209fc861a6e42ff"
+    },
+    {
+      "path": "scripts/pack.mjs",
+      "sha256": "6aae87d217f56415695730f5f4f38e8240ef336e2d934ec9271e3eb65c46e691"
+    },
+    {
+      "path": "scripts/runtime-loader.mjs",
+      "sha256": "6dc5281c9cad1c0e13a92244c8a1d51a5c929359d0d65c71974f7945c73979e3"
+    },
+    {
+      "path": "scripts/uninstall.mjs",
+      "sha256": "8e7a21773cd84235be665ad380f0c1b9184d1c7f1b67402ac49a78022869dd3a"
+    },
+    {
+      "path": "scripts/verify-installed.mjs",
+      "sha256": "53a1a0e37e5a1ec1724438cb46fca9233a99550adee448f61090a86dea0f9726"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "sha256": "a8be7e24637da4c44344da7cab641f18e0e6378071f1d6e674f5b34ec6552b50"
+    },
+    {
+      "path": "src/balance-http.js",
+      "sha256": "d6ab1ff4382c8644648d78da5fc15a4f9294ac7c87837be81ae0dadb26b0f6eb"
+    },
+    {
+      "path": "src/balance.js",
+      "sha256": "2ac9d3892e7666db00b6b7f7357dffebb3a0113083333949fe9cbff6841045c9"
+    },
+    {
+      "path": "src/client.js",
+      "sha256": "743ee6dfb909f39cf1a414012d0ca90afc6f85c491b90179c8b7117f2f477c19"
+    },
+    {
+      "path": "src/dpapi.js",
+      "sha256": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b"
+    },
+    {
+      "path": "src/dpapi.ps1",
+      "sha256": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e"
+    },
+    {
+      "path": "src/index.js",
+      "sha256": "682e13ee179f6d4dbe3b4f6e1bb3e2eeb600eedc800689178d29fa4422283550"
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "9dc2250392c6892a90e7adf489323b5c1b053396fa952e101350b6ce4391ba8f"
+    },
+    {
+      "path": "src/validation.js",
+      "sha256": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8"
+    },
+    {
+      "path": "src/vault-model.js",
+      "sha256": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6"
+    },
+    {
+      "path": "src/vault.js",
+      "sha256": "ca4968b0e1afd13ca536f7550ed84cea7a9bc4215284c0a1848f80ced63ca028"
+    },
+    {
+      "path": "tests/balance-client.test.mjs",
+      "sha256": "66ef7c456b158dac0d68e1e8a28993f12878210da321f1af28a2d11a03a6b8ba"
+    },
+    {
+      "path": "tests/balance-http.test.mjs",
+      "sha256": "5ea1c11987f7522451422e02803259e9c68b2c71c56451fd4ce290672b25d83c"
+    },
+    {
+      "path": "tests/balance.test.mjs",
+      "sha256": "2b7e4b35927c85198ba3fc005c38721a546c433fe72707c5de2f7f118190f18e"
+    },
+    {
+      "path": "tests/build-repairs.test.mjs",
+      "sha256": "2a97f25fbd4061545b4f9596ef32d1f56daa90fefcffa558462ed1a4de6b3df9"
+    },
+    {
+      "path": "tests/client-repairs.test.mjs",
+      "sha256": "fad69693a6897f745c3c1d5002a72b0edcbf51ccc8cdba54937359784cc505a3"
+    },
+    {
+      "path": "tests/client.test.mjs",
+      "sha256": "c51540348a01caec4f83d44ee4f2c6ebcd8c9bc4f15d906996b43e9bacd54940"
+    },
+    {
+      "path": "tests/host.test.mjs",
+      "sha256": "43398fbbb4059c155767389ccc2cbed9d9490bd5f402b90a30542c4e5242635b"
+    },
+    {
+      "path": "tests/install.test.mjs",
+      "sha256": "32e8f13a61c565f4ae5511158e6e9a677ceeca5c6ba3ccf79c6eac80795f1f37"
+    },
+    {
+      "path": "tests/lifecycle-repairs.test.mjs",
+      "sha256": "0e0e180325f38df1d52a61cdeef7b0dbc58c942b9819a1d036851e317b7cd68f"
+    },
+    {
+      "path": "tests/multi-site-balance.test.mjs",
+      "sha256": "4eade8b0a1cea30f54122c53fc7c44ad52c200b486a9fe12fe6893337dca4877"
+    },
+    {
+      "path": "tests/multi-site-client.test.mjs",
+      "sha256": "bd9d166cb8e6645f51ef35551d5eaffe232c8915b136941c588dd7b9ebc8d26a"
+    },
+    {
+      "path": "tests/multi-site-host.test.mjs",
+      "sha256": "671402fc5f39371e5c4b3cf4cc2e91a3cc1c19b471b1755f48608c85a179976f"
+    },
+    {
+      "path": "tests/multi-site-vault.test.mjs",
+      "sha256": "36d0a18d2a3e160a55f6ef1bbf9c1614168783361f9fe87cf38b9be0782ffb0e"
+    },
+    {
+      "path": "tests/rpc-contract.test.mjs",
+      "sha256": "bed1d6dc59c91d2f63b714d6d24caccef4b542c5696f3959c95f8f54b3dae9b2"
+    },
+    {
+      "path": "tests/validation-repairs.test.mjs",
+      "sha256": "ccd0a865bbcfb61e4217c5f2c42b8abb411fd5bc3633a3b784417c39918c9ae1"
+    },
+    {
+      "path": "tests/vault-repairs.test.mjs",
+      "sha256": "8aad5a722712f246eafe25db338dc9500ae006f66a2f23c10495a38c717b1558"
+    },
+    {
+      "path": "tests/vault.test.mjs",
+      "sha256": "56241e4fd165f3e611d36df35be26afe07a68f068a70965af7fe447a5c1e9505"
+    }
+  ],
+  "realVaultRead": false
+}

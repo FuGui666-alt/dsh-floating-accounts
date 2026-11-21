@@ -1,0 +1,967 @@
+{
+  "at": "2026-11-19T12:22:16.675Z",
+  "configHashes": {
+    "D:/FUGUI/ai/dsh-data/settings.yaml": "c775d2d71240c437179221c1b0207320ad4cdb1f456495018180a9002305fc47",
+    "D:/FUGUI/ai/dsh-data/profiles/desktop/cordis.yml": "c300dcf2ebc5f02062d6591268d29d3db6fe45e0cb138f5467276fe2ba06076e",
+    "D:/FUGUI/ai/dsh-data/profiles/desktop/cordis.patch.yml": "e659747d2f5ce0c240ec632c25c18278e2cf832ab84fd8d36ce1b15dece9ca38"
+  },
+  "usageSettings": {
+    "refreshSeconds": 60,
+    "autoDetect": true
+  },
+  "usageProviders": [
+    {
+      "index": 0,
+      "id": "yizhichun",
+      "displayName": "一枝春·Kimi",
+      "kind": "sub2api",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 1,
+      "id": "yizhichun1",
+      "displayName": "一枝春·DeepSeek",
+      "kind": "sub2api",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 2,
+      "id": "yizhichun2",
+      "displayName": "一枝春·Grok",
+      "kind": "sub2api",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 3,
+      "id": "yizhichun3",
+      "displayName": "一枝春·ChatGPT",
+      "kind": "sub2api",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 4,
+      "id": "yizhiichun5",
+      "displayName": "一枝春·智谱",
+      "kind": "sub2api",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 5,
+      "id": "yizhichun5",
+      "displayName": "一枝春·钱包",
+      "kind": "sub2api",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 6,
+      "id": "yueshuai",
+      "displayName": "月帅",
+      "kind": "sub2api",
+      "baseURL": {
+        "origin": "https://ys666.site",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 7,
+      "id": "yeushu",
+      "displayName": "夜书",
+      "kind": "sub2api",
+      "baseURL": {
+        "origin": "https://ys666.site",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 8,
+      "id": "xinjiang123",
+      "displayName": "他人密钥",
+      "kind": "newapi-relay",
+      "baseURL": {
+        "origin": "https://api.hcnsec.cn",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 9,
+      "id": "svip",
+      "displayName": "公益二svip",
+      "kind": "newapi-relay",
+      "baseURL": {
+        "origin": "https://api.hcnsec.cn",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 10,
+      "id": "xinjiangg",
+      "displayName": "幻城渣渣宇",
+      "kind": "newapi-relay",
+      "baseURL": {
+        "origin": "https://api.hcnsec.cn",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 11,
+      "id": "maikuai",
+      "displayName": "麦块云",
+      "kind": "minekuai-wallet",
+      "baseURL": {
+        "origin": "https://minekuai.cn",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    },
+    {
+      "index": 12,
+      "id": "xingjiang",
+      "displayName": "auto",
+      "kind": "newapi-relay",
+      "baseURL": {
+        "origin": "https://api.hcnsec.cn",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "hasStoredApiKey": false
+    }
+  ],
+  "pluginRows": [
+    {
+      "index": 0,
+      "id": "ui-settings-account",
+      "name": "@deepseek-ai/dsh-client-ui-settings-account",
+      "disabled": false,
+      "configFields": [
+        "version",
+        "step",
+        "purpose",
+        "process",
+        "completion",
+        "usage",
+        "developerTools"
+      ]
+    },
+    {
+      "index": 1,
+      "id": "ui-chat",
+      "name": "@deepseek-ai/dsh-client-ui-chat",
+      "disabled": false,
+      "configFields": [
+        "transcriptView",
+        "performanceUsage"
+      ]
+    },
+    {
+      "index": 2,
+      "id": "ui-settings",
+      "name": "@deepseek-ai/dsh-client-ui-settings",
+      "disabled": false,
+      "configFields": [
+        "enabled"
+      ]
+    },
+    {
+      "index": 3,
+      "id": "ui-skill-explorer",
+      "name": null,
+      "disabled": false,
+      "configFields": []
+    },
+    {
+      "index": 4,
+      "id": "ssh",
+      "name": null,
+      "disabled": false,
+      "configFields": []
+    },
+    {
+      "index": 5,
+      "id": "agent-teams",
+      "name": null,
+      "disabled": false,
+      "configFields": []
+    },
+    {
+      "index": 6,
+      "id": "modlens",
+      "name": null,
+      "disabled": false,
+      "configFields": []
+    },
+    {
+      "index": 7,
+      "id": "remote-web-ui",
+      "name": null,
+      "disabled": false,
+      "configFields": []
+    },
+    {
+      "index": 8,
+      "id": "univer",
+      "name": null,
+      "disabled": false,
+      "configFields": []
+    },
+    {
+      "index": 9,
+      "id": "prompt-enhance",
+      "name": null,
+      "disabled": false,
+      "configFields": [
+        "timeoutMs",
+        "provider",
+        "model",
+        "[sensitive-field]"
+      ]
+    },
+    {
+      "index": 10,
+      "id": "mcp-connector",
+      "name": null,
+      "disabled": false,
+      "configFields": []
+    },
+    {
+      "index": 11,
+      "id": "hindsight",
+      "name": null,
+      "disabled": false,
+      "configFields": []
+    },
+    {
+      "index": 12,
+      "id": "archify-skill-filesystem",
+      "name": null,
+      "disabled": false,
+      "configFields": []
+    },
+    {
+      "index": 13,
+      "id": "better-sidebar",
+      "name": null,
+      "disabled": false,
+      "configFields": []
+    },
+    {
+      "index": 14,
+      "id": "llm-pi-ai",
+      "name": "@deepseek-ai/dsh-llm-pi-ai",
+      "disabled": false,
+      "configFields": [
+        "providers"
+      ]
+    },
+    {
+      "index": 15,
+      "id": "agent-default-model",
+      "name": "@deepseek-ai/dsh-agent-default-model",
+      "disabled": false,
+      "configFields": [
+        "provider",
+        "model",
+        "reasoningEffort"
+      ]
+    },
+    {
+      "index": 16,
+      "id": "permission",
+      "name": "@deepseek-ai/dsh-permission-presets",
+      "disabled": false,
+      "configFields": [
+        "presets",
+        "defaultPreset"
+      ]
+    },
+    {
+      "index": 17,
+      "id": null,
+      "name": null,
+      "disabled": false,
+      "configFields": []
+    },
+    {
+      "index": 18,
+      "id": "dsh-prompt-armor",
+      "name": null,
+      "disabled": true,
+      "configFields": []
+    },
+    {
+      "index": 19,
+      "id": "llm-xdpool",
+      "name": "dsh-xdpool",
+      "disabled": false,
+      "configFields": [
+        "distribution",
+        "disabledAccountIds",
+        "modelSelectionCn",
+        "modelSelectionGlobal",
+        "automation",
+        "automationEarnings"
+      ]
+    },
+    {
+      "index": 20,
+      "id": "hindsight",
+      "name": null,
+      "disabled": true,
+      "configFields": []
+    },
+    {
+      "index": 21,
+      "id": "dsh-context",
+      "name": null,
+      "disabled": true,
+      "configFields": []
+    },
+    {
+      "index": 22,
+      "id": "auto-continue",
+      "name": "dsh-client-auto-continue",
+      "disabled": false,
+      "configFields": [
+        "paused"
+      ]
+    },
+    {
+      "index": 23,
+      "id": "web-search-free",
+      "name": "dsh-free-search",
+      "disabled": false,
+      "configFields": [
+        "provider",
+        "disabledEngines",
+        "bingMarket"
+      ]
+    },
+    {
+      "index": 24,
+      "id": "dsh-infinite-gen-4",
+      "name": null,
+      "disabled": true,
+      "configFields": []
+    },
+    {
+      "index": 25,
+      "id": "billion-context-xdpool",
+      "name": null,
+      "disabled": true,
+      "configFields": []
+    },
+    {
+      "index": 26,
+      "id": "web",
+      "name": "@deepseek-ai/dsh-web",
+      "disabled": false,
+      "configFields": [
+        "searchProvider",
+        "fetchProvider"
+      ]
+    },
+    {
+      "index": 27,
+      "id": "auto-continue",
+      "name": null,
+      "disabled": false,
+      "configFields": [
+        "locale",
+        "paused",
+        "sessionModes"
+      ]
+    },
+    {
+      "index": 28,
+      "id": "session-log-deepseek",
+      "name": "@deepseek-ai/dsh-session-log-deepseek",
+      "disabled": false,
+      "configFields": [
+        "enabled"
+      ]
+    },
+    {
+      "index": 29,
+      "id": "dsh-connect-workbuddy",
+      "name": "dsh-connect-workbuddy",
+      "disabled": false,
+      "configFields": [
+        "regions"
+      ]
+    },
+    {
+      "index": 30,
+      "id": "dsh-connect-workbuddy",
+      "name": null,
+      "disabled": true,
+      "configFields": []
+    },
+    {
+      "index": 31,
+      "id": "dsh-shutdown-after-task",
+      "name": null,
+      "disabled": true,
+      "configFields": []
+    },
+    {
+      "index": 32,
+      "id": "dsh-shutdown-guard",
+      "name": null,
+      "disabled": true,
+      "configFields": []
+    },
+    {
+      "index": 33,
+      "id": "dsh-update-checker",
+      "name": null,
+      "disabled": true,
+      "configFields": []
+    },
+    {
+      "index": 34,
+      "id": "ui-theme",
+      "name": "@deepseek-ai/dsh-client-ui-theme",
+      "disabled": false,
+      "configFields": [
+        "preference"
+      ]
+    },
+    {
+      "index": 35,
+      "id": "preset-guicheng",
+      "name": null,
+      "disabled": true,
+      "configFields": []
+    },
+    {
+      "index": 36,
+      "id": "floating-accounts",
+      "name": null,
+      "disabled": false,
+      "configFields": [
+        "balanceQuery"
+      ]
+    }
+  ],
+  "modelProviderContainers": [
+    {
+      "path": "desktop-patch/14/config/providers",
+      "kind": "object",
+      "count": 22,
+      "fields": [
+        "nvidia-nim",
+        "doubao",
+        "my-ollama",
+        "afb-v4",
+        "yueshuai",
+        "yeushu",
+        "afbpro",
+        "sap",
+        "afb-015",
+        "xinjiang123",
+        "svip",
+        "xinjiangg",
+        "zhipu",
+        "maikuai",
+        "xingjiang",
+        "yizhichun",
+        "yizhichun1",
+        "yizhichun2",
+        "yizhichun3",
+        "yizhiichun5",
+        "pp",
+        "yizhichun5"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/nvidia-nim/models",
+      "kind": "array",
+      "count": 13,
+      "fields": [
+        "id",
+        "[sensitive-field]",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/doubao/models",
+      "kind": "array",
+      "count": 1,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/my-ollama/models",
+      "kind": "array",
+      "count": 2,
+      "fields": [
+        "id"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/afb-v4/models",
+      "kind": "array",
+      "count": 3,
+      "fields": [
+        "id"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/yueshuai/models",
+      "kind": "array",
+      "count": 8,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/yeushu/models",
+      "kind": "array",
+      "count": 6,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/afbpro/models",
+      "kind": "array",
+      "count": 4,
+      "fields": [
+        "id"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/sap/models",
+      "kind": "array",
+      "count": 6,
+      "fields": [
+        "id"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/afb-015/models",
+      "kind": "array",
+      "count": 4,
+      "fields": [
+        "id"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/xinjiang123/models",
+      "kind": "array",
+      "count": 3,
+      "fields": [
+        "id"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/svip/models",
+      "kind": "array",
+      "count": 17,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/xinjiangg/models",
+      "kind": "array",
+      "count": 21,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/zhipu/models",
+      "kind": "array",
+      "count": 12,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/maikuai/models",
+      "kind": "array",
+      "count": 1,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/xingjiang/models",
+      "kind": "array",
+      "count": 41,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/yizhichun/models",
+      "kind": "array",
+      "count": 9,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/yizhichun1/models",
+      "kind": "array",
+      "count": 1,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/yizhichun2/models",
+      "kind": "array",
+      "count": 5,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/yizhichun3/models",
+      "kind": "array",
+      "count": 7,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/yizhiichun5/models",
+      "kind": "array",
+      "count": 2,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/pp/models",
+      "kind": "array",
+      "count": 1,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/14/config/providers/yizhichun5/models",
+      "kind": "array",
+      "count": 3,
+      "fields": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "desktop-patch/19/config/modelSelectionCn",
+      "kind": "object",
+      "count": 3,
+      "fields": [
+        "enabledModelIds",
+        "imageModelIds",
+        "contextBudgets"
+      ]
+    },
+    {
+      "path": "desktop-patch/19/config/modelSelectionCn/enabledModelIds",
+      "kind": "array",
+      "count": 11,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/19/config/modelSelectionCn/imageModelIds",
+      "kind": "array",
+      "count": 0,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/19/config/modelSelectionGlobal",
+      "kind": "object",
+      "count": 3,
+      "fields": [
+        "enabledModelIds",
+        "imageModelIds",
+        "contextBudgets"
+      ]
+    },
+    {
+      "path": "desktop-patch/19/config/modelSelectionGlobal/enabledModelIds",
+      "kind": "array",
+      "count": 4,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/19/config/modelSelectionGlobal/imageModelIds",
+      "kind": "array",
+      "count": 0,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/4/promos/0/modelIds",
+      "kind": "array",
+      "count": 1,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/5/promos/0/modelIds",
+      "kind": "array",
+      "count": 1,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/7/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/8/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/9/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/10/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/11/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/12/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/13/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/14/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/15/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/16/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/17/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/lastCatalog/23/promos/0/modelIds",
+      "kind": "array",
+      "count": 12,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/enabledModelIds",
+      "kind": "array",
+      "count": 0,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/imageModelIds",
+      "kind": "array",
+      "count": 0,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/preferredVideoModels",
+      "kind": "object",
+      "count": 0,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/global/offModelIds",
+      "kind": "array",
+      "count": 0,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/lastCatalog/0/promos/0/modelIds",
+      "kind": "array",
+      "count": 3,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/lastCatalog/0/promos/1/modelIds",
+      "kind": "array",
+      "count": 3,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/lastCatalog/1/promos/0/modelIds",
+      "kind": "array",
+      "count": 3,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/lastCatalog/3/promos/0/modelIds",
+      "kind": "array",
+      "count": 5,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/lastCatalog/5/promos/0/modelIds",
+      "kind": "array",
+      "count": 3,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/lastCatalog/6/promos/0/modelIds",
+      "kind": "array",
+      "count": 3,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/lastCatalog/7/promos/0/modelIds",
+      "kind": "array",
+      "count": 1,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/lastCatalog/7/promos/1/modelIds",
+      "kind": "array",
+      "count": 1,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/lastCatalog/10/promos/0/modelIds",
+      "kind": "array",
+      "count": 1,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/lastCatalog/15/promos/0/modelIds",
+      "kind": "array",
+      "count": 3,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/lastCatalog/16/promos/0/modelIds",
+      "kind": "array",
+      "count": 5,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/enabledModelIds",
+      "kind": "array",
+      "count": 0,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/imageModelIds",
+      "kind": "array",
+      "count": 0,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/preferredVideoModels",
+      "kind": "object",
+      "count": 0,
+      "fields": []
+    },
+    {
+      "path": "desktop-patch/29/config/regions/cn/offModelIds",
+      "kind": "array",
+      "count": 0,
+      "fields": []
+    }
+  ],
+  "credentialStoresRead": false,
+  "liveCalls": 0
+}

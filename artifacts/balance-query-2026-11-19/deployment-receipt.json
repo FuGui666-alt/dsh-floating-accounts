@@ -1,0 +1,30 @@
+{
+  "at": "2026-11-19T08:03:07.533Z",
+  "installed": "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\node_modules\\dsh-floating-accounts",
+  "profile": "desktop",
+  "version": "1.0.2",
+  "filesVerified": 45,
+  "allDistributedFilesMatch": true,
+  "backup": "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\floating-accounts-balance-backup-70387b76-f790-4d0a-abb6-09e21e167cde",
+  "oldCode": "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\floating-accounts-balance-backup-70387b76-f790-4d0a-abb6-09e21e167cde\\plugin-before",
+  "patchFile": "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\cordis.patch.yml",
+  "patchSha256": "fd8d4854e2a00650f2438893b63199c26cc3b95e335536f8d102e2387e5b902c",
+  "balanceConfig": {
+    "protocol": "sub2api-usage",
+    "endpointPath": "/v1/usage",
+    "unit": "USD",
+    "quotaPerUnit": 1
+  },
+  "sdkConfigCompositionPassed": true,
+  "profileRegistrationUnique": true,
+  "profilePackageUnchanged": true,
+  "accountFileUnchanged": true,
+  "accountDataWritten": false,
+  "realCredentialsRead": false,
+  "liveApiCalls": 0,
+  "browserUsed": false,
+  "restartRequired": true,
+  "runningPluginVerified": false,
+  "knownHistoricalReviewIssuesRemain": true,
+  "warnings": []
+}

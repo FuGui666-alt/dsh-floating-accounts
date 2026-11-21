@@ -1,0 +1,11 @@
+import {spawnSync} from 'node:child_process';import{writeFileSync,mkdirSync}from'node:fs';import{join,dirname}from'node:path';import{fileURLToPath,pathToFileURL}from'node:url';
+const root=dirname(dirname(fileURLToPath(import.meta.url)));mkdirSync(join(root,'artifacts'),{recursive:true});
+// One default entry point for every local test file; host SDK tests are separate and visibly marked when unavailable.
+const localTests=['tests/vault.test.mjs','tests/vault-repairs.test.mjs','tests/validation-repairs.test.mjs','tests/client.test.mjs','tests/client-repairs.test.mjs','tests/rpc-contract.test.mjs','tests/balance.test.mjs','tests/balance-http.test.mjs','tests/balance-client.test.mjs','tests/install.test.mjs','tests/lifecycle-repairs.test.mjs','tests/build-repairs.test.mjs','tests/multi-site-vault.test.mjs','tests/multi-site-balance.test.mjs','tests/multi-site-client.test.mjs','tests/provider-import.test.mjs','tests/provider-import-client.test.mjs'];
+const steps=[{name:'build syntax',command:process.execPath,args:['scripts/build.mjs']},{name:'local storage client installer and delivery regressions',command:process.execPath,args:['--test',...localTests]}];
+const hostAvailable=Boolean(process.env.DSH_TEST_EXECUTABLE&&process.env.DSH_TEST_LOADER);
+if(hostAvailable)steps.push({name:'actual Cordis service registration and persistence (not transport)',command:process.env.DSH_TEST_EXECUTABLE,args:['--expose-internals','--loader',pathToFileURL(process.env.DSH_TEST_LOADER).href,'--test','tests/host.test.mjs','tests/multi-site-host.test.mjs','tests/provider-import-host.test.mjs']});
+const results=[];for(const step of steps){const result=spawnSync(step.command,step.args,{cwd:root,env:{...process.env,ELECTRON_RUN_AS_NODE:'1'},encoding:'utf8',timeout:180000});results.push({name:step.name,exitCode:result.status,stdout:result.stdout,stderr:result.stderr});console.log(step.name+': '+result.status);if(result.status!==0){console.error(result.stdout,result.stderr);break;}}
+const complete=results.length===steps.length&&results.every(r=>r.exitCode===0);
+writeFileSync(join(root,'artifacts/verification.json'),JSON.stringify({at:new Date().toISOString(),hostTestsSkipped:!hostAvailable,completeLocalRegression:complete,hostTransportAndGuiVerified:false,steps:steps.map(s=>s.name),results},null,2));
+if(!complete)process.exitCode=1;

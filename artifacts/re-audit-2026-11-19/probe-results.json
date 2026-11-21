@@ -1,0 +1,69 @@
+{
+  "at": "2026-11-19T03:53:56.405Z",
+  "browserUsed": false,
+  "productionFilesModified": false,
+  "evidence": {
+    "writeOutcome": {
+      "serverCommitted": true,
+      "saveStillEnabled": true,
+      "editorStillPresent": true,
+      "resultUnknownShown": false
+    },
+    "dpapiSynchronousPipe": {
+      "code": "EPIPE",
+      "killsAtRejection": 0,
+      "killsAfterDeadline": 1
+    },
+    "dpapiTermination": {
+      "code": "CRYPTO_ENVIRONMENT",
+      "killCalls": 1,
+      "processCloseObserved": false,
+      "killAccepted": false
+    },
+    "dpapiInvalidOutput": {
+      "helperOutput": "A",
+      "savedRevision": 2,
+      "envelopeCiphertext": "",
+      "readError": "VAULT_LOCKED",
+      "priorValidVaultOverwritten": true
+    },
+    "contentDrift": {
+      "metadataEqual": true,
+      "revisionAfterSave": 2,
+      "foreignBytesOverwritten": true
+    },
+    "manifest": {
+      "emptyManifestAccepted": true,
+      "anyRuntimeFilesPresent": false
+    },
+    "installedVerifier": {
+      "claimedMatches": true,
+      "comparedFiles": 5,
+      "dpapiJsPresent": false
+    },
+    "buildPromotion": {
+      "exitCode": 1,
+      "clientChangedDespiteFailure": true,
+      "vaultStayedOld": true
+    },
+    "buildMissingDpapi": {
+      "exitCode": 0,
+      "sourceDpapiPresent": false,
+      "emittedDpapiPresent": false
+    },
+    "buildInvalidDpapi": {
+      "exitCode": 0,
+      "invalidRuntimeEmitted": true
+    },
+    "stagedDelivery": {
+      "tampered": true,
+      "registeredDespiteStagedDrift": true,
+      "copiedHostDiffers": true
+    },
+    "uninstallOwnership": {
+      "reportedUnregistered": true,
+      "changedDependencyRemoved": true,
+      "oldTargetMoved": true
+    }
+  }
+}

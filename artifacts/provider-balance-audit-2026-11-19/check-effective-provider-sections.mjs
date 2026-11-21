@@ -1,0 +1,10 @@
+// SDK pure configuration composition; no plugin apply, runtime boot, credentials or network.
+import {composeEntries,loadOverlayPatches} from '@deepseek-ai/dsh-app-boot';
+import fs from 'node:fs';import {createRequire} from 'node:module';import {join,dirname} from 'node:path';import {fileURLToPath} from 'node:url';
+const host=createRequire(process.env.DSH_CHECKOUT.replace(/[\\/]$/,'')+'/package.json'),profile='D:/FUGUI/ai/dsh-data/profiles/desktop',local=createRequire(join(profile,'package.json')),folder=dirname(fileURLToPath(import.meta.url));
+const pkg=JSON.parse(fs.readFileSync(join(profile,'package.json'),'utf8'));const layers=[],loaded=[],missing=[];
+for(const name of pkg.dsh.profile.bundles){let file;for(const req of [local,host]){try{file=req.resolve(name+'/cordis.patch.yml');break;}catch{}try{const json=req.resolve(name+'/package.json'),p=JSON.parse(fs.readFileSync(json));if(p.dsh?.bundle?.patch){file=join(dirname(json),p.dsh.bundle.patch);break;}}catch{}}
+ if(file){try{layers.push(loadOverlayPatches('provider-balance-audit',file));loaded.push(name);}catch{missing.push(name);}}else missing.push(name);}
+for(const p of [join(profile,'cordis.patch.yml'),'D:/FUGUI/ai/dsh-data/cordis.patch.yml'])if(fs.existsSync(p))layers.push(loadOverlayPatches('provider-balance-audit',p));
+const rows=composeEntries(layers).filter(p=>/llm|provider-usage|xdpool|workbuddy/i.test(p.id||'')).map(p=>({id:p.id,name:p.name,disabled:p.disabled===true,configFields:Object.keys(p.config||{}).filter(k=>!/key|token|secret|password|credential/i.test(k)),providerIds:Object.keys(p.config?.providers||{}),configuredBaseURL:(()=>{try{return new URL(p.config?.baseURL).origin;}catch{return null;}})()}));
+const result={at:new Date().toISOString(),allBundlePatchesResolved:missing.length===0,loadedCount:loaded.length,missingBundles:missing,composedSections:rows,bootedProfile:false,pluginsApplied:false,credentialResolution:false,liveCalls:0};fs.writeFileSync(join(folder,'effective-sections.json'),JSON.stringify(result,null,2),{flag:'wx'});console.log(JSON.stringify(result,null,2));

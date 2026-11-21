@@ -1,0 +1,71 @@
+{
+  "at": "2026-11-19T09:15:21.910Z",
+  "complete": true,
+  "node": "v24.19.0",
+  "sourceMatchesBuild": true,
+  "installedAndDataUnchanged": true,
+  "protectedHashes": {
+    "D:/FUGUI/ai/dsh-data/profiles/desktop/cordis.patch.yml": "58f5f6d1d6782b97ee8b93156763c3f7447c948e02f494094fc2e3243d892a54",
+    "D:/FUGUI/ai/dsh-data/plugin-data/dsh-floating-accounts/accounts.dpapi.json": "9e336cded8b8f5c2fb4bad0aa3e19c0dc79e88876a0ebe62e47a1b8328fe4f7a",
+    "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\node_modules\\dsh-floating-accounts\\lib\\balance.js": "7bdeab7790737ef6c0579fb8b279e08722908c7d9dc70fbf2f2f651761ea687c",
+    "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\node_modules\\dsh-floating-accounts\\lib\\balance-http.js": "6f834f3319508b381f68465b198a11f6e91f0517cf2f541c11eca6e5070b81f1",
+    "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\node_modules\\dsh-floating-accounts\\lib\\index.js": "90fc14a1fc854d493e4f41e74f872f0c4a700844ed61d7d992d7cd0b251d3661",
+    "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\node_modules\\dsh-floating-accounts\\lib\\client.js": "b8177273835b6e3da9aa27a4d7579f3fb4609561814691bf32a20205753039fa"
+  },
+  "liveCallsDuringVerification": 0,
+  "realCredentialsReadDuringVerification": false,
+  "installedPluginChanged": false,
+  "browserUsed": false,
+  "restarted": false,
+  "liveDiagnosticWasOneSeparateAuthorizedCall": true,
+  "liveModeRedacted": true,
+  "exactLiveResponseReplayed": false,
+  "results": [
+    {
+      "name": "build",
+      "command": "D:\\FUGUI\\ai\\node.js\\node.exe",
+      "args": [
+        "scripts/build.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "Built host and ModuleLoader client without external build dependencies.\n",
+      "stderr": ""
+    },
+    {
+      "name": "local regression",
+      "command": "D:\\FUGUI\\ai\\node.js\\node.exe",
+      "args": [
+        "--test",
+        "tests/vault.test.mjs",
+        "tests/vault-repairs.test.mjs",
+        "tests/validation-repairs.test.mjs",
+        "tests/client.test.mjs",
+        "tests/client-repairs.test.mjs",
+        "tests/rpc-contract.test.mjs",
+        "tests/balance.test.mjs",
+        "tests/balance-http.test.mjs",
+        "tests/balance-client.test.mjs",
+        "tests/install.test.mjs",
+        "tests/lifecycle-repairs.test.mjs",
+        "tests/build-repairs.test.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "✔ opening and loading accounts never automatically queries balance (9.2993ms)\n✔ manual query sends only ID/revision and shows two distinct amounts with time (30.4477ms)\n✔ verified Sub2API result shows key USD quota and explicitly unavailable wallet (3.0172ms)\n✔ manual wallet query uses real query/parser owner with simulated transport and renders separate key meaning (4.9975ms)\n✔ genuine zero and unavailable account balance are shown without fabricated account amount (2.6346ms)\n✔ very small nonzero balances are not formatted as zero (5.3237ms)\n✔ unlimited key is explicitly not an unlimited account balance (2.7729ms)\n✔ synchronous repeated clicks issue exactly one query and disable its button (3.0006ms)\n✔ failure with no previous result is an error, never zero or a successful timestamp (2.3127ms)\n✔ failed refresh preserves old success only with explicit historical label (3.6615ms)\n✔ reload invalidates pending query so a late result cannot populate new configuration (2.3315ms)\n✔ editing then cancelling or deleting invalidates pending result (5.8122ms)\n✔ closing and unmounting discard late queries; no balance goes into localStorage (6.4183ms)\n✔ mismatched identity/revision and malformed RPC facts never render success (12.3854ms)\n✔ each account has independent pending state and exact query identity (2.5389ms)\n✔ balance target uses same origin root path, never v1/v1 concatenation (1.5457ms)\n✔ public-IP boundary excludes private, loopback, mapped and special-use ranges (6.1931ms)\n✔ DNS is validated once and request lookup pins the validated address; no cookie or group key (2.5943ms)\n✔ invalid keys, unsafe IPs and mixed DNS answers never create a request (1.382ms)\n✔ redirect and HTTP failures are not followed or parsed as zero (1.2556ms)\n✔ non JSON, malformed JSON and truncated stream fail without returning values (0.8064ms)\n✔ response size is bounded by both headers and actual bytes (0.4539ms)\n✔ DNS and response timeout do not issue late requests; abort is honoured (27.74ms)\n✔ balance config is explicitly required before any vault/network access (2.3657ms)\n✔ verified Sub2API schema returns key quota, never substitutes it as wallet balance (1.1101ms)\n✔ Sub2API unit and endpoint are explicit, unknown mode or invalid key fails closed (0.6258ms)\n✔ Sub2API malformed or mismatched amounts cannot become a zero or currency default (0.5554ms)\n✔ upstream Sub2API unrestricted wallet does not require quota-only status (0.3062ms)\n✔ wallet mode does not erase failure signals or accept subscription remaining as money (0.3489ms)\n✔ wallet requires matching explicit numeric money and units without defaults (0.3834ms)\n✔ wallet genuine zero, overdraft and tiny numbers are preserved as wallet facts (0.246ms)\n✔ wallet facts pass bounded query owner with a simulated transport and revision check (2.9898ms)\n✔ Sub2API query composes safe facts through the existing bounded host owner (0.6248ms)\n✔ query request contains only account ID and revision (0.3155ms)\n✔ account balance and key quota stay separate with explicit unit scaling (0.5049ms)\n✔ real zero, negative balance and unlimited key are not unknown or artificial money (0.1705ms)\n✔ business failures and malformed values never produce balance zero (0.7638ms)\n✔ original decimal range and conversion underflow are checked before reporting facts (0.4974ms)\n✔ query returns safe facts and completion time without persisting or exposing secrets (0.4676ms)\n✔ post-query revision conflict discards otherwise valid facts (0.3089ms)\n✔ same account is excluded synchronously; separate accounts can query independently (8.4381ms)\n✔ unknown UUID requests cannot exceed four global vault reads even after RPC deadlines (20.526ms)\n✔ deadline before slow vault completion never starts a late network call (14.4992ms)\n✔ deadline during network aborts once and sanitizes unexpected errors (15.1578ms)\n✔ actual encrypted synthetic vault is byte-identical after successful and failed balance queries (2450.4713ms)\n✔ vault lookup and postcheck are read-only, revision-bound and never return group key (0.4995ms)\n✔ S1 recorded build identity accepts matching source and outputs (20.9092ms)\n✔ S1 tampered output is rejected instead of being packaged or installed (20.3294ms)\n✔ S1 source changed after build is rejected (22.2838ms)\n✔ S1 missing build manifest blocks delivery (18.2073ms)\n✔ S1 current project lib matches its recorded build identity (12.3227ms)\n✔ R2 write timeout reports result unknown, never retries, ignores late response (12.694ms)\n✔ R2 read timeout is distinct; immediate transport rejection keeps its own error (16.2715ms)\n✔ R1 floating ball remains above panel stacking layer so panel cannot block ball hit testing (1.1266ms)\n✔ actual client opens/closes with empty-config prompt, sends no external request (8.6364ms)\n✔ actual form saves config in named request RPC args and clears transient secret after success (5.1324ms)\n✔ loading old list cannot edit stale rows and editor save keeps its captured revision (3.8321ms)\n✔ delete cancellation makes no RPC; confirmed delete sends exact account ID and revision (3.411ms)\n✔ failed save clears both transient keys and busy state without caching them (4.9335ms)\n✔ editing hidden keys omits retain fields and explicitly clears selected group key (4.1013ms)\n✔ actual dragging persists only coordinates and does not open the panel (1.9248ms)\n✔ offline install registers only new plugin, preserves all existing config; uninstall keeps vault and backs up code (911.4164ms)\n✔ E2 install and uninstall share exclusive profile lock; competing operation never touches profile (17.7458ms)\n✔ E2 install CAS rejects external profile edits and never rolls back them (277.1013ms)\n✔ E3 move failure preserves registration and repeated uninstall resumes without deleting vault (543.1969ms)\n✔ E3 profile CAS conflict after code backup resumes using latest snapshot (273.1054ms)\n✔ E6 clean developer package verifier creates report from foreign cwd and supports non-desktop profile (250.3895ms)\n✔ E5 installed developer package includes every declared file and all script/test dependencies (236.128ms)\n✔ E2 another target appearing during staging is preserved on failure (231.9529ms)\n✔ save and remove payloads bind to the SRC request parameter; one RPC per call (4.119ms)\n✔ list sends zero arguments; neither undefined request nor account fields enter envelope (1.0946ms)\n✔ complete client apply passes the request envelope and unwraps service response (1.883ms)\n✔ gateway argument failures are not mislabeled as plugin disabled or echoed with secrets (1.638ms)\n✔ E1 normalized Chinese URLs are bounded and round-trip stable (1.6779ms)\n✔ E1 encoded paths and exact normalized length boundary (0.2675ms)\n✔ S2 all whitespace is rejected in secrets and UUIDs are structurally validated (1.4601ms)\n✔ E4 committed save returns success warning when lock close fails and still attempts unlink (29.6048ms)\n✔ E4 cleanup error preserves primary validation error without leaking injected message (9.6711ms)\n✔ R3 unreadable data and environment failures are distinct error types (18.8805ms)\n✔ R3 stdin failure terminates the helper once and reports environment failure (0.8402ms)\n✔ R4 refuses to commit when the vault changes between read and rename; foreign bytes survive (27.7087ms)\n✔ R4 absent vault that appears during write is not overwritten (17.0868ms)\n✔ R4 oversized vault is rejected from one handle without whole-file read (12.0313ms)\n✔ S2 revision ceiling is refused instead of writing an unreadable state (14.731ms)\n✔ S2 generated default names avoid collisions after deletion (52.1746ms)\n✔ strict URL validation accepts HTTPS and loopback only (1.7888ms)\n✔ names and keys validated; optional group key (0.4974ms)\n✔ empty vault runs without any key and creates no data file (8.5547ms)\n✔ REAL Windows DPAPI encrypt/decrypt; ciphertext has no plaintext (1040.3905ms)\n✔ REAL encrypted save survives rebuilding vault; public list never returns secrets (953.6165ms)\n✔ edit preserves hidden key, replaces key and clears optional group (3226.8584ms)\n✔ multi-account add/delete persists without changing other entries (4110.0441ms)\n✔ revision conflict rejects stale write and never overwrites (915.6346ms)\n✔ unknown IDs cannot silently create account (11.6173ms)\n✔ missing new key, invalid input and invalid revision leave no saved account (8.6905ms)\n✔ corrupt encrypted file fails closed and remains byte-identical (920.6187ms)\n✔ encryption failure preserves existing file, removes owned lock/temp (865.6938ms)\n✔ oversized encrypted envelope rejects before rename and preserves readable prior data (1368.414ms)\n✔ foreign/stale lock fails closed, never deletes another owner lock (7.1286ms)\n✔ concurrent stale saves serialize; exactly one succeeds (1342.6701ms)\nℹ tests 100\nℹ suites 0\nℹ pass 100\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 15040.6243\n",
+      "stderr": ""
+    },
+    {
+      "name": "actual isolated SDK gateway",
+      "command": "D:/FUGUI/ai/guanfangdsh/dsh/DeepSeek Harness.exe",
+      "args": [
+        "--expose-internals",
+        "--loader",
+        "file:///D:/FUGUI/ai/WORK/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/dsh-floating-accounts/scripts/runtime-loader.mjs",
+        "--test",
+        "tests/host.test.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "(node:18948) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:\n--import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"file%3A///D%3A/FUGUI/ai/WORK/%25E8%25BD%25AF%25E4%25BB%25B6%25E8%25AE%25BE%25E8%25AE%25A1/dsh-floating-accounts/scripts/runtime-loader.mjs\", pathToFileURL(\"./\")); register(\"file%3A///D%3A/FUGUI/ai/WORK/%25E8%25BD%25AF%25E4%25BB%25B6%25E8%25AE%25BE%25E8%25AE%25A1/dsh-floating-accounts/scripts/runtime-loader.mjs\", pathToFileURL(\"./\"));'\n(Use `DeepSeek Harness --trace-warnings ...` to show where the warning was created)\n✔ public Cordis registers unique service and exact remote method names (2.6366ms)\n✔ host mounts without key or initialized vault (5.0629ms)\n✔ host accepts config object and returns only metadata; restart reads same file (1793.6297ms)\n✔ actual SDK gateway rejects old flattened write args before invoking the service (6.1309ms)\n✔ client bridge through actual SDK gateway persists and removes using named request; no live RPC (1785.0614ms)\n✔ actual SDK balance gateway uses named request and safe results with synthetic vault only (1.6758ms)\n✔ Sub2API facts pass actual SDK gateway without exposing wallet fiction or key (0.8407ms)\n✔ unrestricted wallet passes actual SDK gateway with simulated upstream and no real key (0.9339ms)\n✔ disabled balance RPC does not access vault, network or stop account service mounting (0.3806ms)\n✔ validation and internal failures return bounded safe errors (0.3401ms)\nℹ tests 10\nℹ suites 0\nℹ pass 10\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 3970.9962\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "at": "2026-11-19T03:58:19.909Z",
+  "installed": "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\node_modules\\dsh-floating-accounts",
+  "from": "1.0.0",
+  "to": "1.0.1",
+  "backup": "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\floating-accounts-upgrade-backup-8dea7700-df48-4456-9ba7-90c7ad5a0751",
+  "oldCode": "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\floating-accounts-upgrade-backup-8dea7700-df48-4456-9ba7-90c7ad5a0751\\plugin-1.0.0",
+  "filesVerified": 36,
+  "allDistributedFilesMatch": true,
+  "completeBuildManifest": true,
+  "clientVersion": "1.0.1",
+  "hostVersion": "1.0.1",
+  "profileUnchanged": true,
+  "profileSha256": "5f41fd41a288088fc9c07235de3e37dc99d885258ad292019f1accb6f31293e0",
+  "vaultUnchanged": true,
+  "vaultPresent": false,
+  "accountDataWritten": false,
+  "browserUsed": false,
+  "restartRequired": true,
+  "knownReviewIssuesRemain": true,
+  "warnings": []
+}

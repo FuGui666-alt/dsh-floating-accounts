@@ -1,0 +1,874 @@
+{
+  "at": "2026-11-19T23:38:08.714Z",
+  "status": "needs-repair",
+  "notFinalDelivery": true,
+  "runtime": {
+    "executable": "D:/FUGUI/ai/guanfangdsh/dsh/DeepSeek Harness.exe",
+    "checkout": "D:/FUGUI/ai/guanfangdsh/dsh/resources/app.asar/dsh",
+    "electron": "44.7.0",
+    "node": "24.21.0",
+    "priorFailureCause": "External Node does not resolve Electron ASAR virtual paths; existing Electron run-as-node successfully resolves installed SDK without dependency installation."
+  },
+  "commands": [
+    {
+      "command": "node scripts/build.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": 242,
+      "log": "t7-local.log"
+    },
+    {
+      "command": "ELECTRON_RUN_AS_NODE=1 DSH_CHECKOUT='D:/FUGUI/ai/guanfangdsh/dsh/resources/app.asar/dsh' 'D:/FUGUI/ai/guanfangdsh/dsh/DeepSeek Harness.exe' --expose-internals --loader ./scripts/runtime-loader.mjs --test tests/host.test.mjs tests/multi-site-host.test.mjs tests/protocol-detection-host.test.mjs",
+      "exitCode": 0,
+      "passed": 18,
+      "log": "t7-sdk.log"
+    },
+    {
+      "command": "node scripts/pack.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node artifacts/protocol-detection-2026-11-19/t7-evidence.mjs",
+      "exitCode": 0
+    }
+  ],
+  "package": {
+    "archive": "dist/dsh-floating-accounts-1.1.1.tgz",
+    "sha256": "3c5f33d309a96f70db0faa59f4b5a2da5bae6e526c1701ad176031e739ce072a",
+    "version": "1.1.1",
+    "paths": [
+      {
+        "path": "cordis.patch.yml",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "docs/balance-query-plan.md",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "docs/multi-site-upgrade-spec.md",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "docs/protocol-detection-spec.md",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/balance-http.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/balance.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/build-manifest.json",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/client.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/dpapi.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/dpapi.ps1",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/index.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/validation.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/vault-model.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/vault.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "LICENSE",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "package.json",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "Plan/2. 多站点升级_plan.md",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "Plan/3. 协议检测_plan.md",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "README.md",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/build.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/distribution.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/install.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/lifecycle.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/pack.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/runtime-loader.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/uninstall.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/verify-installed.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/verify.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/balance-http.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/balance.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/client.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/dpapi.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/dpapi.ps1",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/index.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/style.css",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/validation.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/vault-model.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/vault.js",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/balance-client.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/balance-http.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/balance.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/build-repairs.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/client-repairs.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/client.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/host.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/install.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/lifecycle-repairs.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/multi-site-balance.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/multi-site-client.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/multi-site-host.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/multi-site-vault.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/protocol-detection-host.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/protocol-detection.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/rpc-contract.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/validation-repairs.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/vault-repairs.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/vault.test.mjs",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      }
+    ],
+    "verified": true
+  },
+  "baseline": {
+    "source": [
+      {
+        "path": "src/balance-http.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/balance.js",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "src/client.js",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "src/dpapi.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/dpapi.ps1",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/index.js",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "src/style.css",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/validation.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/vault-model.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/vault.js",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "scripts/build.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/distribution.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/install.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/lifecycle.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/pack.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/probe-sdk.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/runtime-loader.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/uninstall.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/verify-installed.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/verify.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/balance-client.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/balance-http.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/balance.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/build-repairs.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/client-repairs.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/client.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/host.test.mjs",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "tests/install.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/lifecycle-repairs.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/multi-site-balance.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/multi-site-client.test.mjs",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "tests/multi-site-host.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/multi-site-vault.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/rpc-contract.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/validation-repairs.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/vault-repairs.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/vault.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/balance-http.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/balance.js",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "lib/build-manifest.json",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "lib/client.js",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "lib/dpapi.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/dpapi.ps1",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/index.js",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "lib/validation.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/vault-model.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/vault.js",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "package.json",
+        "exists": true,
+        "unchanged": false
+      },
+      {
+        "path": "README.md",
+        "exists": true,
+        "unchanged": false
+      }
+    ],
+    "installed": [
+      {
+        "path": "cordis.patch.yml",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "docs/balance-query-plan.md",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "docs/multi-site-upgrade-spec.md",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "installation.json",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/balance-http.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/balance.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/build-manifest.json",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/client.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/dpapi.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/dpapi.ps1",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/index.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/validation.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/vault-model.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "lib/vault.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "LICENSE",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "package.json",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "Plan/2. 多站点升级_plan.md",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "README.md",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/build.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/distribution.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/install.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/lifecycle.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/pack.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/runtime-loader.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/uninstall.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/verify-installed.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "scripts/verify.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/balance-http.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/balance.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/client.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/dpapi.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/dpapi.ps1",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/index.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/style.css",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/validation.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/vault-model.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "src/vault.js",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/balance-client.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/balance-http.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/balance.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/build-repairs.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/client-repairs.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/client.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/host.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/install.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/lifecycle-repairs.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/multi-site-balance.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/multi-site-client.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/multi-site-host.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/multi-site-vault.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/rpc-contract.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/validation-repairs.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/vault-repairs.test.mjs",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "path": "tests/vault.test.mjs",
+        "exists": true,
+        "unchanged": true
+      }
+    ],
+    "installedUnchanged": true,
+    "installScriptsUnchanged": true
+  },
+  "protectedData": {
+    "realVaultRead": false,
+    "realVaultDecrypted": false,
+    "encryptedFileBaselinePresent": false,
+    "reason": "task-start records installed code only and realVaultRead=false; no live vault path or ciphertext digest exists in that baseline, so encrypted-file equality cannot be asserted."
+  },
+  "testChanges": [
+    "tests/host.test.mjs: retain exact old Remote list plus detectBalanceProtocol",
+    "tests/protocol-detection-host.test.mjs: actual SDK named carrier, no injected URL/Key/path, selected fixture Key and unconfigured site, safe DTO, byte-identical fixture vault, stale revision"
+  ],
+  "unresolved": [
+    "PD-2: HTTP429 continuation must stop detection",
+    "PD-3: explicit CNY Sub2API detection must be accepted; current candidate is USD"
+  ],
+  "uncovered": [
+    "No real GUI interaction",
+    "No production HTTP or real Key test",
+    "No installation or real migration"
+  ],
+  "confidence": "B"
+}

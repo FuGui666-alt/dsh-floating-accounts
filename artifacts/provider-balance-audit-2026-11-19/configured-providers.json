@@ -1,0 +1,714 @@
+{
+  "at": "2026-11-19T12:23:14.793Z",
+  "providers": [
+    {
+      "id": "nvidia-nim",
+      "displayName": "NVIDIA接口",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://integrate.api.nvidia.com",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 13,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": []
+    },
+    {
+      "id": "doubao",
+      "displayName": "seed21pro",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://ark.cn-beijing.volces.com",
+        "path": "/api/v3",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 1,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": []
+    },
+    {
+      "id": "my-ollama",
+      "displayName": "越狱ai",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "http://localhost:11434",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 2,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": []
+    },
+    {
+      "id": "afb-v4",
+      "displayName": null,
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://ai.zfb.la",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 3,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": []
+    },
+    {
+      "id": "yueshuai",
+      "displayName": "悦数ai",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://ys666.site",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 8,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "sub2api",
+          "displayName": "月帅",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "yeushu",
+      "displayName": "满血0.55倍",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://ys666.site",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 6,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "sub2api",
+          "displayName": "夜书",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "afbpro",
+      "displayName": null,
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://ai.zfb.la",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 4,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": []
+    },
+    {
+      "id": "sap",
+      "displayName": null,
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://no1.token999.shop",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 6,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": []
+    },
+    {
+      "id": "afb-015",
+      "displayName": null,
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://ai.zfb.la",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 4,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": []
+    },
+    {
+      "id": "xinjiang123",
+      "displayName": "他人密钥",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://api.hcnsec.cn",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 3,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "newapi-relay",
+          "displayName": "他人密钥",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "svip",
+      "displayName": "公益二svip",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://api.hcnsec.cn",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 17,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "newapi-relay",
+          "displayName": "公益二svip",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "xinjiangg",
+      "displayName": "幻城渣渣宇",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://api.hcnsec.cn",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 21,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "newapi-relay",
+          "displayName": "幻城渣渣宇",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "zhipu",
+      "displayName": "智谱",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://open.bigmodel.cn",
+        "path": "/api/paas/v4/",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 12,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": []
+    },
+    {
+      "id": "maikuai",
+      "displayName": "麦块云",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://minekuai.cn",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 1,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "minekuai-wallet",
+          "displayName": "麦块云",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "xingjiang",
+      "displayName": "auto",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://api.hcnsec.cn",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 41,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "newapi-relay",
+          "displayName": "auto",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "yizhichun",
+      "displayName": "1531577373",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 9,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "sub2api",
+          "displayName": "一枝春·Kimi",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "yizhichun1",
+      "displayName": "Deepseek分组",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 1,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "sub2api",
+          "displayName": "一枝春·DeepSeek",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "yizhichun2",
+      "displayName": "385266",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 5,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "sub2api",
+          "displayName": "一枝春·Grok",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "yizhichun3",
+      "displayName": "ChatGPT 分组",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 7,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "sub2api",
+          "displayName": "一枝春·ChatGPT",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "yizhiichun5",
+      "displayName": " 智谱分组",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 2,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "sub2api",
+          "displayName": "一枝春·智谱",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    },
+    {
+      "id": "pp",
+      "displayName": "pp",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "http://192.168.137.1:3425",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 1,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": []
+    },
+    {
+      "id": "yizhichun5",
+      "displayName": "混元四",
+      "api": "openai-completions",
+      "baseURL": {
+        "origin": "https://yizhichun.online",
+        "path": "/v1",
+        "hasEmbeddedAuth": false,
+        "hasQuery": false
+      },
+      "modelCount": 3,
+      "credentialFields": [
+        "apiKeyEnv"
+      ],
+      "configurationFields": [
+        "displayName",
+        "apiKeyEnv",
+        "api",
+        "baseURL",
+        "models"
+      ],
+      "configuredDisabled": false,
+      "balancePluginEntry": [
+        {
+          "kind": "sub2api",
+          "displayName": "一枝春·钱包",
+          "credentialFields": [
+            "apiKeyEnv"
+          ],
+          "sameBaseURL": true
+        }
+      ]
+    }
+  ],
+  "explicitProviderCount": 22,
+  "uniqueOrigins": [
+    "https://integrate.api.nvidia.com",
+    "https://ark.cn-beijing.volces.com",
+    "http://localhost:11434",
+    "https://ai.zfb.la",
+    "https://ys666.site",
+    "https://no1.token999.shop",
+    "https://api.hcnsec.cn",
+    "https://open.bigmodel.cn",
+    "https://minekuai.cn",
+    "https://yizhichun.online",
+    "http://192.168.137.1:3425"
+  ],
+  "pluginIntegrations": [
+    {
+      "id": "llm-xdpool",
+      "disabled": false,
+      "fields": [
+        "distribution",
+        "disabledAccountIds",
+        "modelSelectionCn",
+        "modelSelectionGlobal",
+        "automation",
+        "automationEarnings"
+      ],
+      "regionFlags": {}
+    },
+    {
+      "id": "dsh-connect-workbuddy",
+      "disabled": false,
+      "fields": [
+        "regions"
+      ],
+      "regionFlags": {
+        "global": {
+          "enabled": true,
+          "hasCatalog": true,
+          "catalogEntries": 25
+        },
+        "cn": {
+          "enabled": true,
+          "hasCatalog": true,
+          "catalogEntries": 18
+        }
+      }
+    },
+    {
+      "id": "dsh-connect-workbuddy",
+      "disabled": true,
+      "fields": [],
+      "regionFlags": {}
+    }
+  ],
+  "installedRelevantPackages": [
+    "dsh-api-dashboard",
+    "dsh-connect-workbuddy",
+    "dsh-floating-accounts",
+    "dsh-provider-usage",
+    "dsh-xdpool"
+  ],
+  "protectedConfigHashes": {
+    "D:\\FUGUI\\ai\\dsh-data\\profiles\\desktop\\cordis.patch.yml": "e659747d2f5ce0c240ec632c25c18278e2cf832ab84fd8d36ce1b15dece9ca38",
+    "D:/FUGUI/ai/dsh-data/settings.yaml": "c775d2d71240c437179221c1b0207320ad4cdb1f456495018180a9002305fc47"
+  },
+  "credentialStoreOpened": false,
+  "providerCredentialValuesExported": false,
+  "liveCalls": 0
+}

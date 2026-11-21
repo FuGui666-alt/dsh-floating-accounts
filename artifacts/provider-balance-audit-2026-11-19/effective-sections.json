@@ -1,0 +1,121 @@
+{
+  "at": "2026-11-19T12:30:03.357Z",
+  "allBundlePatchesResolved": true,
+  "loadedCount": 33,
+  "missingBundles": [],
+  "composedSections": [
+    {
+      "id": "llm",
+      "name": "@deepseek-ai/dsh-llm",
+      "disabled": false,
+      "configFields": [],
+      "providerIds": [],
+      "configuredBaseURL": null
+    },
+    {
+      "id": "deepseek-llm-api-extensions",
+      "name": "@deepseek-ai/dsh-deepseek-llm-api-extensions",
+      "disabled": false,
+      "configFields": [],
+      "providerIds": [],
+      "configuredBaseURL": null
+    },
+    {
+      "id": "session-title-llm",
+      "name": "@deepseek-ai/dsh-session-title-first-prompt-llm",
+      "disabled": false,
+      "configFields": [
+        "targetWords",
+        "targetCjkCharacters",
+        "maxInputBytes",
+        "timeoutMs"
+      ],
+      "providerIds": [],
+      "configuredBaseURL": null
+    },
+    {
+      "id": "llm-retry",
+      "name": "@deepseek-ai/dsh-llm-retry",
+      "disabled": false,
+      "configFields": [],
+      "providerIds": [],
+      "configuredBaseURL": null
+    },
+    {
+      "id": "llm-pi-ai",
+      "name": "@deepseek-ai/dsh-llm-pi-ai",
+      "disabled": false,
+      "configFields": [
+        "providers"
+      ],
+      "providerIds": [
+        "nvidia-nim",
+        "doubao",
+        "my-ollama",
+        "afb-v4",
+        "yueshuai",
+        "yeushu",
+        "afbpro",
+        "sap",
+        "afb-015",
+        "xinjiang123",
+        "svip",
+        "xinjiangg",
+        "zhipu",
+        "maikuai",
+        "xingjiang",
+        "yizhichun",
+        "yizhichun1",
+        "yizhichun2",
+        "yizhichun3",
+        "yizhiichun5",
+        "pp",
+        "yizhichun5"
+      ],
+      "configuredBaseURL": null
+    },
+    {
+      "id": "llm-deepseek",
+      "name": "@deepseek-ai/dsh-llm-deepseek-api-key",
+      "disabled": false,
+      "configFields": [],
+      "providerIds": [],
+      "configuredBaseURL": null
+    },
+    {
+      "id": "llm-deepseek-account",
+      "name": "@deepseek-ai/dsh-llm-deepseek-account",
+      "disabled": false,
+      "configFields": [],
+      "providerIds": [],
+      "configuredBaseURL": null
+    },
+    {
+      "id": "llm-xdpool",
+      "name": "dsh-xdpool",
+      "disabled": false,
+      "configFields": [
+        "distribution",
+        "disabledAccountIds",
+        "modelSelectionCn",
+        "modelSelectionGlobal",
+        "automation",
+        "automationEarnings"
+      ],
+      "providerIds": [],
+      "configuredBaseURL": null
+    },
+    {
+      "id": "provider-usage",
+      "name": "dsh-provider-usage",
+      "disabled": false,
+      "configFields": [],
+      "providerIds": [],
+      "configuredBaseURL": null
+    }
+  ],
+  "bootedProfile": false,
+  "pluginsApplied": false,
+  "credentialResolution": false,
+  "liveCalls": 0
+}

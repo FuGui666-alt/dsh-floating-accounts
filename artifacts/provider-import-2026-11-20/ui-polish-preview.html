@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>dsh-floating-accounts 1.2.0 界面美化预览（合成数据）</title>
+<style>
+/* ===== 预览页专属：宿主主题 token 的明/暗两套取值（仅预览用，不属插件代码） ===== */
+:root{
+  --dsw-alias-bg-layer-1:#f5f7fb;--dsw-alias-bg-layer-2:#ffffff;
+  --dsw-alias-label-primary:#182235;--dsw-alias-label-secondary:#55657a;--dsw-alias-label-tertiary:#697589;
+  --dsw-alias-border-l1:#d9deea;
+  --preview-page-bg:#eef1f7;--preview-page-label:#182235;
+}
+html[data-theme="dark"]{
+  --dsw-alias-bg-layer-1:#1e2430;--dsw-alias-bg-layer-2:#171c26;
+  --dsw-alias-label-primary:#e8ecf5;--dsw-alias-label-secondary:#b3bdd0;--dsw-alias-label-tertiary:#8a94a8;
+  --dsw-alias-border-l1:#303947;
+  --preview-page-bg:#0f1218;--preview-page-label:#e8ecf5;
+}
+body{margin:0;padding:28px 16px 60px;background:var(--preview-page-bg);color:var(--preview-page-label);font:14px/1.6 system-ui,-apple-system,'Segoe UI',sans-serif;transition:background .25s,color .25s}
+.preview-bar{position:fixed;top:12px;right:16px;display:flex;gap:8px;z-index:99}
+.preview-bar button{font:inherit;padding:8px 14px;border-radius:10px;border:1px solid #69758955;background:#ffffffd9;color:#182235;cursor:pointer;backdrop-filter:blur(6px)}
+html[data-theme="dark"] .preview-bar button{background:#1e2430d9;color:#e8ecf5}
+.preview-note{max-width:720px;margin:0 auto 18px;padding:10px 14px;border-radius:10px;background:#69758914;border:1px dashed #69758940;font-size:12.5px}
+.preview-note b{display:block;margin-bottom:2px}
+.preview-stage{display:flex;justify-content:center}
+/* 以下把插件面板从 fixed 定位转为文档流，便于预览 */
+.dfa-panel{position:static!important;max-height:none!important;width:min(560px,96vw)}
+/* ===== 插件样式原文（src/style.css @ 5c6baa8f381fd85c5e26379a37c09c775f55d988e7a84c72d8bd276a6d1aad52） ===== */
+</style>
+<style>
+.dfa-ball,.dfa-panel,.dfa-panel *{box-sizing:border-box;-webkit-app-region:no-drag}
+.dfa-ball{position:fixed;z-index:2147483102;width:48px;height:48px;border:2px solid rgba(166,183,255,.75);border-radius:50%;background:radial-gradient(circle at 30% 25%,#7d8df6,#5264dc 58%,#3b4dbf);color:#fff;font:600 18px system-ui;box-shadow:0 6px 18px rgba(37,57,131,.32),0 0 0 4px rgba(82,100,220,.10);cursor:grab;touch-action:none;user-select:none;padding:0}
+.dfa-ball:hover{box-shadow:0 10px 28px rgba(37,57,131,.44),0 0 0 5px rgba(82,100,220,.16)}
+.dfa-ball:active{cursor:grabbing}.dfa-ball:focus-visible{outline:3px solid #93a7ff;outline-offset:3px}
+.dfa-panel{position:fixed;z-index:2147483101;top:max(16px,var(--dsh-frame-chrome-top,0px));max-height:calc(100dvh - max(16px,var(--dsh-frame-chrome-top,0px)) - 16px);display:flex;flex-direction:column;background:var(--dsw-alias-bg-layer-2,#fff);color:var(--dsw-alias-label-primary,#182235);border:1px solid var(--dsw-alias-border-l1,#d9deea);border-radius:20px;box-shadow:0 24px 64px rgba(21,43,94,.16),0 8px 20px rgba(21,43,94,.12),0 1px 2px rgba(21,43,94,.22);font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;outline:none;overflow:hidden}
+@supports ((backdrop-filter:blur(2px)) or (-webkit-backdrop-filter:blur(2px))){.dfa-panel{background:color-mix(in srgb,var(--dsw-alias-bg-layer-2,#fff) 86%,transparent);backdrop-filter:blur(16px) saturate(1.18);-webkit-backdrop-filter:blur(16px) saturate(1.18)}}
+.dfa-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--dsw-alias-border-l1,#e4e8f0);flex-shrink:0}.dfa-header strong{font-size:17px;font-weight:650;letter-spacing:.01em}.dfa-header small{display:block;color:var(--dsw-alias-label-tertiary,#697589);margin-top:3px;font-weight:400;letter-spacing:.01em}
+.dfa-body{padding:16px 18px;overflow:auto;min-height:0;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:rgba(105,117,137,.45) transparent}.dfa-body::-webkit-scrollbar{width:8px}.dfa-body::-webkit-scrollbar-track{background:transparent}.dfa-body::-webkit-scrollbar-thumb{background:rgba(105,117,137,.35);border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dfa-body::-webkit-scrollbar-thumb:hover{background:rgba(105,117,137,.55);background-clip:padding-box}.dfa-toolbar,.dfa-actions{display:flex;gap:8px;row-gap:8px;flex-wrap:wrap}.dfa-toolbar{justify-content:space-between;margin-bottom:16px}
+.dfa-panel button{font:inherit;border:1px solid var(--dsw-alias-border-l1,#d6ddeb);border-radius:8px;background:var(--dsw-alias-bg-layer-1,#f5f7fb);color:inherit;padding:7px 12px;cursor:pointer;min-height:34px}.dfa-panel button:hover{filter:brightness(.96);border-color:color-mix(in srgb,var(--dsw-alias-label-tertiary,#697589) 34%,var(--dsw-alias-border-l1,#d6ddeb))}.dfa-panel button:disabled{opacity:.55;cursor:wait}.dfa-panel button:focus-visible,.dfa-panel input:focus-visible,.dfa-panel select:focus-visible{outline:2px solid #6b82f5;outline-offset:2px}.dfa-panel button.dfa-primary{background:linear-gradient(180deg,#6275e8,#5264dc);color:#fff;border-color:#5264dc}.dfa-panel button.dfa-primary:hover{filter:brightness(1.07);box-shadow:0 2px 10px rgba(82,100,220,.38)}.dfa-panel button.dfa-icon{font-size:22px;line-height:1;min-width:34px;padding:4px;border:0;background:transparent;border-radius:50%}.dfa-panel button.dfa-icon:hover{background:color-mix(in srgb,var(--dsw-alias-label-tertiary,#697589) 12%,transparent);filter:none}.dfa-panel button.dfa-danger{color:#c73939}.dfa-panel button.dfa-danger:hover{background:color-mix(in srgb,#c73939 10%,transparent);border-color:color-mix(in srgb,#c73939 42%,var(--dsw-alias-border-l1,#d6ddeb));filter:none}
+.dfa-empty{padding:24px 12px;text-align:center;background:var(--dsw-alias-bg-layer-1,#f5f7fb);border:1px dashed color-mix(in srgb,var(--dsw-alias-label-tertiary,#697589) 40%,transparent);border-radius:12px}.dfa-empty strong{font-size:15px}.dfa-empty p{color:var(--dsw-alias-label-tertiary,#697589);margin-bottom:0}
+.dfa-account{padding:12px;border:1px solid var(--dsw-alias-border-l1,#e1e5ef);border-radius:12px;margin-bottom:10px;background:var(--dsw-alias-bg-layer-2,#fff)}.dfa-account:hover{box-shadow:0 4px 14px rgba(21,43,94,.10)}.dfa-account strong{display:block;overflow-wrap:anywhere}.dfa-url{font-size:12px;color:var(--dsw-alias-label-secondary,#55657a);overflow-wrap:anywhere;margin:5px 0}.dfa-meta{color:var(--dsw-alias-label-tertiary,#697589);font-size:12px}.dfa-account .dfa-meta{margin:6px 0 10px}
+.dfa-field{display:flex;flex-direction:column;gap:6px;margin:12px 0}.dfa-field input{width:100%;height:38px;font:inherit;border:1px solid var(--dsw-alias-border-l1,#cbd4e3);border-radius:10px;padding:7px 10px;color:inherit;background:var(--dsw-alias-bg-layer-1,#fbfcfe)}.dfa-field input:focus{border-color:#6b82f5;box-shadow:0 0 0 3px rgba(107,130,245,.16);outline:none}.dfa-check{display:flex;align-items:center;gap:8px;margin:12px 0}.dfa-check input{width:16px;height:16px}.dfa-panel h3{margin:0 0 12px;font-size:15px}
+.dfa-error,.dfa-success{position:relative;padding:10px 12px 10px 38px;border-radius:10px;margin-bottom:12px;overflow-wrap:anywhere;border:1px solid var(--dsw-alias-border-l1,#d9deea)}.dfa-error::before{content:"✕"}.dfa-success::before{content:"✓"}.dfa-error::before,.dfa-success::before,.dfa-migration::before,.dfa-import-warning::before,.dfa-import-conflict::before{position:absolute;left:10px;top:10px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;line-height:1;color:#fff;background:#b73131}
+.dfa-error{color:#b73131;background:#ffeded;border-left:4px solid #b73131}.dfa-success{color:#19764b;background:#edf9f2;border-left:4px solid #19764b}.dfa-success::before{background:#19764b}
+.dfa-balance{padding:8px 10px;margin:8px 0;border-radius:8px;background:var(--dsw-alias-bg-layer-1,#f5f7fb);overflow-wrap:anywhere;border:1px solid color-mix(in srgb,var(--dsw-alias-border-l1,#d9deea) 55%,transparent)}.dfa-balance p{margin:4px 0;font-variant-numeric:tabular-nums}.dfa-balance-error{color:#b73131}
+.dfa-footer{padding:10px 18px;border-top:1px solid var(--dsw-alias-border-l1,#e4e8f0);color:var(--dsw-alias-label-tertiary,#697589);font-size:11px;flex-shrink:0}
+.dfa-field select{width:100%;min-height:38px;font:inherit;border:1px solid var(--dsw-alias-border-l1,#cbd4e3);border-radius:10px;padding:7px 10px;color:inherit;background:var(--dsw-alias-bg-layer-1,#fbfcfe)}.dfa-field select:focus{border-color:#6b82f5;box-shadow:0 0 0 3px rgba(107,130,245,.16);outline:none}.dfa-field select:disabled{opacity:.6}
+.dfa-site{padding:14px;margin-bottom:14px;border:1px solid var(--dsw-alias-border-l1,#d9deea);border-radius:14px;background:var(--dsw-alias-bg-layer-1,#f5f7fb);box-shadow:0 1px 2px rgba(21,43,94,.06)}.dfa-site h3{margin-bottom:4px}.dfa-site>.dfa-meta{display:inline-block;margin:6px 0 0;padding:2px 9px;border-radius:999px;font-size:11px;line-height:1.5;background:rgba(105,117,137,.10);border:1px solid rgba(105,117,137,.25)}.dfa-site-actions{margin:10px 0 12px}.dfa-credentials{list-style:none;margin:8px 0;padding:0}.dfa-credentials li{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:8px 10px;margin:0 -10px;border-radius:8px;border-bottom:1px solid color-mix(in srgb,var(--dsw-alias-border-l1,#e1e5ef) 62%,transparent)}.dfa-credentials li:hover{background:color-mix(in srgb,var(--dsw-alias-label-tertiary,#697589) 7%,transparent)}.dfa-credentials li>div{min-width:0;max-width:100%;overflow-wrap:anywhere}.dfa-credentials strong{font-size:12px}.dfa-credentials .dfa-actions{gap:4px}.dfa-credentials button{padding:5px 8px;font-size:12px}
+.dfa-migration{position:relative;padding:12px 12px 12px 38px;margin:10px 0 14px;border:1px solid #d8b56c;border-left:4px solid #b08a1e;border-radius:10px;background:var(--dsw-alias-bg-layer-1,#fff9eb);overflow-wrap:anywhere}.dfa-migration::before{content:"!";background:#b08a1e}.dfa-migration p{margin:8px 0}.dfa-preview-site{padding:8px 0;border-top:1px solid color-mix(in srgb,var(--dsw-alias-border-l1,#d9deea) 62%,transparent)}.dfa-preview-site ul{padding-left:20px}.dfa-currency+.dfa-currency{border-top:1px solid color-mix(in srgb,var(--dsw-alias-border-l1,#d9deea) 62%,transparent);padding-top:4px;margin-top:6px}
+.dfa-import{padding:12px;margin:10px 0 14px;border:1px solid var(--dsw-alias-border-l1,#d9deea);border-radius:12px;background:var(--dsw-alias-bg-layer-1,#f5f7fb);overflow-wrap:anywhere}.dfa-import h3{margin:0 0 8px;font-size:15px}.dfa-import p{margin:6px 0}
+.dfa-import-row{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;margin:0 -10px;border-radius:8px;border-bottom:1px solid color-mix(in srgb,var(--dsw-alias-border-l1,#e1e5ef) 62%,transparent)}.dfa-import-row:hover{background:color-mix(in srgb,var(--dsw-alias-label-tertiary,#697589) 7%,transparent)}.dfa-import-row input{width:16px;height:16px;margin-top:2px;flex-shrink:0}.dfa-import-row>span{display:flex;flex-direction:column;gap:2px;min-width:0}.dfa-import-row strong{overflow-wrap:anywhere}.dfa-import-row input:focus-visible{outline:2px solid #6b82f5;outline-offset:2px}
+.dfa-import-plan{padding:8px 0;border-top:1px solid color-mix(in srgb,var(--dsw-alias-border-l1,#d9deea) 62%,transparent)}.dfa-import-plan p{margin:2px 0}
+.dfa-import-warning{position:relative;color:#8a6d1a;background:#fff9eb;border:1px solid #d8b56c;border-left:4px solid #b08a1e;border-radius:10px;padding:8px 10px 8px 38px;margin:8px 0}.dfa-import-warning::before{content:"!";background:#b08a1e}
+.dfa-import-conflict{position:relative;margin:8px 0;padding:8px 10px 8px 38px;border:1px solid #d8b56c;border-left:4px solid #b08a1e;border-radius:10px;background:#fff9eb}.dfa-import-conflict::before{content:"!";background:#b08a1e}.dfa-import-conflict strong{display:block;margin-bottom:4px}.dfa-import-conflict-row{padding:6px 0;border-top:1px dashed var(--dsw-alias-border-l1,#d9deea)}.dfa-import-conflict-row label{display:flex;gap:6px;align-items:center;font-size:12px;margin:4px 0;cursor:pointer}.dfa-import-conflict-row input{width:14px;height:14px;flex-shrink:0}.dfa-import-conflict-row input:focus-visible{outline:2px solid #6b82f5;outline-offset:2px}
+@supports (color:color-mix(in srgb,red,blue)){
+.dfa-error{color:color-mix(in srgb,#b73131 76%,var(--dsw-alias-label-primary,#182235));background:color-mix(in srgb,#b73131 9%,var(--dsw-alias-bg-layer-1,#f5f7fb));border-color:color-mix(in srgb,#b73131 26%,var(--dsw-alias-border-l1,#d9deea));border-left-color:#b73131}.dfa-error::before{background:#b73131}
+.dfa-success{color:color-mix(in srgb,#19764b 76%,var(--dsw-alias-label-primary,#182235));background:color-mix(in srgb,#19764b 9%,var(--dsw-alias-bg-layer-1,#f5f7fb));border-color:color-mix(in srgb,#19764b 26%,var(--dsw-alias-border-l1,#d9deea));border-left-color:#19764b}.dfa-success::before{background:#19764b}
+.dfa-balance-error{color:color-mix(in srgb,#b73131 76%,var(--dsw-alias-label-primary,#182235))}
+.dfa-migration{background:color-mix(in srgb,#b08a1e 9%,var(--dsw-alias-bg-layer-1,#f5f7fb));border-color:color-mix(in srgb,#b08a1e 34%,var(--dsw-alias-border-l1,#d9deea));border-left-color:#b08a1e}
+.dfa-import-warning{color:color-mix(in srgb,#8a6d1a 72%,var(--dsw-alias-label-primary,#182235));background:color-mix(in srgb,#b08a1e 9%,var(--dsw-alias-bg-layer-1,#f5f7fb));border-color:color-mix(in srgb,#b08a1e 34%,var(--dsw-alias-border-l1,#d9deea));border-left-color:#b08a1e}
+.dfa-import-conflict{background:color-mix(in srgb,#b08a1e 9%,var(--dsw-alias-bg-layer-1,#f5f7fb));border-color:color-mix(in srgb,#b08a1e 34%,var(--dsw-alias-border-l1,#d9deea));border-left-color:#b08a1e}
+.dfa-site>.dfa-meta{background:color-mix(in srgb,var(--dsw-alias-label-tertiary,#697589) 12%,transparent);border-color:color-mix(in srgb,var(--dsw-alias-label-tertiary,#697589) 26%,transparent)}
+}
+@media (prefers-reduced-motion: no-preference){
+.dfa-panel button,.dfa-field input,.dfa-field select,.dfa-account,.dfa-credentials li,.dfa-import-row{transition:background-color .15s ease,border-color .15s ease,box-shadow .15s ease,filter .15s ease}
+.dfa-ball{transition:transform .15s ease,box-shadow .15s ease;animation:dfa-ball-breathe 3.2s ease-in-out infinite}
+.dfa-ball:hover{transform:scale(1.05)}
+.dfa-ball:active{transition-duration:.08s}
+.dfa-panel{animation:dfa-panel-in .18s ease-out}
+.dfa-account:hover{transform:translateY(-1px)}
+@keyframes dfa-ball-breathe{0%,100%{box-shadow:0 6px 18px rgba(37,57,131,.32),0 0 0 4px rgba(82,100,220,.10)}50%{box-shadow:0 6px 18px rgba(37,57,131,.32),0 0 0 7px rgba(82,100,220,.18)}}
+@keyframes dfa-panel-in{from{opacity:0;transform:scale(.965) translateY(-4px)}to{opacity:1;transform:scale(1) translateY(0)}}
+}
+@media(max-width:480px){.dfa-body{padding:12px}.dfa-header{padding:12px}.dfa-panel button{min-height:40px}.dfa-field input{height:42px}.dfa-field select{min-height:42px}.dfa-credentials li{align-items:flex-start}.dfa-credentials .dfa-actions{width:100%}.dfa-site{padding:12px;border-radius:12px}.dfa-account{padding:10px}.dfa-error,.dfa-success,.dfa-migration,.dfa-import-warning,.dfa-import-conflict{padding-left:36px}.dfa-error::before,.dfa-success::before,.dfa-migration::before,.dfa-import-warning::before,.dfa-import-conflict::before{left:8px;top:9px}}
+
+</style>
+</head>
+<body>
+<div class="preview-bar">
+  <button id="themeBtn" type="button">切换深/浅主题</button>
+</div>
+<div class="preview-note">
+  <b>合成数据预览（非真实账号）</b>
+  这是 t12 界面美化的静态预览：CSS 与插件构建产物逐字一致，数据全部为虚构站点/账号/凭据。右上角切换明暗主题；面板默认位置已改为文档流便于滚动查看。安装前请先在此确认观感；功能零变更，文案与真实面板逐字相同。
+</div>
+<div class="preview-stage">
+<div class="dfa-panel" id="panel" tabindex="-1">
+  <header class="dfa-header">
+    <div><strong>账号配置</strong><small>站点 → 账号 → 凭据 · 余额仅手动查询</small></div>
+    <button class="dfa-icon" type="button" aria-label="收起账号面板">×</button>
+  </header>
+  <div class="dfa-body">
+    <div class="dfa-success" role="status">已加密保存</div>
+    <div class="dfa-toolbar">
+      <div class="dfa-actions" style="gap:8px">
+        <button class="dfa-primary" type="button">+ 添加站点</button>
+        <button type="button">从 DSH 导入供应商</button>
+      </div>
+      <div class="dfa-actions" style="gap:8px">
+        <button type="button">重新载入</button>
+      </div>
+    </div>
+
+    <section class="dfa-site">
+      <h3>DeepSeek 官方</h3>
+      <div class="dfa-url">https://api.deepseek.com</div>
+      <span class="dfa-meta">协议：deepseek-balance</span>
+      <div class="dfa-actions dfa-site-actions">
+        <button type="button">+ 添加账号</button>
+        <button type="button">编辑站点</button>
+        <button class="dfa-danger" type="button">删除站点</button>
+      </div>
+      <article class="dfa-account">
+        <strong>主账号</strong>
+        <div class="dfa-url">—</div>
+        <p class="dfa-meta">1 个凭据</p>
+        <ul class="dfa-credentials">
+          <li>
+            <div><strong>默认模型 Key</strong><span class="dfa-meta">模型 API Key · 已保存</span></div>
+            <div class="dfa-actions"><button type="button">编辑凭据</button><button class="dfa-danger" type="button">删除凭据</button></div>
+          </li>
+        </ul>
+        <div class="dfa-balance" aria-live="polite">
+          <p>余额：¥ 86.42（总可用）</p>
+          <p>赠金 ¥ 12.00 · 充值 ¥ 74.42</p>
+        </div>
+        <div class="dfa-actions">
+          <button type="button">查询余额</button>
+          <button type="button">检测协议</button>
+          <button type="button">编辑</button>
+          <button class="dfa-danger" type="button">删除</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="dfa-site">
+      <h3>中转站（示例）</h3>
+      <div class="dfa-url">https://relay.example.com/v1</div>
+      <span class="dfa-meta">协议：sub2api-usage · USD</span>
+      <div class="dfa-actions dfa-site-actions">
+        <button type="button">+ 添加账号</button>
+        <button type="button">编辑站点</button>
+        <button class="dfa-danger" type="button">删除站点</button>
+      </div>
+      <article class="dfa-account">
+        <strong>示例账号 A</strong>
+        <div class="dfa-url">—</div>
+        <p class="dfa-meta">2 个凭据</p>
+        <ul class="dfa-credentials">
+          <li>
+            <div><strong>Key #1</strong><span class="dfa-meta">模型 API Key · 已保存</span></div>
+            <div class="dfa-actions"><button type="button">编辑凭据</button><button class="dfa-danger" type="button">删除凭据</button></div>
+          </li>
+          <li>
+            <div><strong>分组密钥</strong><span class="dfa-meta">分组密钥 · 已保存</span></div>
+            <div class="dfa-actions"><button type="button">编辑凭据</button><button class="dfa-danger" type="button">删除凭据</button></div>
+          </li>
+        </ul>
+        <div class="dfa-balance" aria-live="polite">
+          <p class="dfa-balance-error" role="alert">余额查询失败：接口限流（429）；未获得本次余额，请手动重试</p>
+        </div>
+        <div class="dfa-actions">
+          <button type="button">查询余额</button>
+          <button type="button">检测协议</button>
+          <button type="button">编辑</button>
+          <button class="dfa-danger" type="button">删除</button>
+        </div>
+      </article>
+      <article class="dfa-account">
+        <strong>示例账号 B（未配置协议）</strong>
+        <div class="dfa-url">—</div>
+        <p class="dfa-meta">1 个凭据</p>
+        <ul class="dfa-credentials">
+          <li>
+            <div><strong>Key #2</strong><span class="dfa-meta">模型 API Key · 未设置</span></div>
+            <div class="dfa-actions"><button type="button">编辑凭据</button><button class="dfa-danger" type="button">删除凭据</button></div>
+          </li>
+        </ul>
+        <div class="dfa-balance" aria-live="polite"><p>余额：未查询</p></div>
+        <div class="dfa-actions">
+          <button type="button">查询余额</button>
+          <button type="button">检测协议</button>
+          <button type="button">编辑</button>
+          <button class="dfa-danger" type="button">删除</button>
+        </div>
+      </article>
+    </section>
+
+    <div class="dfa-import">
+      <h3>从 DSH 导入供应商</h3>
+      <p>勾选要导入的供应商（name/baseURL/是否已配 Key），确认后写入本插件 DPAPI 加密存储，仅保存在本地。</p>
+      <div class="dfa-import-row">
+        <input type="checkbox" checked>
+        <span><strong>示例供应商 · https://relay.example.com/v1</strong><span class="dfa-meta">已配置 Key · 4 个模型</span></span>
+      </div>
+      <div class="dfa-import-row">
+        <input type="checkbox">
+        <span><strong>本地 Ollama · http://localhost:11434/v1</strong><span class="dfa-meta">未配置 Key · 1 个模型</span></span>
+      </div>
+      <div class="dfa-import-warning">所选供应商 Key 将经宿主写入本插件 DPAPI 加密存储，仅保存在本地；重复导入同一供应商会产生重复账号。</div>
+      <div class="dfa-import-conflict">
+        <strong>同 origin 冲突（需选择）</strong>
+        <div class="dfa-import-conflict-row"><label><input type="radio" name="c">并入「中转站（示例）」</label></div>
+        <div class="dfa-import-conflict-row"><label><input type="radio" name="c">新建站点</label></div>
+      </div>
+      <div class="dfa-actions"><button class="dfa-primary" type="button">确认导入</button><button type="button">取消</button></div>
+    </div>
+
+    <div class="dfa-error" role="alert">站点仍有关联账号或凭据，不能删除或更换 origin；请先处理站内账号，跨 origin 须新建站点并重新录入凭据</div>
+    <div class="dfa-migration">
+      <p>检测到旧格式账号。预览迁移不会写入；确认迁移后才转为多站点格式。</p>
+      <div class="dfa-actions"><button type="button">预览迁移</button></div>
+    </div>
+  </div>
+  <footer class="dfa-footer">v1.2.0 · 密钥不会存入浏览器缓存</footer>
+</div>
+</div>
+<script>
+const btn=document.getElementById('themeBtn'),root=document.documentElement;
+btn.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';});
+</script>
+</body>
+</html>

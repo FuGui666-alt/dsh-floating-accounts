@@ -1,0 +1,201 @@
+{
+  "startedAt": "2026-11-19T07:27:45.012Z",
+  "origin": "https://yizhichun.online",
+  "endpointPath": "/v1/usage",
+  "method": "GET",
+  "authorization": "explicit-user-one-read-only-request",
+  "requestInvoked": true,
+  "redirectsFollowed": 0,
+  "retries": 0,
+  "secretsPersisted": false,
+  "installedPluginChanged": false,
+  "browserUsed": false,
+  "vaultRevision": 2,
+  "httpStatus": 200,
+  "result": "json-response-received",
+  "response": {
+    "daily_usage": {
+      "type": "array",
+      "length": 1,
+      "itemShape": {
+        "date": {
+          "type": "string",
+          "redacted": true
+        },
+        "requests": {
+          "type": "number",
+          "redacted": true
+        },
+        "input_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "output_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "cache_read_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "cache_write_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "total_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "cost": {
+          "type": "number",
+          "redacted": true
+        },
+        "actual_cost": {
+          "type": "number",
+          "redacted": true
+        }
+      }
+    },
+    "isValid": true,
+    "mode": "quota_limited",
+    "model_stats": {
+      "type": "array",
+      "length": 1,
+      "itemShape": {
+        "model": {
+          "type": "string",
+          "redacted": true
+        },
+        "requests": {
+          "type": "number",
+          "redacted": true
+        },
+        "input_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "output_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "cache_creation_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "cache_read_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "total_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "cost": {
+          "type": "number",
+          "redacted": true
+        },
+        "actual_cost": {
+          "type": "number",
+          "redacted": true
+        },
+        "account_cost": {
+          "type": "number",
+          "redacted": true
+        }
+      }
+    },
+    "quota": {
+      "limit": 2.5,
+      "remaining": 2.02759083,
+      "unit": "USD",
+      "used": 0.47240917
+    },
+    "remaining": 2.02759083,
+    "status": "active",
+    "unit": "USD",
+    "usage": {
+      "average_duration_ms": {
+        "type": "number",
+        "redacted": true
+      },
+      "rpm": {
+        "type": "number",
+        "redacted": true
+      },
+      "today": {
+        "actual_cost": {
+          "type": "number",
+          "redacted": true
+        },
+        "cache_creation_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "cache_read_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "cost": {
+          "type": "number",
+          "redacted": true
+        },
+        "input_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "output_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "requests": {
+          "type": "number",
+          "redacted": true
+        },
+        "total_tokens": {
+          "type": "number",
+          "redacted": true
+        }
+      },
+      "total": {
+        "actual_cost": {
+          "type": "number",
+          "redacted": true
+        },
+        "cache_creation_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "cache_read_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "cost": {
+          "type": "number",
+          "redacted": true
+        },
+        "input_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "output_tokens": {
+          "type": "number",
+          "redacted": true
+        },
+        "requests": {
+          "type": "number",
+          "redacted": true
+        },
+        "total_tokens": {
+          "type": "number",
+          "redacted": true
+        }
+      },
+      "tpm": {
+        "type": "number",
+        "redacted": true
+      }
+    }
+  },
+  "vaultUnchanged": true,
+  "completedAt": "2026-11-19T07:27:46.070Z"
+}

@@ -1,0 +1,32 @@
+{
+  "at": "2026-11-20T06:25:23.718Z",
+  "profile": "desktop",
+  "registered": true,
+  "priorProfileUnchanged": true,
+  "installedSourceMatchesBuild": true,
+  "files": [
+    {
+      "name": "index.js",
+      "sha256": "faba89e08c65586406829aa4503d0e433dee390163827a87d020f3f7f1a010d4"
+    },
+    {
+      "name": "validation.js",
+      "sha256": "1a34af8908c5c5ea26445884ab4be40ebd7d6a97712cfedf01154f9a43fcbce1"
+    },
+    {
+      "name": "vault.js",
+      "sha256": "0313976f95e5430e049606106c287312fa3536ac21628689dc19a5b0813a11d6"
+    },
+    {
+      "name": "dpapi.ps1",
+      "sha256": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e"
+    },
+    {
+      "name": "client.js",
+      "sha256": "c2e872017a52c633f4abc629b8e9d5a3e599fd54ff7606e3eb4d7ffbf2e0128f"
+    }
+  ],
+  "restartRequired": true,
+  "realGuiVerified": false,
+  "realRpcTransportVerified": false
+}

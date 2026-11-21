@@ -1,0 +1,13 @@
+{
+  "goalId": "goal-56f80f1d-2fc6-4567-8894-7626609f7e7b",
+  "round": 1,
+  "state": "needs-verification",
+  "guiAuthenticationBlockedConsecutiveRounds": 1,
+  "guiObservation": "BrowserSkill owned session twun at existing http://127.0.0.1:60256 showed dsh web authentication required; reopen the URL printed by dsh web. Session stopped after observation.",
+  "installedBuildConfirmed": true,
+  "existingProfileSettingsPreserved": true,
+  "realGuiVerified": false,
+  "realRpcTransportVerified": false,
+  "newEvidenceThisRound": "Added generated-client action regressions for delete cancellation/confirmation, failed-save transient key cleanup, and optional-group retain/clear. Strengthened request assertions by capturing fixture request at send time, not after cleanup. Fresh full regression: 27 passed; build and offline packaging exit 0. No production source changed this round.",
+  "next": "User saves session and restarts DSH, opens its authorized GUI; verify floating widget and real configuration RPC there. Do not extract authentication tokens, start replacement servers, or treat harness as GUI evidence."
+}

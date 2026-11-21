@@ -1,0 +1,56 @@
+{
+  "at": "2026-11-19T12:27:46.903Z",
+  "integrations": [
+    {
+      "id": "llm-pi-ai",
+      "name": "@deepseek-ai/dsh-llm-pi-ai",
+      "disabled": false,
+      "configKeys": [
+        "providers"
+      ]
+    },
+    {
+      "id": "llm-xdpool",
+      "name": "dsh-xdpool",
+      "disabled": false,
+      "configKeys": [
+        "distribution",
+        "disabledAccountIds",
+        "modelSelectionCn",
+        "modelSelectionGlobal",
+        "automation",
+        "automationEarnings"
+      ]
+    },
+    {
+      "id": "billion-context-xdpool",
+      "name": null,
+      "disabled": true,
+      "configKeys": []
+    },
+    {
+      "id": "dsh-connect-workbuddy",
+      "name": "dsh-connect-workbuddy",
+      "disabled": false,
+      "configKeys": [
+        "regions"
+      ]
+    },
+    {
+      "id": "dsh-connect-workbuddy",
+      "name": null,
+      "disabled": true,
+      "configKeys": []
+    }
+  ],
+  "aggregate": {
+    "exists": true,
+    "configHash": "4b8894d57dfa621e534ef4eb25263e8f00254cbcb4327f1f98796314ac279dde",
+    "topKeys": [
+      "version"
+    ],
+    "providers": []
+  },
+  "credentialValuesExported": false,
+  "liveCalls": 0
+}

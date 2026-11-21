@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-19",
+  "scope": "save/remove RPC argument envelope and safe contract-error reporting",
+  "sourceVersion": "1.0.2",
+  "installedVersionAtVerification": "1.0.2",
+  "deployment": "completed-after-explicit-user-confirmation",
+  "deploymentReceipt": "upgrade-receipt.json",
+  "productionPluginCodeReplaced": true,
+  "rootCause": "SRC gateway requires args keyed by the method formal parameter request; flattened account fields trigger gateway/arguments-invalid before the vault is called",
+  "ownerFix": "src/client.js rpcWithDeadline uses args: request === undefined ? {} : { request }",
+  "backendRemoteRegistrationChanged": false,
+  "backendChanges": ["version constant only"],
+  "tests": {
+    "local": {"passed": 54, "failed": 0, "skipped": 0, "exitCode": 0},
+    "actualSdkHostAndGateway": {"passed": 6, "failed": 0, "exitCode": 0, "policy": "allow stub in a new isolated Context only", "crypto": "real Windows DPAPI with temporary synthetic account fixtures"},
+    "independentSdkAssertions": {"assertions": 7, "exitCode": 0, "vault": "fake synthetic vault", "policy": "inert isolated dependency"}
+  },
+  "oldTestAssertionsCorrected": "Five existing client cases now inspect carrier.args.request, preserving their original business assertions; public gateway independently disproves the old flat-envelope assertions",
+  "sourceBuildVerified": true,
+  "stagedUpgradeCheck": {"targetFrom": "1.0.1", "targetTo": "1.0.2", "files": 37, "exitCode": 0},
+  "productionProfileWritten": false,
+  "realAccountDataReadOrWritten": false,
+  "browserUsed": false,
+  "liveRpcOrHttpUsed": false,
+  "unverified": ["real page save following deployment/restart", "live authorization policy behavior"],
+  "previousAuditIssuesRemainOutsideThisSlice": true
+}

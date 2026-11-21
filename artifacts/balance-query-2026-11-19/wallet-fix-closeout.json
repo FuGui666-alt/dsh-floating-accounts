@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-19T09:09:49.189Z",
+  "sourceStillMatchesVerifiedBuild": true,
+  "protectedStillUnchanged": true,
+  "review": {
+    "critical": 0,
+    "important": 0,
+    "minorClosed": 1,
+    "advisory": true
+  },
+  "installed": false,
+  "exactLiveModeKnown": false,
+  "exactLiveResponseReplayed": false,
+  "hashes": {
+    "src/balance.js": "b9762e82eb42ce89bd5689acdbb8ed3dbcd5fd070526a56dede3bbac16c74ee2",
+    "tests/balance.test.mjs": "229558e1f0018db9569207827dfc924a4c31323d1cd664b83350e52a4b6e85b1",
+    "tests/balance-client.test.mjs": "66ef7c456b158dac0d68e1e8a28993f12878210da321f1af28a2d11a03a6b8ba",
+    "tests/host.test.mjs": "ee025181e05bd5d034fc8d243f97e3eff41aaa8fc38b8324284da79d4c028327",
+    "README.md": "595a3e48d412f5006201646ff149f10048cd18770ff6bbbc808c4909b5424516",
+    "docs/balance-query-plan.md": "463a2b7f4dd753102c13391cae9bee8793084aea50eba23a974b4edf28af6829",
+    "docs/balance-query-result.md": "43fa7aa942cf423c3c096415ce711ccb5731eed6527aecbbc32dc84a57e4f862",
+    "docs/balance-wallet-fix-2026-11-19.md": "3c0cc6665930d2b90d1f043975624be72ca492c9b35f0a08532fef418cc6d1aa"
+  }
+}

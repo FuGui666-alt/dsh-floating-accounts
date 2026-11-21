@@ -1,0 +1,10 @@
+// Metadata-only discovery of integrations and XD Pool configured switches.
+import fs from 'node:fs';import {createRequire} from 'node:module';import {dirname,join} from 'node:path';import {fileURLToPath} from 'node:url';import {createHash} from 'node:crypto';
+const folder=dirname(fileURLToPath(import.meta.url)),profile='D:/FUGUI/ai/dsh-data/profiles/desktop',yaml=createRequire(join(profile,'package.json'))('yaml');
+const patch=yaml.parse(fs.readFileSync(join(profile,'cordis.patch.yml'),'utf8')),safe=s=>typeof s==='string'?s.replace(/(?:sk-|nvapi-|Bearer\s+)\S+/gi,'[redacted]').slice(0,100):null;
+const integrations=patch.filter(p=>/llm|provider-usage|xdpool|dashboard|workbuddy/i.test(p.name||p.id||'')).map(p=>({id:safe(p.id),name:safe(p.name),disabled:p.disabled===true,configKeys:Object.keys(p.config||{}).filter(k=>!/token|secret|key|credential|cookie|password/i.test(k))}));
+const aggregatePath='D:/FUGUI/ai/dsh-data/.xdpool/aggregate.json';let aggregate={exists:false};
+if(fs.existsSync(aggregatePath)){const b=fs.readFileSync(aggregatePath),raw=JSON.parse(b.toString('utf8'));aggregate={exists:true,configHash:createHash('sha256').update(b).digest('hex'),topKeys:Object.keys(raw).filter(k=>!/key|token|secret/i.test(k)),providers:Object.entries(raw.providers||raw).filter(([k,v])=>v&&typeof v==='object').map(([id,p])=>({id,enabled:p.enabled===true,hasApiCredential:!!p.apiKey||!!p.apiKeys?.length,modelCount:p.models?.length||p.discovered?.length||0,hasCustomBaseURL:typeof p.baseUrl==='string'}))};}
+const providers=JSON.parse(fs.readFileSync(join(folder,'configured-providers.json')));
+console.log(providers.providers.map(p=>[p.id,p.displayName||'',p.baseURL.origin,p.modelCount,p.balancePluginEntry.map(e=>e.kind).join(',')].join(' | ')).join('\n'));
+const result={at:new Date().toISOString(),integrations,aggregate,credentialValuesExported:false,liveCalls:0};fs.writeFileSync(join(folder,'integrations.json'),JSON.stringify(result,null,2),{flag:'wx'});console.log(JSON.stringify(result,null,2));

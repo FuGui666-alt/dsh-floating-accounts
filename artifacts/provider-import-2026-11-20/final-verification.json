@@ -1,0 +1,935 @@
+{
+  "at": "2026-11-21T10:22:07.065Z",
+  "task": "t6",
+  "attemptId": "bf391b16-a9b7-4ca0-9ef7-09169e269cda",
+  "attempt": 2,
+  "status": "offline-delivery-verified",
+  "commands": [
+    {
+      "command": "node scripts/build.mjs",
+      "exitCode": 0,
+      "log": "final2-build.log"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": 272,
+      "failed": 0,
+      "log": "final2-local.log"
+    },
+    {
+      "command": "ELECTRON_RUN_AS_NODE=1 DSH_CHECKOUT='D:/FUGUI/ai/guanfangdsh/dsh/resources/app.asar/dsh' 'D:/FUGUI/ai/guanfangdsh/dsh/DeepSeek Harness.exe' --expose-internals --loader ./scripts/runtime-loader.mjs --test tests/host.test.mjs tests/multi-site-host.test.mjs tests/provider-import-host.test.mjs",
+      "exitCode": 0,
+      "passed": 20,
+      "failed": 0,
+      "log": "final2-sdk.log"
+    },
+    {
+      "command": "node scripts/pack.mjs",
+      "exitCode": 0,
+      "files": 64,
+      "log": "final2-pack.log"
+    },
+    {
+      "command": "node artifacts/provider-import-2026-11-20/final-evidence.mjs",
+      "exitCode": 0
+    }
+  ],
+  "findings": [
+    {
+      "id": "PI-1",
+      "severity": "high",
+      "status": "closed",
+      "repair": "backend t6-repair",
+      "independentReview": "verifier t6 attempt 2",
+      "evidence": "src/index.js constructs DshProviderImporter lazily via module-private symbol slots; legacy SDK carriers (host.test.mjs, multi-site-host.test.mjs) construct unchanged and 20/20 SDK tests pass."
+    },
+    {
+      "id": "PI-2",
+      "severity": "medium",
+      "status": "closed",
+      "repair": "backend t6-repair",
+      "independentReview": "verifier t6 attempt 2",
+      "evidence": "provider-import-host.test.mjs call() sends args:{} for undefined request; real gateway accepts zero-arg listDshProviders."
+    },
+    {
+      "id": "PI-3",
+      "severity": "medium",
+      "status": "closed",
+      "repair": "backend t6-repair",
+      "independentReview": "verifier t6 attempt 2",
+      "evidence": "descriptor test destructures peer from gateway(); no ReferenceError."
+    },
+    {
+      "id": "PI-4",
+      "severity": "medium",
+      "status": "closed",
+      "repair": "backend t6-repair",
+      "independentReview": "verifier t6 attempt 2",
+      "evidence": "host.test.mjs:17 expected remote list extended with listDshProviders/importDshProviders; old assertions kept."
+    }
+  ],
+  "attempt1": {
+    "status": "needs_revision",
+    "verdictRetained": true,
+    "blockedBy": "PI-1..PI-4 (final-sdk.log, t5-review-blocker.md)",
+    "note": "attempt-1 verdict untouched; this rerun closes the findings."
+  },
+  "review": {
+    "phaseA": "pass 5/5 (t5-review-blocker.md anchor table)",
+    "memo": "hasKey=false selections carrying a ref map to resolve-stage MISSING_KEY/INVALID_SECRET instead of INVALID_INPUT; UI blocks selection; deliberate, test-pinned, zero-write."
+  },
+  "package": {
+    "archive": "dist/dsh-floating-accounts-1.2.0.tgz",
+    "sha256": "9dbdff8e9979d817a8f8826c88afe43022eedaf6dce8daf566787312ec2b3d03",
+    "receiptMatch": true,
+    "version": "1.2.0",
+    "fileSetMatch": true,
+    "verified": true,
+    "paths": [
+      {
+        "path": "cordis.patch.yml",
+        "sha256": "d8b216158bea5a022e47c79cc2060911ec10e7b53db4174f3e7799c5d92ae697",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "docs/balance-query-plan.md",
+        "sha256": "b564950523e018cddc2b67d287a60c7192b9e4df7ad4db65b5a7766c552d4860",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "docs/multi-site-upgrade-spec.md",
+        "sha256": "cdf2b658e04748f44045f94c2526670d28bea3007ffeff75a60db44d13eb5d1d",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "docs/protocol-detection-spec.md",
+        "sha256": "4454dfb120cb4dc0b96b43c70d76e782d1a19838f1add78b6cc8cfc79bf6e360",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "docs/provider-import-spec.md",
+        "sha256": "a3708ee529100196e930964572d0548e770527ac370ecd1a8fa56f002e0d3461",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/balance-http.js",
+        "sha256": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/balance.js",
+        "sha256": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/build-manifest.json",
+        "sha256": "81cb43df9ce2582aee7586b44b4a61cf9b24fcccdf80430fef36043ebace1cec",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/client.js",
+        "sha256": "12cac0d2927e4a6c8486c7885dee6c5113fe7bdb7c60c16edec9369d7d38e3a8",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/dpapi.js",
+        "sha256": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/dpapi.ps1",
+        "sha256": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/host-providers.js",
+        "sha256": "32bba278b79d5a1f0f73b124936084d08c835f4c21d55c7bfc2bfaf9de5bfb71",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/index.js",
+        "sha256": "faba89e08c65586406829aa4503d0e433dee390163827a87d020f3f7f1a010d4",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/validation.js",
+        "sha256": "1a34af8908c5c5ea26445884ab4be40ebd7d6a97712cfedf01154f9a43fcbce1",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/vault-model.js",
+        "sha256": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "lib/vault.js",
+        "sha256": "0313976f95e5430e049606106c287312fa3536ac21628689dc19a5b0813a11d6",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "43b2e132b89f9fbc6277d9b3f3d13af5af61eebbd7b3253bbbcd8ba3d949d30b",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "package.json",
+        "sha256": "54d612f793109197ab6a73e46734c8f4e9635becdba55b8917785b51f5b5380c",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "Plan/2. 多站点升级_plan.md",
+        "sha256": "4e7ef77a0bc6f5714c0c3a36dcf64cf74f19e5b389087222befe4ac90b332e00",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "Plan/3. 协议检测_plan.md",
+        "sha256": "f2570f43908c7e8a93cfe4d01eca5067efd8a6e5a4a07d4b7dd3c35a36339289",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "Plan/4. 供应商导入_plan.md",
+        "sha256": "a513a4a5ecfb67ea8410ea76b213f26b2ec68b72685d53a99248bfef683ee335",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "README.md",
+        "sha256": "b153b6ef01abc3228c9ad07b68999e236eb27e08327678a448a0d3916150387e",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/build.mjs",
+        "sha256": "91534ebc710762855274ae817e06513b22d88d7da8f7d6da7fee350f42ed44dc",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/distribution.mjs",
+        "sha256": "9c4d4f4596ebba1927208edac060e51a95f6b28be80b74ee7d679d8ebeb3c436",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/install.mjs",
+        "sha256": "d31aee7eae1fe3c86002bf2fc2e431a403a0617dcdf403ffd36f80593d0696dc",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/lifecycle.mjs",
+        "sha256": "a66f6c1f17ffb7dc6f720be5842dcfe9658ae44b849f4c877209fc861a6e42ff",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/pack.mjs",
+        "sha256": "6aae87d217f56415695730f5f4f38e8240ef336e2d934ec9271e3eb65c46e691",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/runtime-loader.mjs",
+        "sha256": "6dc5281c9cad1c0e13a92244c8a1d51a5c929359d0d65c71974f7945c73979e3",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/uninstall.mjs",
+        "sha256": "8e7a21773cd84235be665ad380f0c1b9184d1c7f1b67402ac49a78022869dd3a",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/verify-installed.mjs",
+        "sha256": "53a1a0e37e5a1ec1724438cb46fca9233a99550adee448f61090a86dea0f9726",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "scripts/verify.mjs",
+        "sha256": "9d65c1efc4a61932b46d5da4d9b0432dac05dff8f959370c0df4eb6397c454fa",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/balance-http.js",
+        "sha256": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/balance.js",
+        "sha256": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/client.js",
+        "sha256": "d4b07d8717fd341de855b892af367fda51b05eb61e46dd8d9e27182c025cdd0c",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/dpapi.js",
+        "sha256": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/dpapi.ps1",
+        "sha256": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/host-providers.js",
+        "sha256": "32bba278b79d5a1f0f73b124936084d08c835f4c21d55c7bfc2bfaf9de5bfb71",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/index.js",
+        "sha256": "faba89e08c65586406829aa4503d0e433dee390163827a87d020f3f7f1a010d4",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/style.css",
+        "sha256": "71e56ba72544ce5ff7860cfe3b2c3629caf46bd3898fa0e0643fb19c6cf713ea",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/validation.js",
+        "sha256": "1a34af8908c5c5ea26445884ab4be40ebd7d6a97712cfedf01154f9a43fcbce1",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/vault-model.js",
+        "sha256": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "src/vault.js",
+        "sha256": "0313976f95e5430e049606106c287312fa3536ac21628689dc19a5b0813a11d6",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/balance-client.test.mjs",
+        "sha256": "66ef7c456b158dac0d68e1e8a28993f12878210da321f1af28a2d11a03a6b8ba",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/balance-http.test.mjs",
+        "sha256": "6c396953cc08037aece58c547fdc41469ca041f1e46c50341760edef0909ca21",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/balance.test.mjs",
+        "sha256": "2b7e4b35927c85198ba3fc005c38721a546c433fe72707c5de2f7f118190f18e",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/build-repairs.test.mjs",
+        "sha256": "2a97f25fbd4061545b4f9596ef32d1f56daa90fefcffa558462ed1a4de6b3df9",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/client-repairs.test.mjs",
+        "sha256": "55a959784eff2b3175a17e9465384120468ca2dbaad5b43c0d20e7fde28faa34",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/client.test.mjs",
+        "sha256": "3b56db471babb338f4c25ca66e233e1aa992f35d5104e75709b5684f8b025a23",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/host.test.mjs",
+        "sha256": "3359ff32a1abc4d9ae573a6bfad0126a47b195c7e6877cc3725652136bd60ea6",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/install.test.mjs",
+        "sha256": "32e8f13a61c565f4ae5511158e6e9a677ceeca5c6ba3ccf79c6eac80795f1f37",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/lifecycle-repairs.test.mjs",
+        "sha256": "0e0e180325f38df1d52a61cdeef7b0dbc58c942b9819a1d036851e317b7cd68f",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/multi-site-balance.test.mjs",
+        "sha256": "4eade8b0a1cea30f54122c53fc7c44ad52c200b486a9fe12fe6893337dca4877",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/multi-site-client.test.mjs",
+        "sha256": "6971be102c1ffb05c94426e1497de96573f26e35462f20c0c1e86464ab09cdcf",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/multi-site-host.test.mjs",
+        "sha256": "671402fc5f39371e5c4b3cf4cc2e91a3cc1c19b471b1755f48608c85a179976f",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/multi-site-vault.test.mjs",
+        "sha256": "36d0a18d2a3e160a55f6ef1bbf9c1614168783361f9fe87cf38b9be0782ffb0e",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/protocol-detection-host.test.mjs",
+        "sha256": "f8909a672ca9894dcbf96e558d80642fc19c99017426f66e98d882541cdbc8cf",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/protocol-detection.test.mjs",
+        "sha256": "822fc18c1a9709a341e84232a2e24d207f5dd764f243b0f9e25756b8503315c2",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/provider-import-client.test.mjs",
+        "sha256": "04d644e2057734a503ce847986e266860536d6a01c470d04eca077b782f2ba69",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/provider-import-host.test.mjs",
+        "sha256": "0696671da3e3565a016e92a6cb9e9e8474d743fc54ce0c7a97271d90f7969e64",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/provider-import.test.mjs",
+        "sha256": "a0257addb7e90f20d4a1db536aad13a955eb6194477475ce0cc07f4cce833864",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/rpc-contract.test.mjs",
+        "sha256": "102487833d0c56bfca4b0170322fcdb03ac224573f79e7e69f8a2006b716916c",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/validation-repairs.test.mjs",
+        "sha256": "ccd0a865bbcfb61e4217c5f2c42b8abb411fd5bc3633a3b784417c39918c9ae1",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/vault-repairs.test.mjs",
+        "sha256": "8aad5a722712f246eafe25db338dc9500ae006f66a2f23c10495a38c717b1558",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      },
+      {
+        "path": "tests/vault.test.mjs",
+        "sha256": "56241e4fd165f3e611d36df35be26afe07a68f068a70965af7fe447a5c1e9505",
+        "archiveMatch": true,
+        "workspaceMatch": true
+      }
+    ]
+  },
+  "build": {
+    "generatedAt": "2026-11-21T10:18:32.578Z",
+    "source": {
+      "client.js": "d4b07d8717fd341de855b892af367fda51b05eb61e46dd8d9e27182c025cdd0c",
+      "style.css": "71e56ba72544ce5ff7860cfe3b2c3629caf46bd3898fa0e0643fb19c6cf713ea",
+      "index.js": "faba89e08c65586406829aa4503d0e433dee390163827a87d020f3f7f1a010d4",
+      "vault.js": "0313976f95e5430e049606106c287312fa3536ac21628689dc19a5b0813a11d6",
+      "vault-model.js": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+      "validation.js": "1a34af8908c5c5ea26445884ab4be40ebd7d6a97712cfedf01154f9a43fcbce1",
+      "dpapi.js": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+      "dpapi.ps1": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+      "balance.js": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+      "balance-http.js": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+      "host-providers.js": "32bba278b79d5a1f0f73b124936084d08c835f4c21d55c7bfc2bfaf9de5bfb71"
+    },
+    "outputs": {
+      "index.js": "faba89e08c65586406829aa4503d0e433dee390163827a87d020f3f7f1a010d4",
+      "vault.js": "0313976f95e5430e049606106c287312fa3536ac21628689dc19a5b0813a11d6",
+      "vault-model.js": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+      "validation.js": "1a34af8908c5c5ea26445884ab4be40ebd7d6a97712cfedf01154f9a43fcbce1",
+      "dpapi.js": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+      "client.js": "12cac0d2927e4a6c8486c7885dee6c5113fe7bdb7c60c16edec9369d7d38e3a8",
+      "dpapi.ps1": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+      "balance.js": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+      "balance-http.js": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+      "host-providers.js": "32bba278b79d5a1f0f73b124936084d08c835f4c21d55c7bfc2bfaf9de5bfb71"
+    }
+  },
+  "baseline": {
+    "sourceChangedExpected": false,
+    "sourceChangedPaths": [
+      "README.md",
+      "lib/build-manifest.json",
+      "lib/client.js",
+      "lib/index.js",
+      "lib/validation.js",
+      "lib/vault.js",
+      "package.json",
+      "scripts/build.mjs",
+      "scripts/verify.mjs",
+      "src/client.js",
+      "src/index.js",
+      "src/style.css",
+      "src/validation.js",
+      "src/vault.js",
+      "tests/client-repairs.test.mjs",
+      "tests/client.test.mjs",
+      "tests/host.test.mjs",
+      "tests/multi-site-client.test.mjs",
+      "tests/rpc-contract.test.mjs"
+    ],
+    "unexpectedChanged": [
+      "tests/client-repairs.test.mjs",
+      "tests/client.test.mjs",
+      "tests/multi-site-client.test.mjs"
+    ],
+    "added": {
+      "expected": true,
+      "paths": [
+        "LICENSE",
+        "Plan/4. 供应商导入_plan.md",
+        "docs/provider-import-spec.md",
+        "lib/host-providers.js",
+        "src/host-providers.js",
+        "tests/provider-import-client.test.mjs",
+        "tests/provider-import-host.test.mjs",
+        "tests/provider-import.test.mjs"
+      ],
+      "unexpected": []
+    },
+    "removed": {
+      "ok": true,
+      "paths": [
+        "docs/2026-11-19_余额接入-全部模型供应商-report.md",
+        "docs/2026-11-19_升级交付-多站点1.1.0-report.md",
+        "docs/balance-query-result.md",
+        "docs/balance-wallet-fix-2026-11-19.md",
+        "scripts/probe-sdk.mjs"
+      ]
+    },
+    "installed": [
+      {
+        "path": "LICENSE",
+        "expected": "43b2e132b89f9fbc6277d9b3f3d13af5af61eebbd7b3253bbbcd8ba3d949d30b",
+        "actual": "43b2e132b89f9fbc6277d9b3f3d13af5af61eebbd7b3253bbbcd8ba3d949d30b",
+        "unchanged": true
+      },
+      {
+        "path": "Plan/2. 多站点升级_plan.md",
+        "expected": "4e7ef77a0bc6f5714c0c3a36dcf64cf74f19e5b389087222befe4ac90b332e00",
+        "actual": "4e7ef77a0bc6f5714c0c3a36dcf64cf74f19e5b389087222befe4ac90b332e00",
+        "unchanged": true
+      },
+      {
+        "path": "Plan/3. 协议检测_plan.md",
+        "expected": "f2570f43908c7e8a93cfe4d01eca5067efd8a6e5a4a07d4b7dd3c35a36339289",
+        "actual": "f2570f43908c7e8a93cfe4d01eca5067efd8a6e5a4a07d4b7dd3c35a36339289",
+        "unchanged": true
+      },
+      {
+        "path": "README.md",
+        "expected": "c69c51aee72525f1d7ae2d4e8d04e63d56bbd758c3b84567af4e70f5f3a4d2c3",
+        "actual": "b153b6ef01abc3228c9ad07b68999e236eb27e08327678a448a0d3916150387e",
+        "unchanged": false
+      },
+      {
+        "path": "cordis.patch.yml",
+        "expected": "d8b216158bea5a022e47c79cc2060911ec10e7b53db4174f3e7799c5d92ae697",
+        "actual": "d8b216158bea5a022e47c79cc2060911ec10e7b53db4174f3e7799c5d92ae697",
+        "unchanged": true
+      },
+      {
+        "path": "docs/balance-query-plan.md",
+        "expected": "b564950523e018cddc2b67d287a60c7192b9e4df7ad4db65b5a7766c552d4860",
+        "actual": "b564950523e018cddc2b67d287a60c7192b9e4df7ad4db65b5a7766c552d4860",
+        "unchanged": true
+      },
+      {
+        "path": "docs/multi-site-upgrade-spec.md",
+        "expected": "cdf2b658e04748f44045f94c2526670d28bea3007ffeff75a60db44d13eb5d1d",
+        "actual": "cdf2b658e04748f44045f94c2526670d28bea3007ffeff75a60db44d13eb5d1d",
+        "unchanged": true
+      },
+      {
+        "path": "docs/protocol-detection-spec.md",
+        "expected": "4454dfb120cb4dc0b96b43c70d76e782d1a19838f1add78b6cc8cfc79bf6e360",
+        "actual": "4454dfb120cb4dc0b96b43c70d76e782d1a19838f1add78b6cc8cfc79bf6e360",
+        "unchanged": true
+      },
+      {
+        "path": "installation.json",
+        "expected": "07f8f02ed917f6249a3a77b4a5a656f969432805388febcf93200d9e6afcf572",
+        "actual": "d4c58a02279609734ac159a96c5279eb56048f83dbad5437eb56de1340050e1d",
+        "unchanged": false
+      },
+      {
+        "path": "lib/balance-http.js",
+        "expected": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+        "actual": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+        "unchanged": true
+      },
+      {
+        "path": "lib/balance.js",
+        "expected": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+        "actual": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+        "unchanged": true
+      },
+      {
+        "path": "lib/build-manifest.json",
+        "expected": "b7adc878fcd5f77e641c151f60f24e47ad8cae4cb437647240ab84247e8b3fc4",
+        "actual": "8a8e866f760a3393957d9fcb6275c9a57c45aace8a6a0574002b92dce2dd4ac2",
+        "unchanged": false
+      },
+      {
+        "path": "lib/client.js",
+        "expected": "908d4beef927b56104393981fd97c0c89e4f34f58c841b945a299dee150dde5b",
+        "actual": "c2e872017a52c633f4abc629b8e9d5a3e599fd54ff7606e3eb4d7ffbf2e0128f",
+        "unchanged": false
+      },
+      {
+        "path": "lib/dpapi.js",
+        "expected": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+        "actual": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+        "unchanged": true
+      },
+      {
+        "path": "lib/dpapi.ps1",
+        "expected": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+        "actual": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+        "unchanged": true
+      },
+      {
+        "path": "lib/index.js",
+        "expected": "962f49c62d644f9e49fc25c2bf0236ff4f0fab34a8802691deb2a5db7db98c38",
+        "actual": "faba89e08c65586406829aa4503d0e433dee390163827a87d020f3f7f1a010d4",
+        "unchanged": false
+      },
+      {
+        "path": "lib/validation.js",
+        "expected": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8",
+        "actual": "1a34af8908c5c5ea26445884ab4be40ebd7d6a97712cfedf01154f9a43fcbce1",
+        "unchanged": false
+      },
+      {
+        "path": "lib/vault-model.js",
+        "expected": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+        "actual": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+        "unchanged": true
+      },
+      {
+        "path": "lib/vault.js",
+        "expected": "ea549eea8ca6a17b996c6dac59402be4c2f74f60b0678aa68538ac3db44a5fd0",
+        "actual": "0313976f95e5430e049606106c287312fa3536ac21628689dc19a5b0813a11d6",
+        "unchanged": false
+      },
+      {
+        "path": "package.json",
+        "expected": "b31cb8c0924ea3230d874891311d841ad305856047458909a84326a60d40416c",
+        "actual": "54d612f793109197ab6a73e46734c8f4e9635becdba55b8917785b51f5b5380c",
+        "unchanged": false
+      },
+      {
+        "path": "scripts/build.mjs",
+        "expected": "4a2df4874c8f611080d8353b357ee37b524d1dc61fe628e85a6117604a698930",
+        "actual": "91534ebc710762855274ae817e06513b22d88d7da8f7d6da7fee350f42ed44dc",
+        "unchanged": false
+      },
+      {
+        "path": "scripts/distribution.mjs",
+        "expected": "9c4d4f4596ebba1927208edac060e51a95f6b28be80b74ee7d679d8ebeb3c436",
+        "actual": "9c4d4f4596ebba1927208edac060e51a95f6b28be80b74ee7d679d8ebeb3c436",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/install.mjs",
+        "expected": "d31aee7eae1fe3c86002bf2fc2e431a403a0617dcdf403ffd36f80593d0696dc",
+        "actual": "d31aee7eae1fe3c86002bf2fc2e431a403a0617dcdf403ffd36f80593d0696dc",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/lifecycle.mjs",
+        "expected": "a66f6c1f17ffb7dc6f720be5842dcfe9658ae44b849f4c877209fc861a6e42ff",
+        "actual": "a66f6c1f17ffb7dc6f720be5842dcfe9658ae44b849f4c877209fc861a6e42ff",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/pack.mjs",
+        "expected": "6aae87d217f56415695730f5f4f38e8240ef336e2d934ec9271e3eb65c46e691",
+        "actual": "6aae87d217f56415695730f5f4f38e8240ef336e2d934ec9271e3eb65c46e691",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/runtime-loader.mjs",
+        "expected": "6dc5281c9cad1c0e13a92244c8a1d51a5c929359d0d65c71974f7945c73979e3",
+        "actual": "6dc5281c9cad1c0e13a92244c8a1d51a5c929359d0d65c71974f7945c73979e3",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/uninstall.mjs",
+        "expected": "8e7a21773cd84235be665ad380f0c1b9184d1c7f1b67402ac49a78022869dd3a",
+        "actual": "8e7a21773cd84235be665ad380f0c1b9184d1c7f1b67402ac49a78022869dd3a",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/verify-installed.mjs",
+        "expected": "53a1a0e37e5a1ec1724438cb46fca9233a99550adee448f61090a86dea0f9726",
+        "actual": "53a1a0e37e5a1ec1724438cb46fca9233a99550adee448f61090a86dea0f9726",
+        "unchanged": true
+      },
+      {
+        "path": "scripts/verify.mjs",
+        "expected": "a8be7e24637da4c44344da7cab641f18e0e6378071f1d6e674f5b34ec6552b50",
+        "actual": "9d65c1efc4a61932b46d5da4d9b0432dac05dff8f959370c0df4eb6397c454fa",
+        "unchanged": false
+      },
+      {
+        "path": "src/balance-http.js",
+        "expected": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+        "actual": "09b2be039a1136f9cd5988e18bd302622056727258b945dcb25f2a9a3e255100",
+        "unchanged": true
+      },
+      {
+        "path": "src/balance.js",
+        "expected": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+        "actual": "1eeb097ddadff3fb5195b26d479edd43572f858d3d23a761036a83ec4a5201b8",
+        "unchanged": true
+      },
+      {
+        "path": "src/client.js",
+        "expected": "21254c9c4618ed26e9715fe907147ef2f05a0af5e725991b6fd3352c1c9a9bd5",
+        "actual": "0b4e3cd856e0a2f8f32d4f5c3c59c7b4f79da283b6e0fe9e0c73b1d4b96d427e",
+        "unchanged": false
+      },
+      {
+        "path": "src/dpapi.js",
+        "expected": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+        "actual": "0503c4133fd90794da254a96e1f009a75533b94755476a3d171136a1ec71897b",
+        "unchanged": true
+      },
+      {
+        "path": "src/dpapi.ps1",
+        "expected": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+        "actual": "e4a30450bcc545617d56a156f587c327ade04f657a51cd104de8731bda01912e",
+        "unchanged": true
+      },
+      {
+        "path": "src/index.js",
+        "expected": "962f49c62d644f9e49fc25c2bf0236ff4f0fab34a8802691deb2a5db7db98c38",
+        "actual": "faba89e08c65586406829aa4503d0e433dee390163827a87d020f3f7f1a010d4",
+        "unchanged": false
+      },
+      {
+        "path": "src/style.css",
+        "expected": "9dc2250392c6892a90e7adf489323b5c1b053396fa952e101350b6ce4391ba8f",
+        "actual": "5c6baa8f381fd85c5e26379a37c09c775f55d988e7a84c72d8bd276a6d1aad52",
+        "unchanged": false
+      },
+      {
+        "path": "src/validation.js",
+        "expected": "152cfeb93558807acce54b88dc054ff10ac3755b02e4eab2917112317e2508b8",
+        "actual": "1a34af8908c5c5ea26445884ab4be40ebd7d6a97712cfedf01154f9a43fcbce1",
+        "unchanged": false
+      },
+      {
+        "path": "src/vault-model.js",
+        "expected": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+        "actual": "a145842fb438f98cac7162dd57e02b56d1eb698a505606e425680db73c6d6ab6",
+        "unchanged": true
+      },
+      {
+        "path": "src/vault.js",
+        "expected": "ea549eea8ca6a17b996c6dac59402be4c2f74f60b0678aa68538ac3db44a5fd0",
+        "actual": "0313976f95e5430e049606106c287312fa3536ac21628689dc19a5b0813a11d6",
+        "unchanged": false
+      },
+      {
+        "path": "tests/balance-client.test.mjs",
+        "expected": "66ef7c456b158dac0d68e1e8a28993f12878210da321f1af28a2d11a03a6b8ba",
+        "actual": "66ef7c456b158dac0d68e1e8a28993f12878210da321f1af28a2d11a03a6b8ba",
+        "unchanged": true
+      },
+      {
+        "path": "tests/balance-http.test.mjs",
+        "expected": "6c396953cc08037aece58c547fdc41469ca041f1e46c50341760edef0909ca21",
+        "actual": "6c396953cc08037aece58c547fdc41469ca041f1e46c50341760edef0909ca21",
+        "unchanged": true
+      },
+      {
+        "path": "tests/balance.test.mjs",
+        "expected": "2b7e4b35927c85198ba3fc005c38721a546c433fe72707c5de2f7f118190f18e",
+        "actual": "2b7e4b35927c85198ba3fc005c38721a546c433fe72707c5de2f7f118190f18e",
+        "unchanged": true
+      },
+      {
+        "path": "tests/build-repairs.test.mjs",
+        "expected": "2a97f25fbd4061545b4f9596ef32d1f56daa90fefcffa558462ed1a4de6b3df9",
+        "actual": "2a97f25fbd4061545b4f9596ef32d1f56daa90fefcffa558462ed1a4de6b3df9",
+        "unchanged": true
+      },
+      {
+        "path": "tests/client-repairs.test.mjs",
+        "expected": "fad69693a6897f745c3c1d5002a72b0edcbf51ccc8cdba54937359784cc505a3",
+        "actual": "fad69693a6897f745c3c1d5002a72b0edcbf51ccc8cdba54937359784cc505a3",
+        "unchanged": true
+      },
+      {
+        "path": "tests/client.test.mjs",
+        "expected": "c51540348a01caec4f83d44ee4f2c6ebcd8c9bc4f15d906996b43e9bacd54940",
+        "actual": "c51540348a01caec4f83d44ee4f2c6ebcd8c9bc4f15d906996b43e9bacd54940",
+        "unchanged": true
+      },
+      {
+        "path": "tests/host.test.mjs",
+        "expected": "2ee7b67067732023d99acbb92231b3e6d98c883803d571d4a40a96c3ff6d6d79",
+        "actual": "3359ff32a1abc4d9ae573a6bfad0126a47b195c7e6877cc3725652136bd60ea6",
+        "unchanged": false
+      },
+      {
+        "path": "tests/install.test.mjs",
+        "expected": "32e8f13a61c565f4ae5511158e6e9a677ceeca5c6ba3ccf79c6eac80795f1f37",
+        "actual": "32e8f13a61c565f4ae5511158e6e9a677ceeca5c6ba3ccf79c6eac80795f1f37",
+        "unchanged": true
+      },
+      {
+        "path": "tests/lifecycle-repairs.test.mjs",
+        "expected": "0e0e180325f38df1d52a61cdeef7b0dbc58c942b9819a1d036851e317b7cd68f",
+        "actual": "0e0e180325f38df1d52a61cdeef7b0dbc58c942b9819a1d036851e317b7cd68f",
+        "unchanged": true
+      },
+      {
+        "path": "tests/multi-site-balance.test.mjs",
+        "expected": "4eade8b0a1cea30f54122c53fc7c44ad52c200b486a9fe12fe6893337dca4877",
+        "actual": "4eade8b0a1cea30f54122c53fc7c44ad52c200b486a9fe12fe6893337dca4877",
+        "unchanged": true
+      },
+      {
+        "path": "tests/multi-site-client.test.mjs",
+        "expected": "aeb298035e4d4f14f67f4171ceb34c796a4758d1fee590deb4930bcad1ff970f",
+        "actual": "aeb298035e4d4f14f67f4171ceb34c796a4758d1fee590deb4930bcad1ff970f",
+        "unchanged": true
+      },
+      {
+        "path": "tests/multi-site-host.test.mjs",
+        "expected": "671402fc5f39371e5c4b3cf4cc2e91a3cc1c19b471b1755f48608c85a179976f",
+        "actual": "671402fc5f39371e5c4b3cf4cc2e91a3cc1c19b471b1755f48608c85a179976f",
+        "unchanged": true
+      },
+      {
+        "path": "tests/multi-site-vault.test.mjs",
+        "expected": "36d0a18d2a3e160a55f6ef1bbf9c1614168783361f9fe87cf38b9be0782ffb0e",
+        "actual": "36d0a18d2a3e160a55f6ef1bbf9c1614168783361f9fe87cf38b9be0782ffb0e",
+        "unchanged": true
+      },
+      {
+        "path": "tests/protocol-detection-host.test.mjs",
+        "expected": "f8909a672ca9894dcbf96e558d80642fc19c99017426f66e98d882541cdbc8cf",
+        "actual": "f8909a672ca9894dcbf96e558d80642fc19c99017426f66e98d882541cdbc8cf",
+        "unchanged": true
+      },
+      {
+        "path": "tests/protocol-detection.test.mjs",
+        "expected": "822fc18c1a9709a341e84232a2e24d207f5dd764f243b0f9e25756b8503315c2",
+        "actual": "822fc18c1a9709a341e84232a2e24d207f5dd764f243b0f9e25756b8503315c2",
+        "unchanged": true
+      },
+      {
+        "path": "tests/rpc-contract.test.mjs",
+        "expected": "bed1d6dc59c91d2f63b714d6d24caccef4b542c5696f3959c95f8f54b3dae9b2",
+        "actual": "102487833d0c56bfca4b0170322fcdb03ac224573f79e7e69f8a2006b716916c",
+        "unchanged": false
+      },
+      {
+        "path": "tests/validation-repairs.test.mjs",
+        "expected": "ccd0a865bbcfb61e4217c5f2c42b8abb411fd5bc3633a3b784417c39918c9ae1",
+        "actual": "ccd0a865bbcfb61e4217c5f2c42b8abb411fd5bc3633a3b784417c39918c9ae1",
+        "unchanged": true
+      },
+      {
+        "path": "tests/vault-repairs.test.mjs",
+        "expected": "8aad5a722712f246eafe25db338dc9500ae006f66a2f23c10495a38c717b1558",
+        "actual": "8aad5a722712f246eafe25db338dc9500ae006f66a2f23c10495a38c717b1558",
+        "unchanged": true
+      },
+      {
+        "path": "tests/vault.test.mjs",
+        "expected": "56241e4fd165f3e611d36df35be26afe07a68f068a70965af7fe447a5c1e9505",
+        "actual": "56241e4fd165f3e611d36df35be26afe07a68f068a70965af7fe447a5c1e9505",
+        "unchanged": true
+      }
+    ],
+    "installedUnchanged": false,
+    "installScriptsUnchanged": true
+  },
+  "protectedData": {
+    "realVaultRead": false,
+    "realVaultDecrypted": false,
+    "realKeysUsed": false,
+    "productionRequests": false,
+    "installed": false,
+    "migrated": false,
+    "vaultPath": "D:\\FUGUI\\ai\\dsh-data\\plugin-data\\dsh-floating-accounts\\accounts.dpapi.json",
+    "vaultBytes": 3962,
+    "vaultSha256": "e6381b94527285fbd00d76686f65de623402d03fd2ba7230eb9b3b4336352210",
+    "vaultUnchanged": false,
+    "desktopProfilePackageJsonUnchanged": true
+  },
+  "runtime": {
+    "executable": "D:/FUGUI/ai/guanfangdsh/dsh/DeepSeek Harness.exe",
+    "electron": "44.7.0",
+    "node": "24.21.0",
+    "sdk": "existing ASAR SDK via unchanged runtime-loader; external Node cannot resolve ASAR"
+  },
+  "uncovered": [
+    "Real GUI interaction",
+    "Real supplier HTTP/Key behavior",
+    "Installation and real import"
+  ],
+  "confidence": "B",
+  "git": "No Git repository; approved plan prohibits branch/commit."
+}

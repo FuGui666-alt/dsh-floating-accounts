@@ -1,0 +1,198 @@
+--- artifacts/protocol-detection-2026-11-19/final-extracted/package/src/client.js	2026-11-20 07:48:23.000000000 +0800
++++ src/client.js	2026-11-20 11:00:39.475731800 +0800
+@@ -59,9 +59,26 @@
+     SITE_IN_USE: '站点仍有关联账号或凭据，不能删除或更换 origin；请先处理站内账号，跨 origin 须新建站点并重新录入凭据', ACCOUNT_IN_USE: '账号已绑定凭据，不能移动到另一站点；请新建账号并重新录入凭据',
+     NOT_FOUND: '记录不存在，请重新载入', BUSY: '宿主正在处理其他操作，请稍后手动重试', VALIDATION: '配置字段无效，请核对站点、账号及凭据归属', INVALID_INPUT: '配置字段无效，请核对站点、账号及凭据归属',
+     BACKUP_FAILED: '旧密文备份失败，迁移未提交；请核对后重新预览', LIMIT: '站点、账号或凭据数量已达到上限', WRITE_FAILED: '配置写入失败，原文件未被覆盖；请核对后手动重试',
++    IMPORT_CONFLICT: '多个站点同源冲突：请在导入面板为每个冲突供应商选择目标站点或新建站点后重新确认导入；未写入任何变更', DSH_SOURCE_UNAVAILABLE: '无法读取 DSH 供应商配置源；未写入任何变更，请确认 DSH 正在运行后重试', IMPORT_FAILED: '导入失败；未写入任何变更',
+   };
+   return messages[code] || '配置操作失败，请核对输入并重新载入；未自动重试';
+ }
++function safeProviderList(value) {
++  if (!value || !Array.isArray(value.providers) || !['describe', 'refs'].includes(value.hasKeyBasis) || !Array.isArray(value.source) || !value.source.every(item => typeof item === 'string') || !(typeof value.version === 'string' || typeof value.version === 'number')) throw Object.assign(new Error(), { code: 'RPC_RESPONSE' });
++  if (value.providers.length > 100 || value.providers.some(p => !p || typeof p.providerId !== 'string' || !p.providerId || typeof p.name !== 'string' || typeof p.baseURL !== 'string' || !p.baseURL || typeof p.hasKey !== 'boolean' || !Array.isArray(p.models) || p.models.some(m => !m || typeof m.id !== 'string' || (m.name !== undefined && typeof m.name !== 'string') || (m.maxTokens !== undefined && !Number.isFinite(m.maxTokens))))) throw Object.assign(new Error(), { code: 'RPC_RESPONSE' });
++  if (new Set(value.providers.map(p => p.providerId)).size !== value.providers.length) throw Object.assign(new Error(), { code: 'RPC_RESPONSE' });
++  // Whitelist copy only: apiKeyEnv/reference names, credential values and any extra fields never enter client state.
++  return { providers: value.providers.map(p => ({ providerId: p.providerId, name: p.name || p.providerId, baseURL: p.baseURL, hasKey: p.hasKey, modelsCount: p.models.length })), hasKeyBasis: value.hasKeyBasis, source: value.source, version: value.version };
++}
++function safeConflicts(value) {
++  if (!Array.isArray(value)) return [];
++  const item = c => c && typeof c.providerId === 'string' && typeof c.origin === 'string' && Array.isArray(c.siteIds) && c.siteIds.length <= 100 && c.siteIds.every(s => s && typeof s.id === 'string' && typeof s.name === 'string') ? { providerId: c.providerId, origin: c.origin, siteIds: c.siteIds.map(s => ({ id: s.id, name: s.name })) } : null;
++  return value.slice(0, 100).map(item).filter(Boolean);
++}
++function safeImportResult(value) {
++  if (!value || !Number.isSafeInteger(value.revision) || !value.created || !Array.isArray(value.created.siteIds) || !Array.isArray(value.created.accountIds) || !Array.isArray(value.created.credentialIds) || ![...value.created.siteIds, ...value.created.accountIds, ...value.created.credentialIds].every(id => typeof id === 'string')) throw Object.assign(new Error(), { code: 'RPC_RESPONSE' });
++  return { revision: value.revision, created: { siteIds: value.created.siteIds, accountIds: value.created.accountIds, credentialIds: value.created.credentialIds } };
++}
+ function balanceView(state) {
+   const result = state?.result;
+   const amount = (number, unit) => `${number.toLocaleString('zh-CN', { maximumSignificantDigits: 15, notation: number !== 0 && Math.abs(number) < 1e-8 ? 'scientific' : 'standard' })} ${unit === 'QUOTA' ? '额度单位' : unit}`;
+@@ -104,10 +121,11 @@
+   const [error, setError] = useState(''), [notice, setNotice] = useState(''), [editor, setEditor] = useState(null);
+   const [editorRevision, setEditorRevision] = useState(null), [uncertain, setUncertain] = useState(false), [balances, setBalances] = useState({});
+   const [form, setForm] = useState({}), [preview, setPreview] = useState(null);
++  const [dshImport, setDshImport] = useState(null), dshImportRef = useRef(null);
+   const [detection, setDetection] = useState(null), detectionRef = useRef(null), snapshotRef = useRef(null); snapshotRef.current = snapshot;
+   const balanceGeneration = useRef(0), balancePending = useRef(new Map()), busyRef = useRef(false), loadingRef = useRef(false), uncertainRef = useRef(false), openRef = useRef(false), previewRef = useRef(null), schemaRef = useRef(null), editorRef = useRef(null);
+   const ball = useRef(null), panel = useRef(null), drag = useRef(null), moved = useRef(false), alive = useRef(true);
+-  const invalidateBalances = () => { balanceGeneration.current++; setBalances({}); detectionRef.current = null; setDetection(null); previewRef.current = null; setPreview(null); };
++  const invalidateBalances = () => { balanceGeneration.current++; setBalances({}); detectionRef.current = null; setDetection(null); previewRef.current = null; setPreview(null); dshImportRef.current = null; setDshImport(null); };
+   const clearSecrets = () => setForm(f => ({ ...f, secret: '', apiKey: '', groupKey: '' }));
+   const clearEditor = () => { editorRef.current = null; setEditor(null); setEditorRevision(null); setForm({}); };
+   const discard = () => !editor || window.confirm('放弃尚未保存的编辑？');
+@@ -176,6 +194,115 @@
+     if (!current()) return;
+     await commit('saveSite', { revision: approved.result.revision, id: approved.site.id, name: approved.site.name, baseURL: approved.site.baseURL, balanceQuery: { ...approved.result.candidates[0] } }, '已应用检测配置；请另行手动查询余额');
+   }
++  // Provider import: read-only DSH list → explicit two-step consent → one write RPC. No secrets, reference names or extra fields enter state.
++  async function openImport() {
++    if (blocked() || editorRef.current || dshImportRef.current?.status === 'submitting') return;
++    invalidateBalances(); setError(''); setNotice('');
++    dshImportRef.current = { status: 'loading' }; setDshImport(dshImportRef.current);
++    const generation = balanceGeneration.current;
++    try {
++      const list = safeProviderList(await api('listDshProviders', undefined));
++      if (!alive.current || !openRef.current || generation !== balanceGeneration.current) return;
++      dshImportRef.current = { status: 'ready', step: 'list', providers: list.providers, hasKeyBasis: list.hasKeyBasis, source: list.source, version: list.version, selected: {}, targets: {}, conflicts: [] }; setDshImport(dshImportRef.current);
++    } catch (e) {
++      if (!alive.current || !openRef.current || generation !== balanceGeneration.current) return;
++      dshImportRef.current = null; setDshImport(null); setError(e.message || operationFailure(e.code));
++    }
++  }
++  function toggleImportProvider(providerId, checked) {
++    const wizard = dshImportRef.current;
++    if (!wizard || wizard.status !== 'ready' || busyRef.current) return;
++    const row = wizard.providers.find(p => p.providerId === providerId);
++    if (!row?.hasKey && checked) return;
++    const selected = { ...wizard.selected }; if (checked) selected[providerId] = true; else delete selected[providerId];
++    dshImportRef.current = { ...wizard, selected, targets: {}, conflicts: (wizard.conflicts || []).filter(c => wizard.selected[c.providerId]) }; setDshImport(dshImportRef.current);
++  }
++  function importSelection(wizard) {
++    if (!wizard || !Array.isArray(wizard.providers) || !wizard.targets) return [];
++    return wizard.providers.filter(p => wizard.selected[p.providerId] && p.hasKey).map(p => p.providerId in wizard.targets ? { providerId: p.providerId, targetSiteId: wizard.targets[p.providerId] } : { providerId: p.providerId });
++  }
++  function importConfirmReady(wizard) {
++    if (!wizard || !Array.isArray(wizard.providers) || !wizard.targets) return false;
++    return importSelection(wizard).length > 0 && !(Array.isArray(wizard.conflicts) ? wizard.conflicts : []).some(c => wizard.selected[c.providerId] && !(c.providerId in wizard.targets));
++  }
++  function importPreview() {
++    const wizard = dshImportRef.current;
++    if (!wizard || wizard.status !== 'ready' || wizard.step !== 'list' || busyRef.current || !importConfirmReady(wizard)) return;
++    dshImportRef.current = { ...wizard, step: 'confirm' }; setDshImport(dshImportRef.current);
++  }
++  function importBack() {
++    const wizard = dshImportRef.current;
++    if (!wizard || busyRef.current || wizard.status === 'submitting') return;
++    dshImportRef.current = { ...wizard, step: 'list' }; setDshImport(dshImportRef.current);
++  }
++  function cancelImport() {
++    if (busyRef.current) return;
++    dshImportRef.current = null; setDshImport(null); setError('');
++  }
++  function chooseImportTarget(providerId, value) {
++    const wizard = dshImportRef.current;
++    if (!wizard || busyRef.current || wizard.status === 'submitting') return;
++    const targets = { ...wizard.targets };
++    if (value === '') delete targets[providerId]; else if (value === 'new') targets[providerId] = null; else targets[providerId] = value;
++    dshImportRef.current = { ...wizard, targets }; setDshImport(dshImportRef.current);
++  }
++  async function submitImport() {
++    const wizard = dshImportRef.current;
++    if (!wizard || wizard.step !== 'confirm' || blocked() || !importConfirmReady(wizard)) return;
++    const selections = importSelection(wizard), generation = balanceGeneration.current;
++    busyRef.current = true; setBusy(true); setError('');
++    dshImportRef.current = { ...wizard, status: 'submitting' }; setDshImport(dshImportRef.current);
++    try {
++      const raw = await api('importDshProviders', { selections, confirmText: '确认导入' });
++      if (!alive.current || !openRef.current || generation !== balanceGeneration.current) return;
++      const result = safeImportResult(raw);
++      dshImportRef.current = null; setDshImport(null);
++      busyRef.current = false; setBusy(false); // release the write gate before reusing the canonical reload owner
++      await load();
++      if (!alive.current || !openRef.current) return;
++      setNotice(`已从 DSH 导入 ${result.created.accountIds.length} 个账号（新建 ${result.created.siteIds.length} 个站点）。Key 已由宿主加密保存；可对每个新账号使用现有「检测协议」按钮检测余额协议，不会自动检测，也不会查询余额。`);
++    } catch (e) {
++      if (!alive.current || !openRef.current || generation !== balanceGeneration.current) return;
++      if (e.code === 'IMPORT_CONFLICT' && Array.isArray(e.conflicts) && e.conflicts.length) {
++        dshImportRef.current = { ...wizard, status: 'ready', step: 'confirm', conflicts: e.conflicts, targets: {} }; setDshImport(dshImportRef.current); setError('');
++      } else {
++        dshImportRef.current = { ...wizard, status: 'ready', step: 'list' }; setDshImport(dshImportRef.current);
++        setError(e.message || operationFailure(e.code));
++        if (e.code === 'RESULT_UNKNOWN' || e.code === 'COMMIT_UNKNOWN' || e.code === 'RPC_RESPONSE') { dshImportRef.current = null; setDshImport(null); clearEditor(); uncertainRef.current = true; setUncertain(true); }
++      }
++    } finally { busyRef.current = false; if (alive.current) setBusy(false); }
++  }
++  function importView() {
++    const wizard = dshImport;
++    if (!wizard) return null;
++    const selection = importSelection(wizard), ready = importConfirmReady(wizard);
++    return h('section', { className: 'dfa-import', 'aria-label': '从 DSH 导入供应商' },
++      h('h3', null, '从 DSH 导入供应商'),
++      wizard.status === 'loading' && h(React.Fragment, null, h('p', { role: 'status' }, '正在读取 DSH 供应商清单…（只读）'), h('div', { className: 'dfa-actions' }, h('button', { onClick: cancelImport, disabled: busy }, '取消导入'))),
++      wizard.status !== 'loading' && h(React.Fragment, null,
++        h('p', { className: 'dfa-meta' }, '清单来自 DSH 宿主配置（只读）；仅显示名称、地址、是否已配置 Key 与模型数量，不显示也不缓存任何密钥内容。'),
++        wizard.step === 'list' && h(React.Fragment, null,
++          wizard.providers.map(p => h('label', { key: p.providerId, className: 'dfa-import-row' },
++            h('input', { type: 'checkbox', checked: !!wizard.selected[p.providerId], disabled: busy || !p.hasKey, onChange: e => toggleImportProvider(p.providerId, e.target.checked), 'aria-label': `选择供应商 ${p.name}` }),
++            h('span', null, h('strong', null, p.name), h('span', { className: 'dfa-url' }, p.baseURL), h('span', { className: 'dfa-meta' }, `${p.hasKey ? '已配置 Key' : '未配置 Key（不可导入）'} · ${p.modelsCount} 个模型`)))),
++          wizard.providers.length === 0 && h('p', { className: 'dfa-meta' }, 'DSH 宿主当前没有可导入的 llm-pi-ai 供应商。'),
++          h('p', { className: 'dfa-meta' }, `Key 状态依据：${wizard.hasKeyBasis === 'refs' ? '宿主凭据引用名单（未读取值）' : '宿主凭据服务'}；读取来源：${wizard.source.join('、') || '无'}。重复导入同一供应商会产生重复账号；同 origin 已有单站点时默认并入该站点（仅新增账号）。`),
++          h('div', { className: 'dfa-actions' }, h('button', { className: 'dfa-primary', onClick: importPreview, disabled: busy || !ready }, '下一步：预览导入'), h('button', { onClick: cancelImport, disabled: busy }, '取消导入'))),
++        wizard.step === 'confirm' && h(React.Fragment, null,
++          h('p', { className: 'dfa-meta' }, '预览导入清单（尚未写入）：'),
++          selection.map(s => { const p = wizard.providers.find(x => x.providerId === s.providerId); return p && h('div', { key: s.providerId, className: 'dfa-import-plan' }, h('p', null, `${p.name} · ${p.baseURL} · 已配置 Key · ${p.modelsCount} 个模型`), s.targetSiteId !== undefined && h('p', { className: 'dfa-meta' }, `目标站点：${s.targetSiteId === null ? '新建站点' : (wizard.conflicts || []).flatMap(c => c.siteIds).find(x => x.id === s.targetSiteId)?.name || s.targetSiteId}`)); }),
++          (wizard.conflicts || []).length > 0 && h('div', { className: 'dfa-import-conflict' },
++            h('strong', null, '检测到多个同源站点，需要为每个冲突供应商选择导入目标：'),
++            wizard.conflicts.map(c => h('div', { key: c.providerId, className: 'dfa-import-conflict-row' },
++              h('p', null, `${wizard.providers.find(x => x.providerId === c.providerId)?.name || c.providerId} · ${c.origin}`),
++              h('label', null, h('input', { type: 'radio', name: `import-target-${c.providerId}`, value: 'new', checked: wizard.targets[c.providerId] === null, disabled: busy, onChange: e => chooseImportTarget(c.providerId, e.target.value) }), '新建站点（不并入现有站点）'),
++              c.siteIds.map(s => h('label', { key: s.id }, h('input', { type: 'radio', name: `import-target-${c.providerId}`, value: s.id, checked: wizard.targets[c.providerId] === s.id, disabled: busy, onChange: e => chooseImportTarget(c.providerId, e.target.value) }), `并入站点「${s.name}」`))))),
++          h('p', { className: 'dfa-import-warning' }, '所选供应商 Key 将经宿主写入本插件 DPAPI 加密存储，仅保存在本地。重复导入会产生重复账号；导入不会自动检测协议或查询余额。'),
++          h('div', { className: 'dfa-actions' },
++            h('button', { className: 'dfa-primary', onClick: submitImport, disabled: busy || !ready }, wizard.status === 'submitting' ? '正在导入…' : '确认导入'),
++            h('button', { onClick: importBack, disabled: busy || wizard.status === 'submitting' }, '返回修改'),
++            h('button', { onClick: cancelImport, disabled: busy }, '取消导入')))));
++  }
+   function detectionView(row) {
+     if (detection?.accountId !== row.id) return null;
+     const result = detection.result;
+@@ -370,14 +497,15 @@
+     h('header', { className: 'dfa-header' }, h('div', null, h('strong', null, '账号配置'), h('small', null, '站点 → 账号 → 凭据 · 余额仅手动查询')), h('button', { className: 'dfa-icon', onClick: close, disabled: busy, 'aria-label': '收起账号面板' }, '×')),
+     h('div', { className: 'dfa-body' }, error && h('div', { className: 'dfa-error', role: 'alert' }, error), notice && h('div', { className: 'dfa-success', role: 'status' }, notice),
+       uncertain && h('p', { className: 'dfa-error', role: 'alert' }, '提交结果未知：所有写操作已禁用。请重新载入确认，不要重复保存或迁移。'), loading && h('p', { role: 'status' }, '正在读取账号配置…'),
+-      !editor && h('div', { className: 'dfa-toolbar' }, multiSite && h('button', { className: 'dfa-primary', onClick: () => editSite(null), disabled }, '+ 添加站点'), legacyCompat && h('button', { className: 'dfa-primary', onClick: () => edit(null), disabled }, '+ 添加账号'), h('button', { onClick: load, disabled: busy || loading }, '重新载入')),
+-      !editor && migrationBlocked && h('div', { className: 'dfa-migration' }, h('strong', null, '旧格式：迁移后可使用多站点管理'), h('p', null, '当前只允许查看和旧余额查询；编辑、保存和删除均已禁用。预览不写入，取消不迁移。'), !preview && h('button', { onClick: previewMigration, disabled }, '预览迁移')),
+-      !editor && preview && h('section', { className: 'dfa-migration', 'aria-label': '迁移预览' }, h('h3', null, '迁移预览（尚未写入）'), h('p', null, `${preview.siteCount} 个站点 · ${preview.accountCount} 个账号 · ${preview.credentialCount} 个凭据`),
++      !editor && !dshImport && h('div', { className: 'dfa-toolbar' }, multiSite && h('button', { className: 'dfa-primary', onClick: () => editSite(null), disabled }, '+ 添加站点'), legacyCompat && h('button', { className: 'dfa-primary', onClick: () => edit(null), disabled }, '+ 添加账号'), multiSite && h('button', { onClick: openImport, disabled, title: '只读列出 DSH 已配置的模型供应商；导入需勾选并两步确认' }, '从 DSH 导入供应商'), h('button', { onClick: load, disabled: busy || loading }, '重新载入')),
++      !editor && !dshImport && migrationBlocked && h('div', { className: 'dfa-migration' }, h('strong', null, '旧格式：迁移后可使用多站点管理'), h('p', null, '当前只允许查看和旧余额查询；编辑、保存和删除均已禁用。预览不写入，取消不迁移。'), !preview && h('button', { onClick: previewMigration, disabled }, '预览迁移')),
++      !editor && !dshImport && preview && h('section', { className: 'dfa-migration', 'aria-label': '迁移预览' }, h('h3', null, '迁移预览（尚未写入）'), h('p', null, `${preview.siteCount} 个站点 · ${preview.accountCount} 个账号 · ${preview.credentialCount} 个凭据`),
+         preview.sites.map(site => h('div', { key: site.id, className: 'dfa-preview-site' }, h('strong', null, site.name), h('p', { className: 'dfa-url' }, site.baseURL), h('p', { className: 'dfa-meta' }, protocolName(site)), preview.accounts.filter(a => a.siteId === site.id).map(a => h('div', { key: a.id }, h('p', null, `账号：${a.name}`), h('ul', null, a.credentials.map(c => h('li', { key: c.id }, `${c.label} · ${c.kind === 'model-api-key' ? '模型 API Key' : '分组密钥'} · ${c.hasSecret ? '已保存' : '未设置'}`))))))),
+         h('p', null, '确认后先独占备份旧密文，再升级格式；不可直接降级。实例或文件改变必须重新预览。'), h('div', { className: 'dfa-actions' }, h('button', { className: 'dfa-primary', onClick: migrate, disabled }, '备份旧密文并确认升级（不可直接降级）'), h('button', { onClick: cancelPreview, disabled: busy }, '取消迁移'))),
+-      !editor && snapshot?.accounts.length === 0 && snapshot.sites.length === 0 && h('div', { className: 'dfa-empty' }, h('strong', null, '请先完成配置'), h('p', null, legacyCompat ? '点击“添加账号”，填写 API 网址和密钥后保存。分组密钥为选填。' : '点击“添加站点”显式初始化多站点格式；新站点默认未配置余额协议，再在站内添加账号和凭据。')),
+-      !editor && snapshot?.schema === 2 && snapshot.sites.map(site => h('section', { key: site.id, className: 'dfa-site', 'data-site-id': site.id }, h('h3', null, site.name), h('div', { className: 'dfa-url' }, site.baseURL), h('p', { className: 'dfa-meta' }, protocolName(site)), h('div', { className: 'dfa-actions dfa-site-actions' }, h('button', { onClick: () => editAccount(null, site.id), disabled }, '+ 添加账号'), h('button', { onClick: () => editSite(site), disabled }, '编辑站点'), h('button', { className: 'dfa-danger', onClick: () => removeSite(site), disabled }, '删除站点')), snapshot.accounts.filter(row => row.siteId === site.id).map(accountView))),
+-      !editor && snapshot && snapshot.schema !== 2 && snapshot.accounts.map(row => h('article', { key: row.id, className: 'dfa-account' }, h('strong', null, row.name), h('div', { className: 'dfa-url' }, row.baseURL), h('p', { className: 'dfa-meta' }, `API 密钥：${row.hasApiKey ? '已保存' : '未设置'} · 分组密钥：${row.hasGroupKey ? '已保存' : '未设置'}`), balanceView(balances[row.id]), detectionView(row), h('div', { className: 'dfa-actions' }, h('button', { onClick: () => queryBalance(row), disabled: disabled || !row.hasApiKey || balancePending.current.has(row.id) }, balances[row.id]?.status === 'loading' ? '查询中…' : '查询余额'), h('button', { onClick: () => detectProtocol(row), disabled: disabled || balancePending.current.has(row.id) || !!detectionReason(row), title: detectionReason(row) }, '检测协议'), h('button', { onClick: () => edit(row), disabled: disabled || !legacyCompat }, '编辑'), h('button', { className: 'dfa-danger', onClick: () => remove(row), disabled: disabled || !legacyCompat }, '删除')))),
++      !editor && !dshImport && snapshot?.accounts.length === 0 && snapshot.sites.length === 0 && h('div', { className: 'dfa-empty' }, h('strong', null, '请先完成配置'), h('p', null, legacyCompat ? '点击“添加账号”，填写 API 网址和密钥后保存。分组密钥为选填。' : '点击“添加站点”显式初始化多站点格式；新站点默认未配置余额协议，再在站内添加账号和凭据。')),
++      !editor && !dshImport && snapshot?.schema === 2 && snapshot.sites.map(site => h('section', { key: site.id, className: 'dfa-site', 'data-site-id': site.id }, h('h3', null, site.name), h('div', { className: 'dfa-url' }, site.baseURL), h('p', { className: 'dfa-meta' }, protocolName(site)), h('div', { className: 'dfa-actions dfa-site-actions' }, h('button', { onClick: () => editAccount(null, site.id), disabled }, '+ 添加账号'), h('button', { onClick: () => editSite(site), disabled }, '编辑站点'), h('button', { className: 'dfa-danger', onClick: () => removeSite(site), disabled }, '删除站点')), snapshot.accounts.filter(row => row.siteId === site.id).map(accountView))),
++      !editor && !dshImport && snapshot && snapshot.schema !== 2 && snapshot.accounts.map(row => h('article', { key: row.id, className: 'dfa-account' }, h('strong', null, row.name), h('div', { className: 'dfa-url' }, row.baseURL), h('p', { className: 'dfa-meta' }, `API 密钥：${row.hasApiKey ? '已保存' : '未设置'} · 分组密钥：${row.hasGroupKey ? '已保存' : '未设置'}`), balanceView(balances[row.id]), detectionView(row), h('div', { className: 'dfa-actions' }, h('button', { onClick: () => queryBalance(row), disabled: disabled || !row.hasApiKey || balancePending.current.has(row.id) }, balances[row.id]?.status === 'loading' ? '查询中…' : '查询余额'), h('button', { onClick: () => detectProtocol(row), disabled: disabled || balancePending.current.has(row.id) || !!detectionReason(row), title: detectionReason(row) }, '检测协议'), h('button', { onClick: () => edit(row), disabled: disabled || !legacyCompat }, '编辑'), h('button', { className: 'dfa-danger', onClick: () => remove(row), disabled: disabled || !legacyCompat }, '删除')))),
++      !editor && dshImport && importView(),
+       editor && h('form', { onSubmit: save }, h('h3', null, `${editor.id ? '编辑' : '添加'}${editor.type === 'site' ? '站点' : editor.type === 'credential' ? '凭据' : '账号'}`),
+         editor.type === 'site' && h(React.Fragment, null, field('站点名称', 'name', { maxLength: 80 }), field('模型 Base URL（必填）', 'baseURL', { required: true, type: 'url', maxLength: 2048 }), selectField('余额查询协议（默认未配置）', 'protocol', [['', '未配置'], ['sub2api-usage', 'Sub2API usage'], ['new-api-token-usage', 'New API token usage'], ['deepseek-balance', 'DeepSeek 官方余额']], changeProtocol),
+           form.protocol === 'sub2api-usage' && h(React.Fragment, null, selectField('资料已确认的币种（必选）', 'unit', [['', '请选择 USD 或 CNY'], ['USD', 'USD'], ['CNY', 'CNY']], undefined, { required: true }), h('p', { className: 'dfa-meta' }, '固定路径 /v1/usage；倍率固定为 1，不从域名推断币种。')),
+@@ -402,7 +530,7 @@
+   catch (error) {
+     if (!error?.deadline) throw error;
+     // Keep this set inside the function: older regression tests extract this function alone.
+-    const writing = ['save', 'remove', 'saveSite', 'removeSite', 'saveAccount', 'removeAccount', 'saveCredential', 'removeCredential', 'selectBalanceCredential', 'migrate'].includes(method);
++    const writing = ['save', 'remove', 'saveSite', 'removeSite', 'saveAccount', 'removeAccount', 'saveCredential', 'removeCredential', 'selectBalanceCredential', 'migrate', 'importDshProviders'].includes(method);
+     const timeout = new Error(writing ? '操作结果未知：宿主连接超时，可能已提交。不会自动重试；请重新载入确认后再编辑' : '读取超时或无法连接宿主，请检查插件后重新载入');
+     timeout.code = writing ? 'RESULT_UNKNOWN' : 'RPC_UNAVAILABLE'; throw timeout;
+   } finally { clearTimeout(timer); }
+@@ -419,7 +547,7 @@
+       if (result?.error?.code === 'gateway/arguments-invalid') throw Object.assign(new Error('配置请求格式不匹配，请更新插件后重新启动 DSH 并刷新页面'), { code: 'RPC_CONTRACT' });
+       throw new Error('宿主服务不可用，请确认插件已启用后重新载入');
+     }
+-    if (!result.value?.ok) { const code = result.value?.error?.code; throw Object.assign(new Error(operationFailure(code)), { code }); }
++    if (!result.value?.ok) { const error = result.value?.error || {}, code = error.code; throw Object.assign(new Error(operationFailure(code)), error.code === 'IMPORT_CONFLICT' ? { code, conflicts: safeConflicts(error.conflicts) } : { code }); }
+     return result.value.value;
+   };
+   ctx.slots.inject('sidebar.footer.action', () => ctx.slots.register({ name: 'sidebar.footer.action', id: 'floating-accounts', order: 20, inject: () => ({ api }) }, AccountsWidget));
