@@ -10,5 +10,9 @@
   "engines": {"node": "^22.19.0 || >=24", "dsh": ">=0.2.0 <0.3.0"},
   "peerDependencies": {"@deepseek-ai/cordis": "^4.0.1", "@deepseek-ai/dsh-typert-protocol": ">=0.2.0-rc.1 <0.3.0", "react": "^18.2.0", "react-dom": "^18.2.0"},
   "scripts": {"build": "node scripts/build.mjs", "test": "node --test tests/vault.test.mjs tests/vault-repairs.test.mjs tests/validation-repairs.test.mjs tests/client.test.mjs tests/client-repairs.test.mjs tests/rpc-contract.test.mjs tests/balance.test.mjs tests/balance-http.test.mjs tests/balance-client.test.mjs tests/install.test.mjs tests/lifecycle-repairs.test.mjs tests/build-repairs.test.mjs tests/multi-site-vault.test.mjs tests/multi-site-balance.test.mjs tests/multi-site-client.test.mjs tests/protocol-detection.test.mjs tests/provider-import.test.mjs tests/provider-import-client.test.mjs", "pack:offline": "node scripts/pack.mjs"},
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": ["deepseek-harness", "dsh", "dsh-plugin", "floating-accounts", "api-key", "dpapi", "balance", "provider", "credential-vault", "multi-site"],
+  "repository": {"type": "git", "url": "git+https://github.com/FuGui666-alt/dsh-floating-accounts.git"},
+  "homepage": "https://github.com/FuGui666-alt/dsh-floating-accounts#readme",
+  "bugs": {"url": "https://github.com/FuGui666-alt/dsh-floating-accounts/issues"}
 }
