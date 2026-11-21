@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-21T10:22:07.065Z",
+  "at": "2026-11-21T12:44:19.750Z",
   "task": "t6",
   "attemptId": "bf391b16-a9b7-4ca0-9ef7-09169e269cda",
   "attempt": 2,
@@ -81,7 +81,7 @@
   },
   "package": {
     "archive": "dist/dsh-floating-accounts-1.2.0.tgz",
-    "sha256": "9dbdff8e9979d817a8f8826c88afe43022eedaf6dce8daf566787312ec2b3d03",
+    "sha256": "8a850094eba745269e59c48efc6e96bdf65878b436b2a2c8b07727b26d2725de",
     "receiptMatch": true,
     "version": "1.2.0",
     "fileSetMatch": true,
@@ -131,7 +131,7 @@
       },
       {
         "path": "lib/build-manifest.json",
-        "sha256": "81cb43df9ce2582aee7586b44b4a61cf9b24fcccdf80430fef36043ebace1cec",
+        "sha256": "48ea3e95850d65e0e98756f2727e3fb719e5d0eef7e9bae79a7e72c2d502fe12",
         "archiveMatch": true,
         "workspaceMatch": true
       },
@@ -413,7 +413,7 @@
       },
       {
         "path": "tests/multi-site-vault.test.mjs",
-        "sha256": "36d0a18d2a3e160a55f6ef1bbf9c1614168783361f9fe87cf38b9be0782ffb0e",
+        "sha256": "3c9210f8a683aadf1e3d8777981ec5dc94c8dd2cbb3f2ddfda197d8feb3c6d03",
         "archiveMatch": true,
         "workspaceMatch": true
       },
@@ -474,7 +474,7 @@
     ]
   },
   "build": {
-    "generatedAt": "2026-11-21T10:18:32.578Z",
+    "generatedAt": "2026-11-21T12:43:07.768Z",
     "source": {
       "client.js": "d4b07d8717fd341de855b892af367fda51b05eb61e46dd8d9e27182c025cdd0c",
       "style.css": "71e56ba72544ce5ff7860cfe3b2c3629caf46bd3898fa0e0643fb19c6cf713ea",
@@ -522,12 +522,14 @@
       "tests/client.test.mjs",
       "tests/host.test.mjs",
       "tests/multi-site-client.test.mjs",
+      "tests/multi-site-vault.test.mjs",
       "tests/rpc-contract.test.mjs"
     ],
     "unexpectedChanged": [
       "tests/client-repairs.test.mjs",
       "tests/client.test.mjs",
-      "tests/multi-site-client.test.mjs"
+      "tests/multi-site-client.test.mjs",
+      "tests/multi-site-vault.test.mjs"
     ],
     "added": {
       "expected": true,

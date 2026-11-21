@@ -319,8 +319,24 @@ for (const change of ['same-byte-identity-restore', 'same-byte-mtime', 'same-siz
   const stableTime = new Date('2026-11-19T12:00:00.000Z'); await fs.utimes(file, stableTime, stableTime);
   const first = await vault.previewMigration(), before = await fs.readFile(file), beforeStat = await fs.stat(file);
   if (change === 'same-byte-identity-restore') {
-    const replacement = file + '.replacement'; await fs.writeFile(replacement, before); await fs.utimes(replacement, stableTime, stableTime); await fs.rename(replacement, file);
-    assert.notEqual((await fs.stat(file)).ino, beforeStat.ino);
+    // N-23: the invariant under test is "a same-byte file that is a DIFFERENT file
+    // instance must be treated as an identity change by the migration preview".
+    // It is NOT "the inode number must change": on Windows a rename that replaces
+    // the target may hand the new file the SAME inode number as the old one, so an
+    // inode comparison is a platform-dependent, intermittently failing assertion
+    // that says nothing about the product code. The state is therefore built
+    // deterministically: a candidate file with a verified-different inode replaces
+    // the original (unlink + hard link), which yields identical bytes, identical
+    // mtime and identical size but a different file instance.
+    const replacement = file + '.replacement';
+    await fs.writeFile(replacement, before); await fs.utimes(replacement, stableTime, stableTime);
+    const replacementStat = await fs.stat(replacement);
+    assert.notEqual(replacementStat.ino, beforeStat.ino, 'the replacement file must be a different file instance');
+    await fs.rm(file); await fs.link(replacement, file); await fs.rm(replacement);
+    const restored = await fs.stat(file);
+    assert.equal(restored.size, beforeStat.size, 'the restored file must keep the same byte length');
+    assert.equal(restored.mtimeMs, beforeStat.mtimeMs, 'the restored file must keep the same mtime');
+    assert.equal(digest(await fs.readFile(file)), digest(before), 'the restored file must keep the same bytes');
   } else if (change === 'same-byte-mtime') await fs.utimes(file, stableTime, new Date(stableTime.getTime() + 2000));
   else {
     const state = await vault.load(); state.accounts[0].apiKey = 'legacy-fixture-api-z'; await seed(file, state); await fs.utimes(file, stableTime, stableTime);
