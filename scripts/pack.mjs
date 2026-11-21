@@ -13,7 +13,10 @@ try{
  const rows=[];function walk(dir){for(const item of readdirSync(dir,{withFileTypes:true})){const file=join(dir,item.name);if(item.isDirectory())walk(file);else rows.push({path:relative(pack,file).replaceAll('\\','/'),sha256:createHash('sha256').update(readFileSync(file)).digest('hex')});}}walk(pack);
  writeFileSync(join(pack,'MANIFEST.json'),JSON.stringify({name:pkg.name,version:pkg.version,files:rows},null,2));
  const output=join(dist,`${pkg.name}-${pkg.version}.tgz`);
- const result=spawnSync('tar',['-czf',`../${pkg.name}-${pkg.version}.tgz`,'package'],{cwd:stage,encoding:'utf8'});if(result.status!==0)throw Error('tar packaging failed: '+result.stderr);
+ // Deterministic archive: fixed member order, zeroed mtime/uid/gid and a
+ // fixed gzip header, so identical sources always yield an identical tgz.
+ const tarArgs=['--sort=name','--mtime=@0','--owner=0','--group=0','--numeric-owner','--format=gnu','-czf',`../${pkg.name}-${pkg.version}.tgz`,'package'];
+ const result=spawnSync('tar',tarArgs,{cwd:stage,encoding:'utf8',env:{...process.env,GZIP:'--no-name'}});if(result.status!==0)throw Error('tar packaging failed: '+result.stderr);
  const list=spawnSync('tar',['-tzf',`${pkg.name}-${pkg.version}.tgz`],{cwd:dist,encoding:'utf8'});if(list.status!==0||!list.stdout.includes('package/lib/client.js'))throw Error('Package verification failed');
  const receipt={output,sha256:createHash('sha256').update(readFileSync(output)).digest('hex'),files:list.stdout.trim().split('\n')};writeFileSync(join(dist,'package-receipt.json'),JSON.stringify(receipt,null,2));console.log(JSON.stringify({output,files:rows.length,sha256:receipt.sha256}));
 }finally{const absolute=resolve(stage);if(!absolute.startsWith(resolve(dist)+sep))throw Error('Unsafe staging cleanup');rmSync(absolute,{recursive:true,force:true});}

@@ -6,7 +6,7 @@ import { AccountError } from './validation.js';
 import { BalanceQuery } from './balance.js';
 import { DshProviderImporter } from './host-providers.js';
 export const name = 'floating-accounts';
-export const version = '1.2.0';
+export const version = '1.3.0';
 export function defaultFile() { return join(process.env.DSH_HOME || join(homedir(), '.dsh'), 'plugin-data/dsh-floating-accounts/accounts.dpapi.json'); }
 // Remote methods may be invoked by the gateway through a typert wrapper whose
 // receiver is not the service instance, so the importer slot and the plugin

@@ -22,7 +22,13 @@ try{
     if(result.status!==0)throw Error(result.stderr);
   }
   const outputs=['index.js','vault.js','vault-model.js','validation.js','dpapi.js','client.js','dpapi.ps1','balance.js','balance-http.js','host-providers.js'].filter(name=>existsSync(join(stage,name)));
-  const manifest={generatedAt:new Date().toISOString(),source:Object.fromEntries(['client.js','style.css','index.js','vault.js','vault-model.js','validation.js','dpapi.js','dpapi.ps1','balance.js','balance-http.js','host-providers.js'].filter(n=>existsSync(join(root,'src',n))).map(n=>[n,sha(join(root,'src',n))])),outputs:Object.fromEntries(outputs.map(n=>[n,sha(join(stage,n))]))};
+  const source=Object.fromEntries(['client.js','style.css','index.js','vault.js','vault-model.js','validation.js','dpapi.js','dpapi.ps1','balance.js','balance-http.js','host-providers.js'].filter(n=>existsSync(join(root,'src',n))).map(n=>[n,sha(join(root,'src',n))]));
+  const outputHashes=Object.fromEntries(outputs.map(n=>[n,sha(join(stage,n))]));
+  // buildId is derived from the build inputs and outputs, not from the clock:
+  // it identifies this exact build while keeping the packaged manifest - and
+  // therefore the offline archive - byte-reproducible across rebuilds.
+  const buildId=createHash('sha256').update(JSON.stringify({source,outputs:outputHashes})).digest('hex');
+  const manifest={buildId,source,outputs:outputHashes};
   writeFileSync(join(stage,'build-manifest.json'),JSON.stringify(manifest,null,2));
   // Guarded promotion: only paths directly inside lib are replaced.
   mkdirSync(lib,{recursive:true});

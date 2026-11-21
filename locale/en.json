@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "DSH Floating Accounts",
+    "description": "Manage model accounts per site, account and credential; secrets are encrypted with the Windows DPAPI current user, balances are queried manually, and configured DSH providers can be imported."
+  }
+}
